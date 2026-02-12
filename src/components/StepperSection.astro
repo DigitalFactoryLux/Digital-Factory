@@ -1,0 +1,18 @@
+---
+interface Props {
+  subtitle?: string;
+}
+
+const { subtitle } = Astro.props;
+---
+
+<div>
+  {subtitle && (
+    <p class="text-center text-lg text-gray-500 italic mb-12">{subtitle}</p>
+  )}
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+    <!-- Ligne de connexion -->
+    <div class="hidden md:block absolute top-8 left-1/6 right-1/6 h-px bg-gradient-to-r from-mint-200 via-cyan-light to-mint-200"></div>
+    <slot />
+  </div>
+</div>

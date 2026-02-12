@@ -1,0 +1,102 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  showPattern?: boolean;
+}
+
+const { title, subtitle, ctaLabel, ctaHref, showPattern = true } = Astro.props;
+---
+
+<section class="relative overflow-hidden min-h-[90vh] flex items-center">
+  <!-- Fond dégradé mint/cyan animé -->
+  <div class="absolute inset-0 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50"></div>
+  <div class="absolute inset-0 bg-gradient-to-tr from-teal-100/50 via-transparent to-cyan-100/30"></div>
+
+  <!-- Blobs décoratifs flottants -->
+  <div class="blob w-96 h-96 bg-teal-200/40 top-10 -left-20" style="animation-delay: 0s;"></div>
+  <div class="blob w-80 h-80 bg-cyan-200/30 bottom-20 right-10" style="animation-delay: 2s;"></div>
+  <div class="blob w-64 h-64 bg-emerald-200/30 top-1/2 left-1/3" style="animation-delay: 4s;"></div>
+
+  <!-- Motif lignes verticales -->
+  {showPattern && (
+    <div class="absolute inset-0 lines-pattern opacity-50"></div>
+  )}
+
+  <!-- Vagues animées en bas -->
+  <div class="absolute bottom-0 left-0 right-0 pointer-events-none">
+    <!-- Vague 3 - la plus lente, en arrière -->
+    <svg class="absolute bottom-0 w-[200%] animate-wave-slow" viewBox="0 0 2880 180" preserveAspectRatio="none" style="height: 100px;">
+      <path d="M0 100C240 140 480 60 720 100C960 140 1200 60 1440 100C1680 140 1920 60 2160 100C2400 140 2640 60 2880 100V180H0Z" fill="rgba(255,255,255,0.3)" />
+    </svg>
+    <!-- Vague 2 - vitesse moyenne -->
+    <svg class="absolute bottom-0 w-[200%] animate-wave-mid" viewBox="0 0 2880 180" preserveAspectRatio="none" style="height: 80px;">
+      <path d="M0 80C200 130 400 40 600 80C800 120 1000 30 1200 80C1400 130 1600 40 1800 80C2000 120 2200 30 2400 80C2600 130 2800 40 2880 80V180H0Z" fill="rgba(255,255,255,0.5)" />
+    </svg>
+    <!-- Vague 1 - la plus rapide, devant -->
+    <svg class="absolute bottom-0 w-[200%] animate-wave-fast" viewBox="0 0 2880 180" preserveAspectRatio="none" style="height: 60px;">
+      <path d="M0 90C180 130 360 50 540 90C720 130 900 50 1080 90C1260 130 1440 50 1620 90C1800 130 1980 50 2160 90C2340 130 2520 50 2700 90C2880 130 2880 90 2880 90V180H0Z" fill="white" />
+    </svg>
+  </div>
+
+  <!-- Illustration circuit board -->
+  <div class="absolute right-0 top-1/2 -translate-y-1/2 opacity-10 hidden lg:block pointer-events-none">
+    <svg width="500" height="500" viewBox="0 0 500 500" fill="none" class="text-teal-800">
+      <circle cx="250" cy="250" r="100" stroke="currentColor" stroke-width="1" />
+      <circle cx="250" cy="250" r="150" stroke="currentColor" stroke-width="0.5" stroke-dasharray="8 4" />
+      <circle cx="250" cy="250" r="200" stroke="currentColor" stroke-width="0.5" />
+      <line x1="250" y1="50" x2="250" y2="450" stroke="currentColor" stroke-width="0.5" />
+      <line x1="50" y1="250" x2="450" y2="250" stroke="currentColor" stroke-width="0.5" />
+      <line x1="100" y1="100" x2="400" y2="400" stroke="currentColor" stroke-width="0.3" />
+      <line x1="400" y1="100" x2="100" y2="400" stroke="currentColor" stroke-width="0.3" />
+      <rect x="220" y="220" width="60" height="60" stroke="currentColor" stroke-width="1.5" rx="6" />
+      <circle cx="160" cy="160" r="8" fill="currentColor" opacity="0.5" />
+      <circle cx="340" cy="160" r="8" fill="currentColor" opacity="0.5" />
+      <circle cx="160" cy="340" r="8" fill="currentColor" opacity="0.5" />
+      <circle cx="340" cy="340" r="8" fill="currentColor" opacity="0.5" />
+      <circle cx="250" cy="150" r="5" fill="currentColor" opacity="0.3" />
+      <circle cx="250" cy="350" r="5" fill="currentColor" opacity="0.3" />
+      <circle cx="150" cy="250" r="5" fill="currentColor" opacity="0.3" />
+      <circle cx="350" cy="250" r="5" fill="currentColor" opacity="0.3" />
+      <text x="213" y="258" fill="currentColor" font-size="15" font-weight="700" letter-spacing="2">DIGITAL</text>
+      <text x="195" y="278" fill="currentColor" font-size="10" letter-spacing="3">INNOVATION</text>
+    </svg>
+  </div>
+
+  <!-- Contenu -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-32">
+    <div class="max-w-3xl">
+      <!-- Badge -->
+      <div class="badge bg-teal-100 text-teal-700 mb-8">
+        <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+        Luxembourg
+      </div>
+
+      <h1 class="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold text-gray-900 leading-[1.1] mb-8 tracking-tight">
+        {title}
+      </h1>
+
+      {subtitle && (
+        <p class="text-lg md:text-xl text-gray-600 leading-relaxed mb-10 max-w-2xl">
+          {subtitle}
+        </p>
+      )}
+
+      {ctaLabel && ctaHref && (
+        <div class="flex flex-wrap gap-4">
+          <a href={ctaHref} class="btn-primary text-base">
+            {ctaLabel}
+            <svg class="inline-block ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+          <a href="#contact" class="btn-outline text-base">
+            Nous contacter
+          </a>
+        </div>
+      )}
+    </div>
+  </div>
+</section>

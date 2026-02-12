@@ -1,0 +1,135 @@
+import { useState, type FormEvent } from 'react';
+
+export default function ContactForm() {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus('sending');
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    // Honeypot anti-spam
+    if (formData.get('website')) {
+      setStatus('success');
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          prenom: formData.get('prenom'),
+          nom: formData.get('nom'),
+          email: formData.get('email'),
+          tel: formData.get('tel'),
+          message: formData.get('message'),
+        }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        form.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6">
+      {/* Honeypot */}
+      <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label htmlFor="prenom" className="block text-sm font-medium text-gray-700 mb-2">
+            Prénom <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            id="prenom"
+            name="prenom"
+            required
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cyan-dark focus:ring-2 focus:ring-cyan-light/50 outline-none transition-colors bg-white"
+          />
+        </div>
+        <div>
+          <label htmlFor="nom" className="block text-sm font-medium text-gray-700 mb-2">
+            Nom <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            id="nom"
+            name="nom"
+            required
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cyan-dark focus:ring-2 focus:ring-cyan-light/50 outline-none transition-colors bg-white"
+          />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+            Email <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cyan-dark focus:ring-2 focus:ring-cyan-light/50 outline-none transition-colors bg-white"
+          />
+        </div>
+        <div>
+          <label htmlFor="tel" className="block text-sm font-medium text-gray-700 mb-2">
+            Téléphone
+          </label>
+          <input
+            type="tel"
+            id="tel"
+            name="tel"
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cyan-dark focus:ring-2 focus:ring-cyan-light/50 outline-none transition-colors bg-white"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+          Message
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          rows={5}
+          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cyan-dark focus:ring-2 focus:ring-cyan-light/50 outline-none transition-colors bg-white resize-vertical"
+        />
+      </div>
+
+      <div className="text-center">
+        <button
+          type="submit"
+          disabled={status === 'sending'}
+          className="bg-black text-white px-10 py-4 rounded-full font-semibold hover:bg-gray-800 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {status === 'sending' ? 'Envoi en cours...' : 'Envoyer'}
+        </button>
+      </div>
+
+      {status === 'success' && (
+        <p className="text-center text-green-600 font-medium">
+          Merci ! Votre message a bien été envoyé.
+        </p>
+      )}
+      {status === 'error' && (
+        <p className="text-center text-red-600 font-medium">
+          Une erreur est survenue. Veuillez réessayer.
+        </p>
+      )}
+    </form>
+  );
+}

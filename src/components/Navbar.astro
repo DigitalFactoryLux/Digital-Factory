@@ -1,0 +1,81 @@
+---
+import { NAV_LINKS } from '../lib/constants';
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+  <nav class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2">
+      <img src="/images/logo.svg" alt="Digital Factory" class="h-12" />
+    </a>
+
+    <!-- Desktop Navigation -->
+    <ul class="hidden md:flex items-center gap-8">
+      {NAV_LINKS.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="text-gray-900 font-medium hover:text-cyan-dark transition-colors duration-200"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="menu-toggle"
+      class="md:hidden flex flex-col gap-1.5 p-2"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false"
+    >
+      <span class="block w-6 h-0.5 bg-gray-900 transition-transform duration-300" id="bar1"></span>
+      <span class="block w-6 h-0.5 bg-gray-900 transition-opacity duration-300" id="bar2"></span>
+      <span class="block w-6 h-0.5 bg-gray-900 transition-transform duration-300" id="bar3"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+    <ul class="flex flex-col py-4">
+      {NAV_LINKS.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="block px-6 py-3 text-gray-900 font-medium hover:bg-mint-50 transition-colors"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</header>
+
+<!-- Spacer pour compenser la navbar fixe -->
+<div class="h-16"></div>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const bar1 = document.getElementById('bar1');
+  const bar2 = document.getElementById('bar2');
+  const bar3 = document.getElementById('bar3');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+
+    if (!isOpen) {
+      bar1?.classList.add('rotate-45', 'translate-y-2');
+      bar2?.classList.add('opacity-0');
+      bar3?.classList.add('-rotate-45', '-translate-y-2');
+    } else {
+      bar1?.classList.remove('rotate-45', 'translate-y-2');
+      bar2?.classList.remove('opacity-0');
+      bar3?.classList.remove('-rotate-45', '-translate-y-2');
+    }
+  });
+</script>
