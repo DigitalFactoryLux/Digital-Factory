@@ -1,0 +1,63 @@
+---
+import { locales, localeNames, getLocalizedPath, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+  currentPath: string;
+}
+
+const { locale, currentPath } = Astro.props;
+---
+
+<div class="relative" id="lang-switcher">
+  <button
+    id="lang-btn"
+    class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-colors"
+    aria-label="Changer de langue"
+    aria-expanded="false"
+  >
+    {localeNames[locale]}
+    <svg class="w-3.5 h-3.5 transition-transform" id="lang-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+
+  <div
+    id="lang-dropdown"
+    class="hidden absolute right-0 top-full mt-1 bg-white rounded-xl shadow-lg border border-gray-100 py-1 min-w-[140px] z-50"
+  >
+    {locales.map((lang) => (
+      <a
+        href={getLocalizedPath(currentPath, lang)}
+        class:list={[
+          'block px-4 py-2 text-sm transition-colors',
+          lang === locale
+            ? 'text-teal-700 bg-teal-50 font-semibold'
+            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+        ]}
+      >
+        <span class="font-semibold">{localeNames[lang]}</span>
+      </a>
+    ))}
+  </div>
+</div>
+
+<script>
+  const btn = document.getElementById('lang-btn');
+  const dropdown = document.getElementById('lang-dropdown');
+  const chevron = document.getElementById('lang-chevron');
+
+  btn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = !dropdown?.classList.contains('hidden');
+    dropdown?.classList.toggle('hidden');
+    chevron?.classList.toggle('rotate-180');
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  document.addEventListener('click', () => {
+    dropdown?.classList.add('hidden');
+    chevron?.classList.remove('rotate-180');
+    btn?.setAttribute('aria-expanded', 'false');
+  });
+</script>

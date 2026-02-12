@@ -2,18 +2,28 @@
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import { getLangFromUrl, ogLocales, locales, getLocalizedPath, type Locale } from '../i18n/utils';
 
 interface Props {
   title: string;
   description: string;
+  locale?: Locale;
 }
 
 const { title, description } = Astro.props;
+const locale = Astro.props.locale ?? getLangFromUrl(Astro.url);
 const canonicalURL = new URL(Astro.url.pathname, 'https://www.digital-factory.lu');
+const ogLocale = ogLocales[locale];
+
+// Clean path for hreflang (without locale prefix)
+let cleanPath = Astro.url.pathname;
+if (locale !== 'fr') {
+  cleanPath = cleanPath.replace(`/${locale}`, '') || '/';
+}
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang={locale === 'lu' ? 'lb' : locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,18 +36,32 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://www.digital-factory.lu
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL.href} />
-    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale" content={ogLocale} />
     <meta property="og:site_name" content="Digital Factory" />
+
+    <!-- Hreflang -->
+    {locales.map((lang) => (
+      <link
+        rel="alternate"
+        hreflang={lang === 'lu' ? 'lb' : lang}
+        href={new URL(getLocalizedPath(cleanPath, lang), 'https://www.digital-factory.lu').href}
+      />
+    ))}
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(getLocalizedPath(cleanPath, 'fr'), 'https://www.digital-factory.lu').href}
+    />
 
     <title>{title}</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
   <body class="min-h-screen flex flex-col">
-    <Navbar />
+    <Navbar locale={locale} />
     <main class="flex-1">
       <slot />
     </main>
-    <Footer />
+    <Footer locale={locale} />
 
     <script>
       // Intersection Observer pour les animations fade-in

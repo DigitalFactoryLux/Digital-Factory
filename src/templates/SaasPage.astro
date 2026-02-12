@@ -1,0 +1,431 @@
+---
+import Layout from '../layouts/Layout.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+import { EXTERNAL_LINKS } from '../lib/constants';
+import { t, tp, getLocalizedPath, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const lang = locale;
+
+const badgeBorderColors = [
+  'border-teal-200/50 text-teal-700',
+  'border-cyan-200/50 text-cyan-700',
+  'border-emerald-200/50 text-emerald-700',
+  'border-teal-200/50 text-teal-700',
+];
+---
+
+<Layout
+  title={tp('saas', 'hero.badge', lang) + ' | Digital Factory'}
+  description={tp('saas', 'hero.subtitle', lang)}
+>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden min-h-[85vh] flex items-center">
+    <!-- Fond dégradé teal/cyan -->
+    <div class="absolute inset-0 bg-gradient-to-br from-emerald-100 via-teal-50 to-cyan-100"></div>
+    <div class="absolute inset-0 bg-gradient-to-tr from-teal-200/40 via-transparent to-cyan-200/30"></div>
+
+    <!-- Blobs décoratifs -->
+    <div class="blob w-[500px] h-[500px] bg-teal-300/50 -top-20 -left-32" style="animation-delay: 0s;"></div>
+    <div class="blob w-96 h-96 bg-cyan-300/40 bottom-20 right-10" style="animation-delay: 2s;"></div>
+    <div class="blob w-72 h-72 bg-emerald-200/40 top-1/2 left-1/2" style="animation-delay: 4s;"></div>
+
+    <!-- Motif lignes -->
+    <div class="absolute inset-0 lines-pattern opacity-40"></div>
+
+    <!-- Vagues animées -->
+    <div class="absolute bottom-0 left-0 right-0 pointer-events-none">
+      <svg class="absolute bottom-0 w-[200%] animate-wave-slow" viewBox="0 0 2880 180" preserveAspectRatio="none" style="height: 100px;">
+        <path d="M0 100C240 140 480 60 720 100C960 140 1200 60 1440 100C1680 140 1920 60 2160 100C2400 140 2640 60 2880 100V180H0Z" fill="rgba(255,255,255,0.3)" />
+      </svg>
+      <svg class="absolute bottom-0 w-[200%] animate-wave-mid" viewBox="0 0 2880 180" preserveAspectRatio="none" style="height: 80px;">
+        <path d="M0 80C200 130 400 40 600 80C800 120 1000 30 1200 80C1400 130 1600 40 1800 80C2000 120 2200 30 2400 80C2600 130 2800 40 2880 80V180H0Z" fill="rgba(255,255,255,0.5)" />
+      </svg>
+      <svg class="absolute bottom-0 w-[200%] animate-wave-fast" viewBox="0 0 2880 180" preserveAspectRatio="none" style="height: 60px;">
+        <path d="M0 90C180 130 360 50 540 90C720 130 900 50 1080 90C1260 130 1440 50 1620 90C1800 130 1980 50 2160 90C2340 130 2520 50 2700 90C2880 130 2880 90 2880 90V180H0Z" fill="white" />
+      </svg>
+    </div>
+
+    <!-- Illustration décorative droite -->
+    <div class="absolute right-0 top-1/2 -translate-y-1/2 opacity-10 hidden lg:block pointer-events-none">
+      <svg width="500" height="500" viewBox="0 0 500 500" fill="none" class="text-teal-800">
+        <circle cx="250" cy="250" r="100" stroke="currentColor" stroke-width="1" />
+        <circle cx="250" cy="250" r="150" stroke="currentColor" stroke-width="0.5" stroke-dasharray="8 4" />
+        <circle cx="250" cy="250" r="200" stroke="currentColor" stroke-width="0.5" />
+        <line x1="250" y1="50" x2="250" y2="450" stroke="currentColor" stroke-width="0.5" />
+        <line x1="50" y1="250" x2="450" y2="250" stroke="currentColor" stroke-width="0.5" />
+        <rect x="210" y="210" width="80" height="80" stroke="currentColor" stroke-width="1.5" rx="8" />
+        <circle cx="160" cy="160" r="8" fill="currentColor" opacity="0.5" />
+        <circle cx="340" cy="160" r="8" fill="currentColor" opacity="0.5" />
+        <circle cx="160" cy="340" r="8" fill="currentColor" opacity="0.5" />
+        <circle cx="340" cy="340" r="8" fill="currentColor" opacity="0.5" />
+        <path d="M250 150 L340 250 L250 350 L160 250Z" stroke="currentColor" stroke-width="0.5" fill="none" />
+      </svg>
+    </div>
+
+    <!-- Illustration décorative gauche -->
+    <div class="absolute left-0 top-1/2 -translate-y-1/2 opacity-[0.07] hidden lg:block pointer-events-none">
+      <svg width="400" height="400" viewBox="0 0 400 400" fill="none" class="text-teal-800">
+        <circle cx="200" cy="200" r="80" stroke="currentColor" stroke-width="1" />
+        <circle cx="200" cy="200" r="120" stroke="currentColor" stroke-width="0.5" stroke-dasharray="6 3" />
+        <circle cx="200" cy="200" r="160" stroke="currentColor" stroke-width="0.5" />
+        <path d="M200 40 L360 200 L200 360 L40 200Z" stroke="currentColor" stroke-width="0.5" fill="none" />
+        <circle cx="120" cy="120" r="6" fill="currentColor" opacity="0.4" />
+        <circle cx="280" cy="120" r="6" fill="currentColor" opacity="0.4" />
+        <circle cx="120" cy="280" r="6" fill="currentColor" opacity="0.4" />
+        <circle cx="280" cy="280" r="6" fill="currentColor" opacity="0.4" />
+      </svg>
+    </div>
+
+    <!-- Cartes flottantes décoratives -->
+    <div class="absolute top-[18%] left-[8%] hidden xl:block pointer-events-none z-10" style="animation: blob-float 6s ease-in-out infinite;">
+      <div class="bg-white/70 backdrop-blur-lg rounded-2xl p-4 shadow-lg border border-white/40">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-xs font-bold text-gray-900">{tp('saas', 'card.web', lang)}</p>
+            <p class="text-[10px] text-gray-500">{tp('saas', 'card.webSub', lang)}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-[25%] left-[5%] hidden xl:block pointer-events-none z-10" style="animation: blob-float 7s ease-in-out infinite; animation-delay: 2s;">
+      <div class="bg-white/70 backdrop-blur-lg rounded-2xl p-4 shadow-lg border border-white/40">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-xs font-bold text-gray-900">{tp('saas', 'card.seo', lang)}</p>
+            <p class="text-[10px] text-gray-500">{tp('saas', 'card.seoSub', lang)}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute top-[15%] right-[8%] hidden xl:block pointer-events-none z-10" style="animation: blob-float 8s ease-in-out infinite; animation-delay: 1s;">
+      <div class="bg-white/70 backdrop-blur-lg rounded-2xl p-4 shadow-lg border border-white/40">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-xs font-bold text-gray-900">{tp('saas', 'card.social', lang)}</p>
+            <p class="text-[10px] text-gray-500">{tp('saas', 'card.socialSub', lang)}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-[22%] right-[6%] hidden xl:block pointer-events-none z-10" style="animation: blob-float 6.5s ease-in-out infinite; animation-delay: 3s;">
+      <div class="bg-white/70 backdrop-blur-lg rounded-2xl p-4 shadow-lg border border-white/40">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-xs font-bold text-gray-900">{tp('saas', 'card.support', lang)}</p>
+            <p class="text-[10px] text-gray-500">{tp('saas', 'card.supportSub', lang)}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenu -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-32 text-center">
+      <div class="max-w-3xl mx-auto">
+        <div class="badge bg-teal-100 text-teal-700 mb-6">{tp('saas', 'hero.badge', lang)}</div>
+
+        <h1 class="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold text-gray-900 leading-[1.1] mb-4 tracking-tight" set:html={tp('saas', 'hero.title', lang)}></h1>
+        <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-10 max-w-xl mx-auto">
+          {tp('saas', 'hero.subtitle', lang)}
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 mb-10">
+          <a href={`${getLocalizedPath('/', lang)}#contact`} class="btn-primary text-base">
+            {t('cta.contactShort', lang)}
+            <svg class="inline-block ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+          <a href="#expertise" class="btn-outline text-base">
+            {t('cta.ourExpertise', lang)}
+          </a>
+        </div>
+
+        <!-- Badges services -->
+        <div class="flex flex-wrap justify-center gap-3">
+          {(tp('saas', 'hero.badges', lang) as string[]).map((badge: string, i: number) => (
+            <span class={`px-4 py-2 rounded-full bg-white/60 backdrop-blur-sm border ${badgeBorderColors[i % badgeBorderColors.length]} text-sm font-semibold shadow-sm`}>{badge}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pourquoi choisir Digital Factory ? -->
+  <section class="section-padding bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16 fade-in">
+        <div class="badge bg-teal-50 text-teal-700 mx-auto mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+          {tp('saas', 'why.badge', lang)}
+        </div>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4" set:html={tp('saas', 'why.title', lang)}></h2>
+        <p class="text-lg text-gray-500 max-w-3xl mx-auto">
+          {tp('saas', 'why.subtitle', lang)}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-children">
+        <!-- Card 1 -->
+        <div class="relative bg-gradient-to-br from-teal-50 to-cyan-50 rounded-3xl p-10 fade-in group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-teal-100/50 overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-teal-200/30 to-transparent rounded-bl-full"></div>
+          <div class="relative">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-teal-200">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('saas', 'why.card1.title', lang)}</h3>
+            <p class="text-gray-600 leading-relaxed">
+              {tp('saas', 'why.card1.text', lang)}
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="relative bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-10 fade-in group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-emerald-100/50 overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-200/30 to-transparent rounded-bl-full"></div>
+          <div class="relative">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-emerald-200">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('saas', 'why.card2.title', lang)}</h3>
+            <p class="text-gray-600 leading-relaxed">
+              {tp('saas', 'why.card2.text', lang)}
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="relative bg-gradient-to-br from-cyan-50 to-teal-50 rounded-3xl p-10 fade-in group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-cyan-100/50 overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-200/30 to-transparent rounded-bl-full"></div>
+          <div class="relative">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-cyan-200">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('saas', 'why.card3.title', lang)}</h3>
+            <p class="text-gray-600 leading-relaxed">
+              {tp('saas', 'why.card3.text', lang)}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-14 fade-in">
+        <p class="text-lg text-gray-600 font-medium">
+          {tp('saas', 'why.cta', lang)}
+          <a href={`${getLocalizedPath('/', lang)}#contact`} class="text-teal-600 hover:text-teal-700 font-semibold underline underline-offset-4 decoration-2 decoration-teal-300 hover:decoration-teal-500 transition-colors">{t('cta.contactShort', lang)}.</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notre expertise à votre service -->
+  <section class="relative" id="expertise">
+    <WaveDivider flip={true} color="#f0fdfa" />
+    <div class="section-padding bg-gradient-to-b from-teal-50 via-cyan-50/60 to-teal-50">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 fade-in">
+          <div class="badge bg-teal-200/50 text-teal-700 mx-auto mb-6">
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+            {tp('saas', 'expertise.badge', lang)}
+          </div>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4" set:html={tp('saas', 'expertise.title', lang)}></h2>
+          <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+            {tp('saas', 'expertise.subtitle', lang)}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 stagger-children">
+          <!-- Item 1 -->
+          <div class="bg-white rounded-3xl p-8 fade-in group hover:shadow-xl hover:-translate-y-1 transition-all duration-500 border border-gray-100">
+            <div class="flex items-start gap-6">
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-100 to-cyan-100 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">{tp('saas', 'expertise.item1.title', lang)}</h3>
+                <p class="text-gray-500 leading-relaxed">
+                  {tp('saas', 'expertise.item1.text', lang)}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="bg-white rounded-3xl p-8 fade-in group hover:shadow-xl hover:-translate-y-1 transition-all duration-500 border border-gray-100">
+            <div class="flex items-start gap-6">
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-100 to-teal-100 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">{tp('saas', 'expertise.item2.title', lang)}</h3>
+                <p class="text-gray-500 leading-relaxed">
+                  {tp('saas', 'expertise.item2.text', lang)}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="bg-white rounded-3xl p-8 fade-in group hover:shadow-xl hover:-translate-y-1 transition-all duration-500 border border-gray-100">
+            <div class="flex items-start gap-6">
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-100 to-teal-100 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">{tp('saas', 'expertise.item3.title', lang)}</h3>
+                <p class="text-gray-500 leading-relaxed">
+                  {tp('saas', 'expertise.item3.text', lang)}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="bg-white rounded-3xl p-8 fade-in group hover:shadow-xl hover:-translate-y-1 transition-all duration-500 border border-gray-100">
+            <div class="flex items-start gap-6">
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-100 to-emerald-100 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">{tp('saas', 'expertise.item4.title', lang)}</h3>
+                <p class="text-gray-500 leading-relaxed">
+                  {tp('saas', 'expertise.item4.text', lang)}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <WaveDivider color="white" />
+  </section>
+
+  <!-- Notre approche -->
+  <section class="section-padding bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16 fade-in">
+        <div class="badge bg-teal-50 text-teal-700 mx-auto mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+          {tp('saas', 'method.badge', lang)}
+        </div>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4" set:html={tp('saas', 'method.title', lang)}></h2>
+        <p class="text-lg text-gray-500">
+          {tp('saas', 'method.subtitle', lang)}
+        </p>
+      </div>
+
+      <div class="relative">
+        <!-- Ligne de connexion horizontale (desktop) -->
+        <div class="hidden md:block absolute top-[4.5rem] left-[15%] right-[15%] h-0.5 bg-gradient-to-r from-teal-200 via-cyan-300 to-teal-200"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-children">
+          <!-- Étape 01 -->
+          <div class="relative fade-in group">
+            <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-3xl p-8 h-full hover:shadow-xl hover:-translate-y-2 transition-all duration-500 border border-teal-100/50 text-center">
+              <div class="w-20 h-20 rounded-full bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center mx-auto mb-6 text-white font-bold text-2xl group-hover:scale-110 transition-transform shadow-lg shadow-teal-200 relative z-10">
+                01
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('saas', 'method.step1.title', lang)}</h3>
+              <p class="text-gray-500 leading-relaxed">
+                {tp('saas', 'method.step1.text', lang)}
+              </p>
+            </div>
+          </div>
+
+          <!-- Étape 02 -->
+          <div class="relative fade-in group">
+            <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-3xl p-8 h-full hover:shadow-xl hover:-translate-y-2 transition-all duration-500 border border-teal-100/50 text-center">
+              <div class="w-20 h-20 rounded-full bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center mx-auto mb-6 text-white font-bold text-2xl group-hover:scale-110 transition-transform shadow-lg shadow-teal-200 relative z-10">
+                02
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('saas', 'method.step2.title', lang)}</h3>
+              <p class="text-gray-500 leading-relaxed">
+                {tp('saas', 'method.step2.text', lang)}
+              </p>
+            </div>
+          </div>
+
+          <!-- Étape 03 -->
+          <div class="relative fade-in group">
+            <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-3xl p-8 h-full hover:shadow-xl hover:-translate-y-2 transition-all duration-500 border border-teal-100/50 text-center">
+              <div class="w-20 h-20 rounded-full bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center mx-auto mb-6 text-white font-bold text-2xl group-hover:scale-110 transition-transform shadow-lg shadow-teal-200 relative z-10">
+                03
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('saas', 'method.step3.title', lang)}</h3>
+              <p class="text-gray-500 leading-relaxed">
+                {tp('saas', 'method.step3.text', lang)}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="relative overflow-hidden py-24">
+    <div class="absolute inset-0 bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-600"></div>
+    <div class="absolute inset-0 lines-pattern opacity-10"></div>
+    <div class="blob w-[500px] h-[500px] bg-white/10 -top-32 -right-32"></div>
+    <div class="blob w-80 h-80 bg-white/10 -bottom-20 -left-20" style="animation-delay: 3s;"></div>
+    <div class="blob w-64 h-64 bg-emerald-400/10 top-1/2 left-1/3" style="animation-delay: 5s;"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
+        {tp('saas', 'cta.title', lang)}
+      </h2>
+      <p class="text-teal-100 text-lg mb-10 max-w-2xl mx-auto">
+        {tp('saas', 'cta.text', lang)}
+      </p>
+      <a href={`${getLocalizedPath('/', lang)}#contact`} class="inline-block bg-white text-teal-700 px-10 py-4 rounded-full font-semibold hover:bg-teal-50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 text-lg">
+        {t('cta.contactShort', lang)}
+        <svg class="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+</Layout>

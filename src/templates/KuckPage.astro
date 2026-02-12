@@ -1,0 +1,409 @@
+---
+import Layout from '../layouts/Layout.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+import { EXTERNAL_LINKS } from '../lib/constants';
+import { t, tp, getLocalizedPath, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const lang = locale;
+---
+
+<Layout title={tp('kuck', 'hero.badge', lang) + ' – Digital Factory'} description={tp('kuck', 'hero.subtitle', lang)} locale={lang}>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden min-h-[85vh] flex items-center">
+    <!-- Fond dégradé fort teal/cyan -->
+    <div class="absolute inset-0 bg-gradient-to-br from-teal-100 via-cyan-50 to-emerald-100"></div>
+    <div class="absolute inset-0 bg-gradient-to-tr from-teal-200/40 via-transparent to-cyan-200/30"></div>
+
+    <!-- Blobs décoratifs -->
+    <div class="blob w-[500px] h-[500px] bg-teal-300/50 -top-20 -left-32" style="animation-delay: 0s;"></div>
+    <div class="blob w-96 h-96 bg-cyan-300/40 bottom-20 right-10" style="animation-delay: 2s;"></div>
+    <div class="blob w-72 h-72 bg-emerald-200/40 top-1/2 left-1/2" style="animation-delay: 4s;"></div>
+
+    <!-- Motif lignes -->
+    <div class="absolute inset-0 lines-pattern opacity-40"></div>
+
+    <!-- Vagues animées -->
+    <div class="absolute bottom-0 left-0 right-0 pointer-events-none">
+      <svg class="absolute bottom-0 w-[200%] animate-wave-slow" viewBox="0 0 2880 180" preserveAspectRatio="none" style="height: 100px;">
+        <path d="M0 100C240 140 480 60 720 100C960 140 1200 60 1440 100C1680 140 1920 60 2160 100C2400 140 2640 60 2880 100V180H0Z" fill="rgba(255,255,255,0.3)" />
+      </svg>
+      <svg class="absolute bottom-0 w-[200%] animate-wave-mid" viewBox="0 0 2880 180" preserveAspectRatio="none" style="height: 80px;">
+        <path d="M0 80C200 130 400 40 600 80C800 120 1000 30 1200 80C1400 130 1600 40 1800 80C2000 120 2200 30 2400 80C2600 130 2800 40 2880 80V180H0Z" fill="rgba(255,255,255,0.5)" />
+      </svg>
+      <svg class="absolute bottom-0 w-[200%] animate-wave-fast" viewBox="0 0 2880 180" preserveAspectRatio="none" style="height: 60px;">
+        <path d="M0 90C180 130 360 50 540 90C720 130 900 50 1080 90C1260 130 1440 50 1620 90C1800 130 1980 50 2160 90C2340 130 2520 50 2700 90C2880 130 2880 90 2880 90V180H0Z" fill="white" />
+      </svg>
+    </div>
+
+    <!-- Illustration décorative -->
+    <div class="absolute right-0 top-1/2 -translate-y-1/2 opacity-10 hidden lg:block pointer-events-none">
+      <svg width="500" height="500" viewBox="0 0 500 500" fill="none" class="text-teal-800">
+        <circle cx="250" cy="250" r="100" stroke="currentColor" stroke-width="1" />
+        <circle cx="250" cy="250" r="150" stroke="currentColor" stroke-width="0.5" stroke-dasharray="8 4" />
+        <circle cx="250" cy="250" r="200" stroke="currentColor" stroke-width="0.5" />
+        <line x1="250" y1="50" x2="250" y2="450" stroke="currentColor" stroke-width="0.5" />
+        <line x1="50" y1="250" x2="450" y2="250" stroke="currentColor" stroke-width="0.5" />
+        <rect x="210" y="210" width="80" height="80" stroke="currentColor" stroke-width="1.5" rx="8" />
+        <circle cx="160" cy="160" r="8" fill="currentColor" opacity="0.5" />
+        <circle cx="340" cy="160" r="8" fill="currentColor" opacity="0.5" />
+        <circle cx="160" cy="340" r="8" fill="currentColor" opacity="0.5" />
+        <circle cx="340" cy="340" r="8" fill="currentColor" opacity="0.5" />
+        <path d="M250 150 L340 250 L250 350 L160 250Z" stroke="currentColor" stroke-width="0.5" fill="none" />
+      </svg>
+    </div>
+
+    <!-- Illustration décorative gauche -->
+    <div class="absolute left-0 top-1/2 -translate-y-1/2 opacity-[0.07] hidden lg:block pointer-events-none">
+      <svg width="400" height="400" viewBox="0 0 400 400" fill="none" class="text-teal-800">
+        <circle cx="200" cy="200" r="80" stroke="currentColor" stroke-width="1" />
+        <circle cx="200" cy="200" r="120" stroke="currentColor" stroke-width="0.5" stroke-dasharray="6 3" />
+        <circle cx="200" cy="200" r="160" stroke="currentColor" stroke-width="0.5" />
+        <path d="M200 40 L360 200 L200 360 L40 200Z" stroke="currentColor" stroke-width="0.5" fill="none" />
+        <circle cx="120" cy="120" r="6" fill="currentColor" opacity="0.4" />
+        <circle cx="280" cy="120" r="6" fill="currentColor" opacity="0.4" />
+        <circle cx="120" cy="280" r="6" fill="currentColor" opacity="0.4" />
+        <circle cx="280" cy="280" r="6" fill="currentColor" opacity="0.4" />
+      </svg>
+    </div>
+
+    <!-- Cartes flottantes décoratives -->
+    <div class="absolute top-[18%] left-[8%] hidden xl:block pointer-events-none z-10" style="animation: blob-float 6s ease-in-out infinite;">
+      <div class="bg-white/70 backdrop-blur-lg rounded-2xl p-4 shadow-lg border border-white/40">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-xs font-bold text-gray-900">{tp('kuck', 'card.3d', lang)}</p>
+            <p class="text-[10px] text-gray-500">{tp('kuck', 'card.3dSub', lang)}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-[25%] left-[5%] hidden xl:block pointer-events-none z-10" style="animation: blob-float 7s ease-in-out infinite; animation-delay: 2s;">
+      <div class="bg-white/70 backdrop-blur-lg rounded-2xl p-4 shadow-lg border border-white/40">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-xs font-bold text-gray-900">{tp('kuck', 'card.vr', lang)}</p>
+            <p class="text-[10px] text-gray-500">{tp('kuck', 'card.vrSub', lang)}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute top-[15%] right-[8%] hidden xl:block pointer-events-none z-10" style="animation: blob-float 8s ease-in-out infinite; animation-delay: 1s;">
+      <div class="bg-white/70 backdrop-blur-lg rounded-2xl p-4 shadow-lg border border-white/40">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-xs font-bold text-gray-900">{tp('kuck', 'card.drone', lang)}</p>
+            <p class="text-[10px] text-gray-500">{tp('kuck', 'card.droneSub', lang)}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-[22%] right-[6%] hidden xl:block pointer-events-none z-10" style="animation: blob-float 6.5s ease-in-out infinite; animation-delay: 3s;">
+      <div class="bg-white/70 backdrop-blur-lg rounded-2xl p-4 shadow-lg border border-white/40">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-xs font-bold text-gray-900">{tp('kuck', 'card.precision', lang)}</p>
+            <p class="text-[10px] text-gray-500">{tp('kuck', 'card.precisionSub', lang)}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenu -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-32 text-center">
+      <div class="max-w-3xl mx-auto">
+        <div class="badge bg-teal-100 text-teal-700 mb-6">{tp('kuck', 'hero.badge', lang)}</div>
+
+        <h1 class="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold text-gray-900 leading-[1.1] mb-4 tracking-tight" set:html={tp('kuck', 'hero.title', lang)}></h1>
+        <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-10 max-w-xl mx-auto">
+          {tp('kuck', 'hero.subtitle', lang)}
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 mb-10">
+          <a href={EXTERNAL_LINKS.kuck} target="_blank" rel="noopener noreferrer" class="btn-primary text-base">
+            {tp('kuck', 'hero.cta.primary', lang)}
+            <svg class="inline-block ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+          <a href={`${getLocalizedPath('/', lang)}#contact`} class="btn-outline text-base">
+            {t('cta.contact', lang)}
+          </a>
+        </div>
+
+        <!-- Badges services -->
+        <div class="flex flex-wrap justify-center gap-3">
+          {(tp('kuck', 'hero.badges', lang) as string[]).map((badge: string, i: number) => {
+            const colors = ['border-teal-200/50 text-teal-700', 'border-cyan-200/50 text-cyan-700', 'border-emerald-200/50 text-emerald-700', 'border-teal-200/50 text-teal-700'];
+            return <span class={`px-4 py-2 rounded-full bg-white/60 backdrop-blur-sm border ${colors[i]} text-sm font-semibold shadow-sm`}>{badge}</span>;
+          })}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pourquoi choisir KUCK ? -->
+  <section class="section-padding bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16 fade-in">
+        <div class="badge bg-teal-50 text-teal-700 mx-auto mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+          {tp('kuck', 'why.badge', lang)}
+        </div>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4" set:html={tp('kuck', 'why.title', lang)}></h2>
+        <p class="text-lg text-gray-500 max-w-3xl mx-auto">
+          {tp('kuck', 'why.subtitle', lang)}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-children">
+        <!-- Card 1 -->
+        <div class="relative bg-gradient-to-br from-teal-50 to-cyan-50 rounded-3xl p-10 fade-in group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-teal-100/50 overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-teal-200/30 to-transparent rounded-bl-full"></div>
+          <div class="relative">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-teal-200">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('kuck', 'why.card1.title', lang)}</h3>
+            <p class="text-gray-600 leading-relaxed">
+              {tp('kuck', 'why.card1.text', lang)}
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="relative bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-10 fade-in group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-emerald-100/50 overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-200/30 to-transparent rounded-bl-full"></div>
+          <div class="relative">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-emerald-200">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('kuck', 'why.card2.title', lang)}</h3>
+            <p class="text-gray-600 leading-relaxed">
+              {tp('kuck', 'why.card2.text', lang)}
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="relative bg-gradient-to-br from-cyan-50 to-teal-50 rounded-3xl p-10 fade-in group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-cyan-100/50 overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-200/30 to-transparent rounded-bl-full"></div>
+          <div class="relative">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-cyan-200">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('kuck', 'why.card3.title', lang)}</h3>
+            <p class="text-gray-600 leading-relaxed">
+              {tp('kuck', 'why.card3.text', lang)}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section descriptive -->
+  <section class="relative">
+    <WaveDivider flip={true} color="#ecfdf5" />
+    <div class="section-padding bg-gradient-to-b from-teal-50 via-emerald-50/60 to-teal-50">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <!-- Texte -->
+          <div class="fade-in-left">
+            <div class="badge bg-teal-200/50 text-teal-700 mb-6">
+              <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+              {tp('kuck', 'mission.badge', lang)}
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight" set:html={tp('kuck', 'mission.title', lang)}></h2>
+            <p class="text-gray-600 text-lg leading-relaxed mb-8">
+              {tp('kuck', 'mission.text', lang)}
+            </p>
+
+            <div class="space-y-6">
+              <div class="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-all duration-300 group">
+                <div class="flex items-start gap-5">
+                  <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg shadow-teal-200">
+                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-900 mb-1">{tp('kuck', 'mission.versatility.title', lang)}</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">{tp('kuck', 'mission.versatility.text', lang)}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-all duration-300 group">
+                <div class="flex items-start gap-5">
+                  <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg shadow-emerald-200">
+                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-900 mb-1">{tp('kuck', 'mission.support.title', lang)}</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">{tp('kuck', 'mission.support.text', lang)}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visuel -->
+          <div class="fade-in-right">
+            <div class="relative">
+              <div class="absolute inset-0 bg-gradient-to-br from-teal-400/20 to-cyan-400/20 rounded-3xl blur-2xl scale-110"></div>
+              <div class="relative bg-white/60 backdrop-blur-lg rounded-3xl p-10 border border-teal-200/40 shadow-2xl">
+                <img src="/images/kuck-logo.png" alt="KUCK 3D" class="w-full max-w-xs mx-auto object-contain" />
+                <div class="mt-8 grid grid-cols-3 gap-4 text-center">
+                  <div class="bg-teal-50 rounded-xl p-4">
+                    <div class="text-2xl font-extrabold gradient-text">3D</div>
+                    <div class="text-xs text-gray-500 mt-1">{tp('kuck', 'stats.3d', lang)}</div>
+                  </div>
+                  <div class="bg-cyan-50 rounded-xl p-4">
+                    <div class="text-2xl font-extrabold gradient-text">360&deg;</div>
+                    <div class="text-xs text-gray-500 mt-1">{tp('kuck', 'stats.360', lang)}</div>
+                  </div>
+                  <div class="bg-emerald-50 rounded-xl p-4">
+                    <div class="text-2xl font-extrabold gradient-text">HD</div>
+                    <div class="text-xs text-gray-500 mt-1">{tp('kuck', 'stats.hd', lang)}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-teal-400 to-cyan-400 rounded-2xl opacity-20 blur-xl"></div>
+              <div class="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-br from-emerald-400 to-teal-400 rounded-2xl opacity-20 blur-xl"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <WaveDivider color="white" />
+  </section>
+
+  <!-- Notre méthode -->
+  <section class="section-padding bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16 fade-in">
+        <div class="badge bg-teal-50 text-teal-700 mx-auto mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+          {tp('kuck', 'method.badge', lang)}
+        </div>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4" set:html={tp('kuck', 'method.title', lang)}></h2>
+        <p class="text-lg text-gray-500">
+          {tp('kuck', 'method.subtitle', lang)}
+        </p>
+      </div>
+
+      <div class="relative">
+        <!-- Ligne de connexion horizontale -->
+        <div class="hidden md:block absolute top-[4.5rem] left-[15%] right-[15%] h-0.5 bg-gradient-to-r from-teal-200 via-cyan-300 to-teal-200"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-children">
+          <!-- Étape 01 -->
+          <div class="relative fade-in group">
+            <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-3xl p-8 h-full hover:shadow-xl hover:-translate-y-2 transition-all duration-500 border border-teal-100/50 text-center">
+              <div class="w-20 h-20 rounded-full bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center mx-auto mb-6 text-white font-bold text-2xl group-hover:scale-110 transition-transform shadow-lg shadow-teal-200 relative z-10">
+                01
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('kuck', 'method.step1.title', lang)}</h3>
+              <p class="text-gray-500 leading-relaxed">
+                {tp('kuck', 'method.step1.text', lang)}
+              </p>
+            </div>
+          </div>
+
+          <!-- Étape 02 -->
+          <div class="relative fade-in group">
+            <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-3xl p-8 h-full hover:shadow-xl hover:-translate-y-2 transition-all duration-500 border border-teal-100/50 text-center">
+              <div class="w-20 h-20 rounded-full bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center mx-auto mb-6 text-white font-bold text-2xl group-hover:scale-110 transition-transform shadow-lg shadow-teal-200 relative z-10">
+                02
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('kuck', 'method.step2.title', lang)}</h3>
+              <p class="text-gray-500 leading-relaxed">
+                {tp('kuck', 'method.step2.text', lang)}
+              </p>
+            </div>
+          </div>
+
+          <!-- Étape 03 -->
+          <div class="relative fade-in group">
+            <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-3xl p-8 h-full hover:shadow-xl hover:-translate-y-2 transition-all duration-500 border border-teal-100/50 text-center">
+              <div class="w-20 h-20 rounded-full bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center mx-auto mb-6 text-white font-bold text-2xl group-hover:scale-110 transition-transform shadow-lg shadow-teal-200 relative z-10">
+                03
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('kuck', 'method.step3.title', lang)}</h3>
+              <p class="text-gray-500 leading-relaxed">
+                {tp('kuck', 'method.step3.text', lang)}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="relative overflow-hidden py-24">
+    <div class="absolute inset-0 bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-600"></div>
+    <div class="absolute inset-0 lines-pattern opacity-10"></div>
+    <div class="blob w-[500px] h-[500px] bg-white/10 -top-32 -right-32"></div>
+    <div class="blob w-80 h-80 bg-white/10 -bottom-20 -left-20" style="animation-delay: 3s;"></div>
+    <div class="blob w-64 h-64 bg-emerald-400/10 top-1/2 left-1/3" style="animation-delay: 5s;"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
+        {tp('kuck', 'cta.title', lang)}
+      </h2>
+      <p class="text-teal-100 text-lg mb-10 max-w-2xl mx-auto">
+        {tp('kuck', 'cta.text', lang)}
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href={EXTERNAL_LINKS.kuck} target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-teal-700 px-10 py-4 rounded-full font-semibold hover:bg-teal-50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 text-lg">
+          {tp('kuck', 'hero.cta.primary', lang)}
+          <svg class="inline-block ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+        <a href={`${getLocalizedPath('/', lang)}#contact`} class="inline-block border-2 border-white text-white px-10 py-4 rounded-full font-semibold hover:bg-white/10 transition-all duration-300 text-lg">
+          {t('cta.contactShort', lang)}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

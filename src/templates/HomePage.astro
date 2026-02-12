@@ -1,0 +1,389 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+import ContactForm from '../components/ContactForm.tsx';
+import { t, tp, getLocalizedPath, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const lang = locale;
+---
+
+<Layout title={locale === 'fr' ? 'Digital Factory | SaaS et Numérisation 3D au Luxembourg' : locale === 'en' ? 'Digital Factory | SaaS and 3D Scanning in Luxembourg' : locale === 'de' ? 'Digital Factory | SaaS und 3D-Digitalisierung in Luxemburg' : 'Digital Factory | SaaS an 3D-Digitaliséierung zu Lëtzebuerg'} description={locale === 'fr' ? 'Digital Factory à Luxembourg : expert SaaS et numérisation 3D de précision.' : locale === 'en' ? 'Digital Factory in Luxembourg: SaaS and precision 3D scanning expert.' : locale === 'de' ? 'Digital Factory in Luxemburg: Experte für SaaS und präzise 3D-Digitalisierung.' : 'Digital Factory zu Lëtzebuerg: Expert fir SaaS an präzis 3D-Digitaliséierung.'} locale={locale}>
+
+  <!-- Hero Section -->
+  <HeroSection
+    title={tp('home', 'hero.title', lang)}
+    subtitle={tp('home', 'hero.subtitle', lang)}
+    ctaLabel={t('cta.discover', lang)}
+    ctaHref="#solutions"
+  />
+
+  <!-- Qui sommes-nous -->
+  <section class="section-padding bg-white" id="about">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <!-- Texte -->
+        <div class="fade-in-left">
+          <div class="badge bg-teal-50 text-teal-700 mb-6">
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+            {tp('home', 'about.badge', lang)}
+          </div>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight" set:html={tp('home', 'about.title', lang)}></h2>
+          <p class="text-gray-600 text-lg leading-relaxed mb-4">
+            {tp('home', 'about.text1', lang)}
+          </p>
+          <p class="text-gray-600 text-lg leading-relaxed mb-8">
+            {tp('home', 'about.text2', lang)}
+          </p>
+          <a href="#solutions" class="btn-primary">{tp('home', 'about.cta', lang)}</a>
+        </div>
+
+        <!-- Stats -->
+        <div class="fade-in-right">
+          <div class="grid grid-cols-2 gap-6">
+            <div class="glass-card p-8 text-center hover:shadow-lg transition-all duration-300">
+              <div class="text-4xl font-extrabold gradient-text mb-2">3+</div>
+              <div class="text-sm text-gray-500 font-medium">{tp('home', 'stats.products', lang)}</div>
+            </div>
+            <div class="glass-card p-8 text-center hover:shadow-lg transition-all duration-300">
+              <div class="text-4xl font-extrabold gradient-text mb-2">24h</div>
+              <div class="text-sm text-gray-500 font-medium">{tp('home', 'stats.reactivity', lang)}</div>
+            </div>
+            <div class="glass-card p-8 text-center hover:shadow-lg transition-all duration-300">
+              <div class="text-4xl font-extrabold gradient-text mb-2">100%</div>
+              <div class="text-sm text-gray-500 font-medium">{tp('home', 'stats.local', lang)}</div>
+            </div>
+            <div class="glass-card p-8 text-center hover:shadow-lg transition-all duration-300">
+              <div class="text-4xl font-extrabold gradient-text mb-2">A-Z</div>
+              <div class="text-sm text-gray-500 font-medium">{tp('home', 'stats.support', lang)}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pourquoi choisir Digital Factory ? -->
+  <section class="relative bg-gradient-to-b from-teal-50/60 via-teal-50/40 to-teal-50/60">
+    <WaveDivider flip={true} color="#ecfdf5" />
+    <div class="section-padding">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 fade-in">
+          <div class="badge bg-teal-50 text-teal-700 mx-auto mb-6">
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+            {tp('home', 'why.badge', lang)}
+          </div>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4" set:html={tp('home', 'why.title', lang)}></h2>
+          <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+            {tp('home', 'why.subtitle', lang)}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-children">
+          <!-- Card 1 -->
+          <div class="glass-card p-10 fade-in group hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-100 to-cyan-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-7 h-7 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('home', 'why.card1.title', lang)}</h3>
+            <p class="text-gray-500 leading-relaxed">
+              {tp('home', 'why.card1.text', lang)}
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="glass-card p-10 fade-in group hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-100 to-teal-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-7 h-7 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('home', 'why.card2.title', lang)}</h3>
+            <p class="text-gray-500 leading-relaxed">
+              {tp('home', 'why.card2.text', lang)}
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="glass-card p-10 fade-in group hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-100 to-teal-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-7 h-7 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('home', 'why.card3.title', lang)}</h3>
+            <p class="text-gray-500 leading-relaxed">
+              {tp('home', 'why.card3.text', lang)}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <WaveDivider color="white" />
+  </section>
+
+  <!-- Nos solutions -->
+  <section class="section-padding bg-gradient-to-b from-teal-50/40 via-emerald-50/30 to-teal-50/40" id="solutions">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16 fade-in">
+        <div class="badge bg-teal-50 text-teal-700 mx-auto mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+          {tp('home', 'solutions.badge', lang)}
+        </div>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4" set:html={tp('home', 'solutions.title', lang)}></h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+          {tp('home', 'solutions.subtitle', lang)}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-children">
+        <!-- KUCK -->
+        <div class="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 fade-in">
+          <div class="relative h-56 bg-gradient-to-br from-teal-50 to-cyan-50 flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 lines-pattern opacity-20"></div>
+            <img src="/images/kuck-logo.png" alt="Kuck" class="w-44 h-44 object-contain relative z-10 group-hover:scale-110 transition-transform duration-700" />
+          </div>
+          <div class="p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-8 h-1 rounded-full bg-gradient-to-r from-teal-400 to-cyan-400"></span>
+              <span class="text-xs font-semibold text-teal-600 uppercase tracking-wider">{tp('home', 'solutions.product', lang)}</span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">{tp('home', 'solutions.kuck.title', lang)}</h3>
+            <p class="text-sm font-medium text-gray-500 mb-4">{tp('home', 'solutions.kuck.tagline', lang)}</p>
+            <p class="text-gray-500 text-sm leading-relaxed mb-8">
+              {tp('home', 'solutions.kuck.text', lang)}
+            </p>
+            <a href={getLocalizedPath('/kuck', lang)} class="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-teal-600 transition-colors group/link">
+              {t('cta.learnMore', lang)}
+              <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- TEEQODE -->
+        <div class="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 fade-in">
+          <div class="relative h-56 bg-gradient-to-br from-emerald-50 to-teal-50 flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 lines-pattern opacity-20"></div>
+            <img src="/images/teeqode-logo.png" alt="Teeqode" class="w-36 h-36 object-contain relative z-10 group-hover:scale-110 transition-transform duration-700" />
+          </div>
+          <div class="p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-8 h-1 rounded-full bg-gradient-to-r from-emerald-400 to-teal-400"></span>
+              <span class="text-xs font-semibold text-emerald-600 uppercase tracking-wider">{tp('home', 'solutions.product', lang)}</span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">{tp('home', 'solutions.teeqode.title', lang)}</h3>
+            <p class="text-sm font-medium text-gray-500 mb-4">{tp('home', 'solutions.teeqode.tagline', lang)}</p>
+            <p class="text-gray-500 text-sm leading-relaxed mb-8">
+              {tp('home', 'solutions.teeqode.text', lang)}
+            </p>
+            <a href={getLocalizedPath('/teeqode', lang)} class="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-teal-600 transition-colors group/link">
+              {t('cta.learnMore', lang)}
+              <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- SaaS -->
+        <div class="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 fade-in">
+          <div class="relative h-56 overflow-hidden">
+            <img src="/images/card-violet.png" alt="Plateformes SaaS" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          </div>
+          <div class="p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-8 h-1 rounded-full bg-gradient-to-r from-teal-400 to-cyan-400"></span>
+              <span class="text-xs font-semibold text-teal-600 uppercase tracking-wider">{tp('home', 'solutions.service', lang)}</span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">{tp('home', 'solutions.saas.title', lang)}</h3>
+            <p class="text-sm font-medium text-gray-500 mb-4">{tp('home', 'solutions.saas.tagline', lang)}</p>
+            <p class="text-gray-500 text-sm leading-relaxed mb-8">
+              {tp('home', 'solutions.saas.text', lang)}
+            </p>
+            <a href={getLocalizedPath('/saas', lang)} class="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-teal-600 transition-colors group/link">
+              {t('cta.learnMore', lang)}
+              <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nos engagements -->
+  <section class="relative">
+    <WaveDivider flip={true} color="#f0fdfa" />
+    <div class="section-padding bg-gradient-to-b from-teal-50/50 to-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 fade-in">
+          <div class="badge bg-white text-teal-700 mx-auto mb-6 shadow-sm">
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+            {tp('home', 'engagements.badge', lang)}
+          </div>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4" set:html={tp('home', 'engagements.title', lang)}></h2>
+          <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+            {tp('home', 'engagements.subtitle', lang)}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children">
+          <div class="glass-card p-8 text-center fade-in group hover:shadow-lg hover:-translate-y-1 transition-all duration-500">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-100 to-emerald-100 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
+              <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">{t('engagement.reactivity', lang)}</h3>
+            <p class="text-sm text-gray-500">{t('engagement.reactivityDesc', lang)}</p>
+          </div>
+
+          <div class="glass-card p-8 text-center fade-in group hover:shadow-lg hover:-translate-y-1 transition-all duration-500">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-100 to-teal-100 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
+              <svg class="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">{t('engagement.confidentiality', lang)}</h3>
+            <p class="text-sm text-gray-500">{t('engagement.confidentialityDesc', lang)}</p>
+          </div>
+
+          <div class="glass-card p-8 text-center fade-in group hover:shadow-lg hover:-translate-y-1 transition-all duration-500">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-100 to-teal-100 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
+              <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">{t('engagement.timeSaving', lang)}</h3>
+            <p class="text-sm text-gray-500">{t('engagement.timeSavingDesc', lang)}</p>
+          </div>
+
+          <div class="glass-card p-8 text-center fade-in group hover:shadow-lg hover:-translate-y-1 transition-all duration-500">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-100 to-cyan-100 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
+              <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">{t('engagement.localSupport', lang)}</h3>
+            <p class="text-sm text-gray-500">{t('engagement.localSupportDesc', lang)}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="relative overflow-hidden py-24">
+    <div class="absolute inset-0 bg-gradient-to-r from-teal-600 to-cyan-600"></div>
+    <div class="absolute inset-0 lines-pattern opacity-10"></div>
+    <div class="blob w-96 h-96 bg-white/10 -top-20 -right-20"></div>
+    <div class="blob w-64 h-64 bg-white/10 -bottom-10 -left-10" style="animation-delay: 3s;"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        {tp('home', 'cta.title', lang)}
+      </h2>
+      <p class="text-teal-100 text-lg mb-10 max-w-2xl mx-auto">
+        {tp('home', 'cta.text', lang)}
+      </p>
+      <a href="#contact" class="inline-block bg-white text-teal-700 px-10 py-4 rounded-full font-semibold hover:bg-teal-50 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+        {t('cta.contactShort', lang)}
+        <svg class="inline-block ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Formulaire de contact -->
+  <section class="section-padding bg-white" id="contact">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <!-- Texte -->
+        <div class="fade-in-left">
+          <div class="badge bg-teal-50 text-teal-700 mb-6">
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+            {tp('home', 'contact.badge', lang)}
+          </div>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6" set:html={tp('home', 'contact.title', lang)}></h2>
+          <p class="text-gray-500 text-lg leading-relaxed mb-10">
+            {tp('home', 'contact.text', lang)}
+          </p>
+
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-1">{tp('home', 'contact.address.label', lang)}</h4>
+                <p class="text-gray-500 text-sm">{tp('home', 'contact.address.value', lang)}</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-1">{tp('home', 'contact.email.label', lang)}</h4>
+                <p><a href="mailto:c.singer@digital-factory.lu" class="text-gray-500 text-sm hover:text-teal-600 transition-colors">c.singer@digital-factory.lu</a></p>
+                <p><a href="mailto:g.flores@digital-factory.lu" class="text-gray-500 text-sm hover:text-teal-600 transition-colors">g.flores@digital-factory.lu</a></p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-1">{tp('home', 'contact.social.label', lang)}</h4>
+                <div class="flex gap-3">
+                  <a href="https://www.linkedin.com/company/digital-factory-sarls/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-teal-600 transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  </a>
+                  <a href="https://www.instagram.com/digital_factory.lu/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-teal-600 transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulaire -->
+        <div class="fade-in-right">
+          <div class="glass-card p-8 md:p-10">
+            <ContactForm client:visible translations={{
+              firstName: t('form.firstName', lang),
+              lastName: t('form.lastName', lang),
+              email: t('form.email', lang),
+              phone: t('form.phone', lang),
+              message: t('form.message', lang),
+              send: t('form.send', lang),
+              sending: t('form.sending', lang),
+              success: t('form.success', lang),
+              error: t('form.error', lang),
+            }} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>

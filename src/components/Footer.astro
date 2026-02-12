@@ -1,5 +1,19 @@
 ---
-import { CONTACT, NAV_LINKS } from '../lib/constants';
+import { CONTACT } from '../lib/constants';
+import { t, getLocalizedPath, getLangFromUrl, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale?: Locale;
+}
+
+const locale = Astro.props.locale ?? getLangFromUrl(Astro.url);
+
+const navLinks = [
+  { key: 'nav.home' as const, path: '/' },
+  { key: 'nav.saas' as const, path: '/saas' },
+  { key: 'nav.teeqode' as const, path: '/teeqode' },
+  { key: 'nav.kuck' as const, path: '/kuck' },
+];
 ---
 
 <footer class="bg-gray-900 text-white">
@@ -7,33 +21,33 @@ import { CONTACT, NAV_LINKS } from '../lib/constants';
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
       <!-- Logo & Description -->
       <div>
-        <a href="/" class="inline-block mb-4">
+        <a href={getLocalizedPath('/', locale)} class="inline-block mb-4">
           <img src="/images/logo.svg" alt="Digital Factory" class="h-12 brightness-0 invert" />
         </a>
         <p class="text-gray-400 text-sm leading-relaxed">
-          Venture builder SaaS basé au Luxembourg, expert en transformation digitale et gestion de projets intelligents.
+          {t('footer.description', locale)}
         </p>
       </div>
 
       <!-- Navigation -->
       <div>
-        <h3 class="font-semibold text-lg mb-4">Navigation</h3>
+        <h3 class="font-semibold text-lg mb-4">{t('footer.navigation', locale)}</h3>
         <ul class="space-y-2">
-          {NAV_LINKS.map((link) => (
+          {navLinks.map((link) => (
             <li>
-              <a href={link.href} class="text-gray-400 hover:text-white transition-colors text-sm">
-                {link.label}
+              <a href={getLocalizedPath(link.path, locale)} class="text-gray-400 hover:text-white transition-colors text-sm">
+                {t(link.key, locale)}
               </a>
             </li>
           ))}
           <li>
-            <a href="/politique-de-confidentialite" class="text-gray-400 hover:text-white transition-colors text-sm">
-              Politique de confidentialité
+            <a href={getLocalizedPath('/politique-de-confidentialite', locale)} class="text-gray-400 hover:text-white transition-colors text-sm">
+              {t('footer.privacy', locale)}
             </a>
           </li>
           <li>
-            <a href="/mentions-legales" class="text-gray-400 hover:text-white transition-colors text-sm">
-              Mentions légales
+            <a href={getLocalizedPath('/mentions-legales', locale)} class="text-gray-400 hover:text-white transition-colors text-sm">
+              {t('footer.legal', locale)}
             </a>
           </li>
         </ul>
@@ -41,7 +55,7 @@ import { CONTACT, NAV_LINKS } from '../lib/constants';
 
       <!-- Contact -->
       <div>
-        <h3 class="font-semibold text-lg mb-4">Contact</h3>
+        <h3 class="font-semibold text-lg mb-4">{t('footer.contact', locale)}</h3>
         <address class="not-italic text-sm text-gray-400 space-y-2">
           <p>{CONTACT.address}</p>
           <p>
@@ -86,7 +100,7 @@ import { CONTACT, NAV_LINKS } from '../lib/constants';
 
     <!-- Copyright -->
     <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm text-gray-500">
-      <p>&copy; {new Date().getFullYear()} Digital Factory Sàrl-s – Tous droits réservés.</p>
+      <p>&copy; {new Date().getFullYear()} Digital Factory Sàrl-s – {t('footer.copyright', locale)}</p>
     </div>
   </div>
 </footer>

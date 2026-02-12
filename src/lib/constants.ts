@@ -7,7 +7,7 @@ export const SITE = {
 };
 
 export const CONTACT = {
-  address: '25 Rue Haute, 1718 Luxembourg City, Luxembourg',
+  address: '3 Rue de la Gare, Capellen, Luxembourg',
   email1: 'c.singer@digital-factory.lu',
   email2: 'g.flores@digital-factory.lu',
   linkedin: 'https://www.linkedin.com/company/digital-factory-sarls/',

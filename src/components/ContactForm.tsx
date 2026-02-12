@@ -1,6 +1,33 @@
 import { useState, type FormEvent } from 'react';
 
-export default function ContactForm() {
+interface ContactFormProps {
+  translations?: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    message: string;
+    send: string;
+    sending: string;
+    success: string;
+    error: string;
+  };
+}
+
+const defaultTranslations = {
+  firstName: 'Prénom',
+  lastName: 'Nom',
+  email: 'Email',
+  phone: 'Téléphone',
+  message: 'Message',
+  send: 'Envoyer',
+  sending: 'Envoi en cours...',
+  success: 'Merci ! Votre message a bien été envoyé.',
+  error: 'Une erreur est survenue. Veuillez réessayer.',
+};
+
+export default function ContactForm({ translations }: ContactFormProps) {
+  const labels = { ...defaultTranslations, ...translations };
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -48,7 +75,7 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label htmlFor="prenom" className="block text-sm font-medium text-gray-700 mb-2">
-            Prénom <span className="text-red-500">*</span>
+            {labels.firstName} <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
@@ -60,7 +87,7 @@ export default function ContactForm() {
         </div>
         <div>
           <label htmlFor="nom" className="block text-sm font-medium text-gray-700 mb-2">
-            Nom <span className="text-red-500">*</span>
+            {labels.lastName} <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
@@ -75,7 +102,7 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-            Email <span className="text-red-500">*</span>
+            {labels.email} <span className="text-red-500">*</span>
           </label>
           <input
             type="email"
@@ -87,7 +114,7 @@ export default function ContactForm() {
         </div>
         <div>
           <label htmlFor="tel" className="block text-sm font-medium text-gray-700 mb-2">
-            Téléphone
+            {labels.phone}
           </label>
           <input
             type="tel"
@@ -100,7 +127,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-          Message
+          {labels.message}
         </label>
         <textarea
           id="message"
@@ -116,18 +143,18 @@ export default function ContactForm() {
           disabled={status === 'sending'}
           className="bg-black text-white px-10 py-4 rounded-full font-semibold hover:bg-gray-800 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {status === 'sending' ? 'Envoi en cours...' : 'Envoyer'}
+          {status === 'sending' ? labels.sending : labels.send}
         </button>
       </div>
 
       {status === 'success' && (
         <p className="text-center text-green-600 font-medium">
-          Merci ! Votre message a bien été envoyé.
+          {labels.success}
         </p>
       )}
       {status === 'error' && (
         <p className="text-center text-red-600 font-medium">
-          Une erreur est survenue. Veuillez réessayer.
+          {labels.error}
         </p>
       )}
     </form>
