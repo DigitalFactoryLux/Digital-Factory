@@ -1,0 +1,5 @@
+# Redirections 301 depuis les anciennes URLs Wix
+/blank-1-1-1  /saas  301
+/blank-1-1    /teeqode  301
+/blank-1      /kuck  301
+/blank-3      /mentions-legales  301
