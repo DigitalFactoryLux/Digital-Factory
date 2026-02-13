@@ -1,21 +1,21 @@
-# Digital Factory - Améliorations restantes
+# Digital Factory - Checklist
 
-## Pages manquantes
-- [ ] Créer la page **Politique de confidentialité** (`/politique-de-confidentialite`)
-- [ ] Créer la page **Mentions légales** (`/mentions-legales`)
-- [ ] Rendre ces 2 pages multilingues (FR/EN/DE/LU)
+## Terminé
+- [x] Créer la page **Politique de confidentialité** (`/politique-de-confidentialite`)
+- [x] Créer la page **Mentions légales** (`/mentions-legales`)
+- [x] Formulaire de contact fonctionnel (Web3Forms)
+- [x] Bandeau cookies RGPD
+- [x] Sitemap.xml et robots.txt (SEO)
+- [x] Redirections 301 Wix (`/blank-*` → nouvelles URLs)
+- [x] Meta Open Graph + Twitter Card
+- [x] Lazy loading images
+- [x] Footer redesign
+- [x] Responsive mobile
+- [x] i18n FR/EN/DE/LU (navbar + pages principales)
 
-## Fonctionnalités
-- [ ] Configurer l'**API de contact** (`/api/contact.ts` avec Resend) pour que le formulaire envoie vraiment les emails
-- [ ] Ajouter un **bandeau cookies RGPD**
-- [x] Ajouter **sitemap.xml** et **robots.txt** (SEO)
-
-## SEO & redirections
-- [x] Mettre en place les **redirections 301** depuis les anciennes URLs Wix (`/blank-1` → `/kuck`, `/blank-1-1` → `/teeqode`, `/blank-1-1-1` → `/saas`, `/blank-3` → `/mentions-legales`)
-- [ ] Configurer les **meta Open Graph** pour LinkedIn/Instagram (images OG)
-
-## Améliorations visuelles
-- [ ] Optimiser les **images en WebP** avec lazy loading
-- [x] Améliorer le **Footer** (le rendre plus travaillé comme la Navbar)
-- [ ] Faire le **responsive mobile**
+## Reste à faire
+- [ ] Rendre les **pages légales multilingues** (politique-de-confidentialite + mentions-legales en EN/DE/LU)
 - [ ] Audit **Lighthouse** (perf > 90, a11y > 90)
+- [ ] Remplacer **og-image.png** par une vraie image brandée 1200x630 (Canva)
+- [ ] Choisir un **hébergeur** et déployer le site
+- [ ] Remplir la section **hébergement** dans mentions-legales une fois l'hébergeur choisi

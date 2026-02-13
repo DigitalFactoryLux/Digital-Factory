@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { CONTACT } from '../lib/constants';
+import { tp, getLocalizedPath, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const lang = locale;
+---
+
+<Layout
+  title={tp('legal', 'meta.title', lang)}
+  description={tp('legal', 'meta.description', lang)}
+>
+  <section class="py-20 md:py-28">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+        {tp('legal', 'title', lang)}
+      </h1>
+      <p class="text-sm text-gray-500 mb-12">{tp('legal', 'lastUpdate', lang)}</p>
+
+      <div class="prose prose-gray max-w-none space-y-8 text-gray-700 leading-relaxed">
+
+        <!-- Section 1 - Publisher -->
+        <div>
+          <h2 class="text-xl font-semibold text-gray-900 mb-3">{tp('legal', 's1.title', lang)}</h2>
+          <p>
+            <strong>Digital Factory Sàrl-s</strong><br />
+            {tp('legal', 's1.companyType', lang)}<br />
+            {CONTACT.address}<br />
+            {tp('legal', 's1.country', lang)}
+          </p>
+          <p class="mt-3">
+            {tp('legal', 's1.email', lang)} : <a href={`mailto:${CONTACT.email1}`} class="text-teal-600 hover:underline">{CONTACT.email1}</a><br />
+            {tp('legal', 's1.website', lang)} : <a href="https://www.digital-factory.lu" class="text-teal-600 hover:underline">www.digital-factory.lu</a>
+          </p>
+        </div>
+
+        <!-- Section 2 - Publication Director -->
+        <div>
+          <h2 class="text-xl font-semibold text-gray-900 mb-3">{tp('legal', 's2.title', lang)}</h2>
+          <p>
+            <strong>G. Flores</strong> — {tp('legal', 's2.role', lang)}<br />
+            {tp('legal', 's1.email', lang)} : <a href="mailto:g.flores@digital-factory.lu" class="text-teal-600 hover:underline">g.flores@digital-factory.lu</a>
+          </p>
+        </div>
+
+        <!-- Section 3 - Hosting -->
+        <div>
+          <h2 class="text-xl font-semibold text-gray-900 mb-3">{tp('legal', 's3.title', lang)}</h2>
+          <p>
+            {tp('legal', 's3.content', lang)}<br />
+            <em>{tp('legal', 's3.placeholder', lang)}</em>
+          </p>
+        </div>
+
+        <!-- Section 4 - Intellectual Property -->
+        <div>
+          <h2 class="text-xl font-semibold text-gray-900 mb-3">{tp('legal', 's4.title', lang)}</h2>
+          <p>{tp('legal', 's4.p1', lang)}</p>
+          <p class="mt-3">{tp('legal', 's4.p2', lang)}</p>
+          <p class="mt-3" set:html={tp('legal', 's4.trademarks', lang)} />
+        </div>
+
+        <!-- Section 5 - Liability -->
+        <div>
+          <h2 class="text-xl font-semibold text-gray-900 mb-3">{tp('legal', 's5.title', lang)}</h2>
+          <p>{tp('legal', 's5.p1', lang)}</p>
+          <p class="mt-3">{tp('legal', 's5.disclaimer', lang)}</p>
+          <ul class="list-disc pl-6 mt-2 space-y-1">
+            <li>{tp('legal', 's5.item1', lang)}</li>
+            <li>{tp('legal', 's5.item2', lang)}</li>
+            <li>{tp('legal', 's5.item3', lang)}</li>
+          </ul>
+        </div>
+
+        <!-- Section 6 - External Links -->
+        <div>
+          <h2 class="text-xl font-semibold text-gray-900 mb-3">{tp('legal', 's6.title', lang)}</h2>
+          <p set:html={tp('legal', 's6.content', lang)} />
+        </div>
+
+        <!-- Section 7 - Data Protection -->
+        <div>
+          <h2 class="text-xl font-semibold text-gray-900 mb-3">{tp('legal', 's7.title', lang)}</h2>
+          <p>
+            {tp('legal', 's7.content', lang)}
+            <a href={getLocalizedPath('/politique-de-confidentialite', lang)} class="text-teal-600 hover:underline">{tp('legal', 's7.privacyLink', lang)}</a>.
+          </p>
+        </div>
+
+        <!-- Section 8 - Applicable Law -->
+        <div>
+          <h2 class="text-xl font-semibold text-gray-900 mb-3">{tp('legal', 's8.title', lang)}</h2>
+          <p>{tp('legal', 's8.content', lang)}</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</Layout>

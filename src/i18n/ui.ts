@@ -82,6 +82,26 @@ export const ui = {
   'engagement.timeSavingDesc': { fr: 'Automatisation des tâches répétitives et chronophages', en: 'Automation of repetitive and time-consuming tasks', de: 'Automatisierung sich wiederholender und zeitaufwändiger Aufgaben', lu: 'Automatiséierung vu repetitiven an zäitopwännegen Aufgaben' },
   'engagement.localSupport': { fr: 'Support local', en: 'Local support', de: 'Lokaler Support', lu: 'Lokale Support' },
   'engagement.localSupportDesc': { fr: 'Une équipe basée au Luxembourg, proche de vos projets', en: 'A team based in Luxembourg, close to your projects', de: 'Ein Team mit Sitz in Luxemburg, nah an Ihren Projekten', lu: 'En Team zu Lëtzebuerg, no un Äre Projeten' },
+
+  // Cookie banner
+  'cookie.text': {
+    fr: 'Ce site utilise uniquement des cookies techniques nécessaires à son fonctionnement. Aucun cookie de suivi ou publicitaire n\'est utilisé.',
+    en: 'This website only uses technical cookies necessary for its operation. No tracking or advertising cookies are used.',
+    de: 'Diese Website verwendet nur technische Cookies, die für ihren Betrieb notwendig sind. Es werden keine Tracking- oder Werbe-Cookies verwendet.',
+    lu: 'Dëse Site benotzt nëmmen technesch Cookies, déi fir säi Betrib néideg sinn. Et gi keng Tracking- oder Werbe-Cookies benotzt.',
+  },
+  'cookie.learnMore': {
+    fr: 'En savoir plus',
+    en: 'Learn more',
+    de: 'Mehr erfahren',
+    lu: 'Méi gewuer ginn',
+  },
+  'cookie.accept': {
+    fr: 'Compris',
+    en: 'Got it',
+    de: 'Verstanden',
+    lu: 'Verstanen',
+  },
 } as const;
 
 export type UIKey = keyof typeof ui;

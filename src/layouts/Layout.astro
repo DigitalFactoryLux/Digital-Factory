@@ -3,7 +3,7 @@ import { ViewTransitions } from 'astro:transitions';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
-import { getLangFromUrl, ogLocales, locales, getLocalizedPath, type Locale } from '../i18n/utils';
+import { getLangFromUrl, ogLocales, locales, getLocalizedPath, t, type Locale } from '../i18n/utils';
 
 interface Props {
   title: string;
@@ -79,14 +79,14 @@ if (locale !== 'fr') {
       <div class="bg-gray-900/95 backdrop-blur-sm border-t border-gray-700 px-4 sm:px-6 py-4">
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
           <p class="text-sm text-gray-300 text-center sm:text-left flex-1">
-            Ce site utilise uniquement des cookies techniques nécessaires à son fonctionnement. Aucun cookie de suivi ou publicitaire n'est utilisé.
-            <a href="/politique-de-confidentialite" class="text-teal-400 hover:underline ml-1">En savoir plus</a>
+            {t('cookie.text', locale)}
+            <a href={getLocalizedPath('/politique-de-confidentialite', locale)} class="text-teal-400 hover:underline ml-1">{t('cookie.learnMore', locale)}</a>
           </p>
           <button
             id="cookie-accept"
             class="shrink-0 bg-teal-600 hover:bg-teal-700 text-white text-sm font-medium px-5 py-2 rounded-full transition-colors"
           >
-            Compris
+            {t('cookie.accept', locale)}
           </button>
         </div>
       </div>
