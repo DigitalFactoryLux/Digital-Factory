@@ -43,21 +43,26 @@ const { locale, currentPath } = Astro.props;
 </div>
 
 <script>
-  const btn = document.getElementById('lang-btn');
-  const dropdown = document.getElementById('lang-dropdown');
-  const chevron = document.getElementById('lang-chevron');
+  function initLangSwitcher() {
+    const btn = document.getElementById('lang-btn');
+    const dropdown = document.getElementById('lang-dropdown');
+    const chevron = document.getElementById('lang-chevron');
 
-  btn?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isOpen = !dropdown?.classList.contains('hidden');
-    dropdown?.classList.toggle('hidden');
-    chevron?.classList.toggle('rotate-180');
-    btn.setAttribute('aria-expanded', String(!isOpen));
-  });
+    btn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = !dropdown?.classList.contains('hidden');
+      dropdown?.classList.toggle('hidden');
+      chevron?.classList.toggle('rotate-180');
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
 
-  document.addEventListener('click', () => {
-    dropdown?.classList.add('hidden');
-    chevron?.classList.remove('rotate-180');
-    btn?.setAttribute('aria-expanded', 'false');
-  });
+    document.addEventListener('click', () => {
+      dropdown?.classList.add('hidden');
+      chevron?.classList.remove('rotate-180');
+      btn?.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  initLangSwitcher();
+  document.addEventListener('astro:after-swap', initLangSwitcher);
 </script>

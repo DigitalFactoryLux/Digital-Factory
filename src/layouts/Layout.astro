@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
@@ -55,28 +56,35 @@ if (locale !== 'fr') {
 
     <title>{title}</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <ViewTransitions />
   </head>
   <body class="min-h-screen flex flex-col">
-    <Navbar locale={locale} />
-    <main class="flex-1">
+    <Navbar locale={locale} transition:animate="none" />
+    <main class="flex-1" transition:animate="fade">
       <slot />
     </main>
-    <Footer locale={locale} />
+    <Footer locale={locale} transition:animate="none" />
 
     <script>
       // Intersection Observer pour les animations fade-in
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
+      function initObserver() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
 
-      document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in').forEach((el) => observer.observe(el));
+        document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in').forEach((el) => observer.observe(el));
+      }
+
+      // Initialiser au chargement et après chaque navigation
+      initObserver();
+      document.addEventListener('astro:after-swap', initObserver);
     </script>
   </body>
 </html>

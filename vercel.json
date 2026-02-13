@@ -1,0 +1,9 @@
+{
+  "framework": "astro",
+  "redirects": [
+    { "source": "/blank-1-1-1", "destination": "/saas", "permanent": true },
+    { "source": "/blank-1-1", "destination": "/teeqode", "permanent": true },
+    { "source": "/blank-1", "destination": "/kuck", "permanent": true },
+    { "source": "/blank-3", "destination": "/mentions-legales", "permanent": true }
+  ]
+}
