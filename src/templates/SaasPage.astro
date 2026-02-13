@@ -40,20 +40,20 @@ const badgeBorderColors = [
 
     <!-- Vagues animées -->
     <div class="absolute bottom-0 left-0 right-0 pointer-events-none">
-      <svg class="absolute bottom-0 w-[200%] animate-wave-slow" viewBox="0 0 2880 180" preserveAspectRatio="none" style="height: 100px;">
+      <svg aria-hidden="true" class="absolute bottom-0 w-[200%] animate-wave-slow" viewBox="0 0 2880 180" preserveAspectRatio="none" style="height: 100px;">
         <path d="M0 100C240 140 480 60 720 100C960 140 1200 60 1440 100C1680 140 1920 60 2160 100C2400 140 2640 60 2880 100V180H0Z" fill="rgba(255,255,255,0.3)" />
       </svg>
-      <svg class="absolute bottom-0 w-[200%] animate-wave-mid" viewBox="0 0 2880 180" preserveAspectRatio="none" style="height: 80px;">
+      <svg aria-hidden="true" class="absolute bottom-0 w-[200%] animate-wave-mid" viewBox="0 0 2880 180" preserveAspectRatio="none" style="height: 80px;">
         <path d="M0 80C200 130 400 40 600 80C800 120 1000 30 1200 80C1400 130 1600 40 1800 80C2000 120 2200 30 2400 80C2600 130 2800 40 2880 80V180H0Z" fill="rgba(255,255,255,0.5)" />
       </svg>
-      <svg class="absolute bottom-0 w-[200%] animate-wave-fast" viewBox="0 0 2880 180" preserveAspectRatio="none" style="height: 60px;">
+      <svg aria-hidden="true" class="absolute bottom-0 w-[200%] animate-wave-fast" viewBox="0 0 2880 180" preserveAspectRatio="none" style="height: 60px;">
         <path d="M0 90C180 130 360 50 540 90C720 130 900 50 1080 90C1260 130 1440 50 1620 90C1800 130 1980 50 2160 90C2340 130 2520 50 2700 90C2880 130 2880 90 2880 90V180H0Z" fill="white" />
       </svg>
     </div>
 
     <!-- Illustration décorative droite -->
     <div class="absolute right-0 top-1/2 -translate-y-1/2 opacity-10 hidden lg:block pointer-events-none">
-      <svg width="500" height="500" viewBox="0 0 500 500" fill="none" class="text-teal-800">
+      <svg aria-hidden="true" width="500" height="500" viewBox="0 0 500 500" fill="none" class="text-teal-800">
         <circle cx="250" cy="250" r="100" stroke="currentColor" stroke-width="1" />
         <circle cx="250" cy="250" r="150" stroke="currentColor" stroke-width="0.5" stroke-dasharray="8 4" />
         <circle cx="250" cy="250" r="200" stroke="currentColor" stroke-width="0.5" />
@@ -70,7 +70,7 @@ const badgeBorderColors = [
 
     <!-- Illustration décorative gauche -->
     <div class="absolute left-0 top-1/2 -translate-y-1/2 opacity-[0.07] hidden lg:block pointer-events-none">
-      <svg width="400" height="400" viewBox="0 0 400 400" fill="none" class="text-teal-800">
+      <svg aria-hidden="true" width="400" height="400" viewBox="0 0 400 400" fill="none" class="text-teal-800">
         <circle cx="200" cy="200" r="80" stroke="currentColor" stroke-width="1" />
         <circle cx="200" cy="200" r="120" stroke="currentColor" stroke-width="0.5" stroke-dasharray="6 3" />
         <circle cx="200" cy="200" r="160" stroke="currentColor" stroke-width="0.5" />
@@ -159,7 +159,7 @@ const badgeBorderColors = [
         <div class="flex flex-wrap justify-center gap-4 mb-10">
           <a href={`${getLocalizedPath('/', lang)}#contact`} class="btn-primary text-base">
             {t('cta.contactShort', lang)}
-            <svg class="inline-block ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg aria-hidden="true" class="inline-block ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
@@ -421,7 +421,7 @@ const badgeBorderColors = [
       </p>
       <a href={`${getLocalizedPath('/', lang)}#contact`} class="inline-block bg-white text-teal-700 px-6 py-3 md:px-10 md:py-4 rounded-full font-semibold hover:bg-teal-50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 text-lg">
         {t('cta.contactShort', lang)}
-        <svg class="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg aria-hidden="true" class="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>
       </a>

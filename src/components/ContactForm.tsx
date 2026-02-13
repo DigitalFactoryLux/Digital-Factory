@@ -154,12 +154,12 @@ export default function ContactForm({ translations }: ContactFormProps) {
       </div>
 
       {status === 'success' && (
-        <p className="text-center text-green-600 font-medium">
+        <p role="alert" className="text-center text-green-600 font-medium">
           {labels.success}
         </p>
       )}
       {status === 'error' && (
-        <p className="text-center text-red-600 font-medium">
+        <p role="alert" className="text-center text-red-600 font-medium">
           {labels.error}
         </p>
       )}

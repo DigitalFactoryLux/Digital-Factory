@@ -63,13 +63,23 @@ if (locale !== 'fr') {
       href={new URL(getLocalizedPath(cleanPath, 'fr'), 'https://www.digital-factory.lu').href}
     />
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="dns-prefetch" href="https://api.web3forms.com" />
+
     <title>{title}</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <ViewTransitions />
   </head>
   <body class="min-h-screen flex flex-col overflow-x-hidden">
+    <!-- Skip to content (a11y) -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:bg-teal-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-medium">
+      {locale === 'fr' ? 'Aller au contenu' : locale === 'en' ? 'Skip to content' : locale === 'de' ? 'Zum Inhalt springen' : 'Zum Inhalt sprangen'}
+    </a>
     <Navbar locale={locale} transition:animate="none" />
-    <main class="flex-1 overflow-x-hidden" transition:animate="fade">
+    <main id="main-content" class="flex-1 overflow-x-hidden" transition:animate="fade">
       <slot />
     </main>
     <Footer locale={locale} transition:animate="none" />
