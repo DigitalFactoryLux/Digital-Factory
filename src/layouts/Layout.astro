@@ -58,9 +58,9 @@ if (locale !== 'fr') {
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <ViewTransitions />
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="min-h-screen flex flex-col overflow-x-hidden">
     <Navbar locale={locale} transition:animate="none" />
-    <main class="flex-1" transition:animate="fade">
+    <main class="flex-1 overflow-x-hidden" transition:animate="fade">
       <slot />
     </main>
     <Footer locale={locale} transition:animate="none" />

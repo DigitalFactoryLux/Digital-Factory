@@ -163,20 +163,20 @@ const teeqodeShort: Record<string, string> = {
       <!-- Mobile Menu Button -->
       <button
         id="menu-toggle"
-        class="lg:hidden flex flex-col gap-1.5 p-2.5 rounded-lg hover:bg-gray-100 transition-colors"
+        class="lg:hidden flex flex-col gap-[5px] p-2.5 rounded-lg hover:bg-gray-100 transition-colors"
         aria-label={t('nav.menu', locale)}
         aria-expanded="false"
       >
-        <span class="block w-5 h-0.5 bg-gray-700 transition-all duration-300 origin-center" id="bar1"></span>
-        <span class="block w-5 h-0.5 bg-gray-700 transition-all duration-300" id="bar2"></span>
-        <span class="block w-5 h-0.5 bg-gray-700 transition-all duration-300 origin-center" id="bar3"></span>
+        <span class="burger-bar" id="bar1"></span>
+        <span class="burger-bar" id="bar2"></span>
+        <span class="burger-bar" id="bar3"></span>
       </button>
     </div>
   </nav>
 
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden lg:hidden overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
-    <div class="bg-white/95 backdrop-blur-xl border-t border-gray-100 px-6 py-6 space-y-1">
+    <div class="bg-white/95 backdrop-blur-xl border-t border-gray-100 px-4 sm:px-6 py-4 sm:py-6 space-y-1">
       <!-- Accueil -->
       <a
         href={getLocalizedPath('/', locale)}
@@ -292,6 +292,31 @@ const teeqodeShort: Record<string, string> = {
     border-radius: 9999px;
   }
 
+  /* Burger bars animation */
+  .burger-bar {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background-color: #111827;
+    border-radius: 9999px;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
+    transform-origin: center;
+    will-change: transform, opacity;
+  }
+
+  #menu-toggle.open #bar1 {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  #menu-toggle.open #bar2 {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  #menu-toggle.open #bar3 {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
   /* Underline animée au hover sur les nav-links (desktop uniquement) */
   @media (min-width: 1024px) {
     .nav-link {
@@ -339,36 +364,29 @@ const teeqodeShort: Record<string, string> = {
     // === Mobile menu toggle ===
     const toggle = document.getElementById('menu-toggle');
     const menu = document.getElementById('mobile-menu');
-    const bar1 = document.getElementById('bar1');
-    const bar2 = document.getElementById('bar2');
-    const bar3 = document.getElementById('bar3');
 
     // Fermer le menu mobile à chaque navigation
     menu?.classList.add('hidden');
     if (menu) menu.style.maxHeight = '0';
-    bar1?.classList.remove('rotate-45', 'translate-y-[4px]');
-    bar2?.classList.remove('opacity-0');
-    bar3?.classList.remove('-rotate-45', '-translate-y-[4px]');
+    toggle?.classList.remove('open');
     toggle?.setAttribute('aria-expanded', 'false');
 
     toggle?.addEventListener('click', () => {
-      const isOpen = !menu?.classList.contains('hidden');
+      const isOpen = toggle.classList.contains('open');
 
       if (isOpen) {
+        // Fermer
+        toggle.classList.remove('open');
         if (menu) menu.style.maxHeight = '0';
         setTimeout(() => menu?.classList.add('hidden'), 300);
-        bar1?.classList.remove('rotate-45', 'translate-y-[4px]');
-        bar2?.classList.remove('opacity-0');
-        bar3?.classList.remove('-rotate-45', '-translate-y-[4px]');
         toggle.setAttribute('aria-expanded', 'false');
       } else {
+        // Ouvrir
+        toggle.classList.add('open');
         menu?.classList.remove('hidden');
         requestAnimationFrame(() => {
           if (menu) menu.style.maxHeight = menu.scrollHeight + 'px';
         });
-        bar1?.classList.add('rotate-45', 'translate-y-[4px]');
-        bar2?.classList.add('opacity-0');
-        bar3?.classList.add('-rotate-45', '-translate-y-[4px]');
         toggle.setAttribute('aria-expanded', 'true');
       }
     });

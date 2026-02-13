@@ -141,7 +141,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
         <button
           type="submit"
           disabled={status === 'sending'}
-          className="bg-black text-white px-10 py-4 rounded-full font-semibold hover:bg-gray-800 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-black text-white px-6 py-3 md:px-10 md:py-4 rounded-full font-semibold hover:bg-gray-800 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {status === 'sending' ? labels.sending : labels.send}
         </button>

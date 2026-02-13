@@ -10,15 +10,15 @@ interface Props {
 const { title, subtitle, ctaLabel, ctaHref, showPattern = true } = Astro.props;
 ---
 
-<section class="relative overflow-hidden min-h-[85vh] flex items-center">
+<section class="relative overflow-hidden min-h-[70vh] md:min-h-[85vh] flex items-center">
   <!-- Fond dégradé teal/cyan -->
   <div class="absolute inset-0 bg-gradient-to-br from-teal-100 via-cyan-50 to-emerald-100"></div>
   <div class="absolute inset-0 bg-gradient-to-tr from-teal-200/40 via-transparent to-cyan-200/30"></div>
 
   <!-- Blobs décoratifs flottants -->
-  <div class="blob w-[500px] h-[500px] bg-teal-300/50 -top-20 -left-32" style="animation-delay: 0s;"></div>
-  <div class="blob w-96 h-96 bg-cyan-300/40 bottom-20 right-10" style="animation-delay: 2s;"></div>
-  <div class="blob w-72 h-72 bg-emerald-200/40 top-1/2 left-1/2" style="animation-delay: 4s;"></div>
+  <div class="blob w-64 md:w-[500px] h-64 md:h-[500px] bg-teal-300/50 -top-20 -left-32" style="animation-delay: 0s;"></div>
+  <div class="blob w-48 md:w-96 h-48 md:h-96 bg-cyan-300/40 bottom-20 right-10" style="animation-delay: 2s;"></div>
+  <div class="blob w-40 md:w-72 h-40 md:h-72 bg-emerald-200/40 top-1/2 left-1/2" style="animation-delay: 4s;"></div>
 
   <!-- Motif lignes verticales -->
   {showPattern && (
@@ -144,11 +144,11 @@ const { title, subtitle, ctaLabel, ctaHref, showPattern = true } = Astro.props;
         Lëtzebuerg & Benelux
       </div>
 
-      <h1 class="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold text-gray-900 leading-[1.1] mb-4 tracking-tight" set:html={title}>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold text-gray-900 leading-[1.1] mb-4 tracking-tight" set:html={title}>
       </h1>
 
       {subtitle && (
-        <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-10 max-w-xl mx-auto">
+        <p class="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed mb-8 md:mb-10 max-w-xl mx-auto">
           {subtitle}
         </p>
       )}
