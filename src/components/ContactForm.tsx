@@ -45,17 +45,15 @@ export default function ContactForm({ translations }: ContactFormProps) {
 
     try {
       const data = {
-        access_key: '09bec302-dd06-4d6a-9ce5-d0578496410a',
-        subject: `Nouveau message de ${formData.get('prenom')} ${formData.get('nom')} — digital-factory.lu`,
-        from_name: `${formData.get('prenom')} ${formData.get('nom')}`,
         prenom: formData.get('prenom'),
         nom: formData.get('nom'),
         email: formData.get('email'),
         tel: formData.get('tel') || 'Non renseigné',
         message: formData.get('message') || 'Aucun message',
+        website: formData.get('website'),
       };
 
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
