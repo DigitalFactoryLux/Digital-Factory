@@ -12,10 +12,15 @@
 - [x] Footer redesign
 - [x] Responsive mobile
 - [x] i18n FR/EN/DE/LU (navbar + pages principales)
+- [x] Pages légales multilingues (politique-de-confidentialite + mentions-legales en EN/DE/LU)
+- [x] Audit Lighthouse (a11y : skip-to-content, aria-hidden SVGs, focus-visible, prefers-reduced-motion)
+- [x] Bandeau cookies multilingue (FR/EN/DE/LU)
+- [x] Formulaire de contact Gmail SMTP (Nodemailer, remplace Web3Forms)
+- [x] Template email pro compatible Outlook (VML, couleurs solides)
+- [x] Déploiement Vercel (adapter @astrojs/vercel + variables env)
 
 ## Reste à faire
-- [ ] Rendre les **pages légales multilingues** (politique-de-confidentialite + mentions-legales en EN/DE/LU)
-- [ ] Audit **Lighthouse** (perf > 90, a11y > 90)
-- [ ] Remplacer **og-image.png** par une vraie image brandée 1200x630 (Canva)
-- [ ] Choisir un **hébergeur** et déployer le site
-- [ ] Remplir la section **hébergement** dans mentions-legales une fois l'hébergeur choisi
+- [x] Remplacer **og-image.png** par une vraie image brandée 1200x630 (Canva)
+- [ ] Remplir la section **hébergement** dans mentions-legales (Vercel)
+- [ ] Ajouter **g.flores@digital-factory.lu** dans SMTP_TO quand tests terminés
+- [ ] Configurer le **domaine custom** digital-factory.lu sur Vercel

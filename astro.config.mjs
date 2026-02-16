@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel';
 
 export default defineConfig({
-  site: 'https://www.digital-factory.lu',
+  site: 'https://digital-factory-blue.vercel.app',
   adapter: vercel(),
   integrations: [
     react(),
