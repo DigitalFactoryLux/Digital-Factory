@@ -67,113 +67,153 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       to: recipients,
       subject: `Nouveau message de ${prenom} ${nom} — digital-factory.lu`,
       html: `
-<!DOCTYPE html>
-<html>
-<head><meta charset="utf-8"></head>
-<body style="margin: 0; padding: 0; background-color: #f3f4f6; font-family: 'Segoe UI', Arial, sans-serif;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f3f4f6; padding: 32px 16px;">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--[if gte mso 9]>
+  <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+  </xml>
+  <![endif]-->
+  <style type="text/css">
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    body { margin: 0; padding: 0; width: 100% !important; }
+  </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f1f5f9; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+
+  <!-- Wrapper -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f1f5f9;">
     <tr>
-      <td align="center">
-        <table width="600" cellpadding="0" cellspacing="0" style="max-width: 600px; width: 100%;">
+      <td align="center" style="padding: 40px 16px;">
 
-          <!-- Header -->
+        <!-- Container 600px -->
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width: 600px; border-collapse: separate;">
+
+          <!-- ===== HEADER DARK ===== -->
           <tr>
-            <td style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 32px 40px; border-radius: 16px 16px 0 0;">
-              <table width="100%" cellpadding="0" cellspacing="0">
+            <td style="background-color: #0f172a; padding: 28px 36px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td>
-                    <h1 style="margin: 0 0 4px; font-size: 22px; font-weight: 700; color: #ffffff;">Digital Factory</h1>
-                    <p style="margin: 0; font-size: 13px; color: #94a3b8; letter-spacing: 0.5px;">NOUVEAU MESSAGE DE CONTACT</p>
+                  <td valign="middle">
+                    <p style="margin: 0; font-size: 24px; font-weight: 700; color: #ffffff; font-family: 'Segoe UI', Tahoma, sans-serif;">DIGITAL FACTORY</p>
+                    <p style="margin: 6px 0 0; font-size: 12px; color: #94a3b8; letter-spacing: 2px; text-transform: uppercase; font-family: 'Segoe UI', Tahoma, sans-serif;">Nouveau message de contact</p>
                   </td>
-                  <td align="right" valign="middle">
-                    <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #0d9488, #06b6d4); border-radius: 12px; text-align: center; line-height: 48px; font-size: 24px;">
-                      ✉
-                    </div>
+                  <td width="50" align="right" valign="middle">
+                    <!--[if mso]>
+                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" style="height:44px;v-text-anchor:middle;width:44px;" arcsize="25%" fillcolor="#0d9488" stroke="f">
+                      <v:textbox style="mso-fit-shape-to-text:false;" inset="0,0,0,0">
+                        <center style="color:#ffffff;font-size:20px;">&#9993;</center>
+                      </v:textbox>
+                    </v:roundrect>
+                    <![endif]-->
+                    <!--[if !mso]><!-->
+                    <div style="width: 44px; height: 44px; background-color: #0d9488; border-radius: 10px; text-align: center; line-height: 44px; font-size: 20px; color: #ffffff;">&#9993;</div>
+                    <!--<![endif]-->
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
 
-          <!-- Expéditeur -->
+          <!-- ===== BANDE TEAL - NOM EXPEDITEUR ===== -->
           <tr>
-            <td style="background: linear-gradient(135deg, #0d9488, #06b6d4); padding: 20px 40px;">
-              <table width="100%" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td>
-                    <p style="margin: 0 0 2px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.7);">Expéditeur</p>
-                    <p style="margin: 0; font-size: 20px; font-weight: 700; color: #ffffff;">${prenom} ${nom}</p>
-                  </td>
-                </tr>
-              </table>
+            <td style="background-color: #0d9488; padding: 18px 36px;">
+              <p style="margin: 0 0 2px; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #ccfbf1; font-family: 'Segoe UI', Tahoma, sans-serif;">Expediteur</p>
+              <p style="margin: 0; font-size: 22px; font-weight: 700; color: #ffffff; font-family: 'Segoe UI', Tahoma, sans-serif;">${prenom} ${nom}</p>
             </td>
           </tr>
 
-          <!-- Corps -->
+          <!-- ===== LIGNE ACCENT ===== -->
           <tr>
-            <td style="background-color: #ffffff; padding: 32px 40px;">
+            <td style="background-color: #0891b2; height: 4px; font-size: 1px; line-height: 1px;">&nbsp;</td>
+          </tr>
 
-              <!-- Infos contact -->
-              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 24px;">
+          <!-- ===== CORPS PRINCIPAL ===== -->
+          <tr>
+            <td style="background-color: #ffffff; padding: 32px 36px;">
+
+              <!-- Coordonnees -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border: 1px solid #e2e8f0;">
+                <!-- Ligne Email -->
                 <tr>
-                  <td style="padding: 12px 16px; background-color: #f8fafc; border-radius: 10px 10px 0 0; border-bottom: 1px solid #e2e8f0;">
-                    <table width="100%" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td width="28" valign="middle">
-                          <span style="font-size: 16px;">📧</span>
-                        </td>
-                        <td style="padding-left: 8px;">
-                          <p style="margin: 0; font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">Email</p>
-                          <a href="mailto:${email}" style="color: #0d9488; font-size: 15px; font-weight: 600; text-decoration: none;">${email}</a>
-                        </td>
-                      </tr>
-                    </table>
+                  <td width="120" style="padding: 14px 16px; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0;">
+                    <p style="margin: 0; font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 1px; font-family: 'Segoe UI', Tahoma, sans-serif;">E-mail</p>
+                  </td>
+                  <td style="padding: 14px 16px; background-color: #ffffff; border-bottom: 1px solid #e2e8f0;">
+                    <a href="mailto:${email}" style="color: #0d9488; font-size: 15px; font-weight: 600; text-decoration: none; font-family: 'Segoe UI', Tahoma, sans-serif;">${email}</a>
                   </td>
                 </tr>
+                <!-- Ligne Telephone -->
                 <tr>
-                  <td style="padding: 12px 16px; background-color: #f8fafc; border-radius: 0 0 10px 10px;">
-                    <table width="100%" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td width="28" valign="middle">
-                          <span style="font-size: 16px;">📱</span>
-                        </td>
-                        <td style="padding-left: 8px;">
-                          <p style="margin: 0; font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">Téléphone</p>
-                          <p style="margin: 0; font-size: 15px; font-weight: 600; color: #1e293b;">${tel || 'Non renseigné'}</p>
-                        </td>
-                      </tr>
-                    </table>
+                  <td width="120" style="padding: 14px 16px; background-color: #f8fafc; border-right: 1px solid #e2e8f0;">
+                    <p style="margin: 0; font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 1px; font-family: 'Segoe UI', Tahoma, sans-serif;">Telephone</p>
+                  </td>
+                  <td style="padding: 14px 16px; background-color: #ffffff;">
+                    <p style="margin: 0; font-size: 15px; font-weight: 600; color: #1e293b; font-family: 'Segoe UI', Tahoma, sans-serif;">${tel || 'Non renseigne'}</p>
                   </td>
                 </tr>
               </table>
 
-              <!-- Message -->
-              <div>
-                <p style="margin: 0 0 10px; font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">💬 Message</p>
-                <div style="background-color: #f8fafc; border-left: 4px solid #0d9488; padding: 20px; border-radius: 0 10px 10px 0; font-size: 15px; line-height: 1.7; color: #334155; white-space: pre-wrap;">${message || 'Aucun message'}</div>
-              </div>
+              <!-- Separateur -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 28px 0 12px;">
+                <tr>
+                  <td style="border-bottom: 1px solid #e2e8f0; font-size: 1px; line-height: 1px;">&nbsp;</td>
+                </tr>
+              </table>
 
-              <!-- Bouton répondre -->
-              <table width="100%" cellpadding="0" cellspacing="0" style="margin-top: 28px;">
+              <!-- Label Message -->
+              <p style="margin: 0 0 12px; font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 2px; font-family: 'Segoe UI', Tahoma, sans-serif;">Message</p>
+
+              <!-- Contenu du message -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td width="4" style="background-color: #0d9488;"></td>
+                  <td style="padding: 20px 24px; background-color: #f8fafc;">
+                    <p style="margin: 0; font-size: 15px; line-height: 26px; color: #334155; font-family: 'Segoe UI', Tahoma, sans-serif; white-space: pre-wrap;">${message || 'Aucun message'}</p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Bouton Repondre -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 32px;">
                 <tr>
                   <td align="center">
-                    <a href="mailto:${email}?subject=Re: Votre demande — Digital Factory" style="display: inline-block; background: linear-gradient(135deg, #0d9488, #06b6d4); color: #ffffff; padding: 14px 36px; border-radius: 50px; font-size: 14px; font-weight: 700; text-decoration: none; letter-spacing: 0.3px;">Répondre à ${prenom}</a>
+                    <!--[if mso]>
+                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="mailto:${email}?subject=Re: Votre demande - Digital Factory" style="height:48px;v-text-anchor:middle;width:240px;" arcsize="50%" fillcolor="#0d9488" stroke="f">
+                      <v:textbox style="mso-fit-shape-to-text:false;" inset="0,0,0,0">
+                        <center style="color:#ffffff;font-size:14px;font-weight:bold;font-family:'Segoe UI',Tahoma,sans-serif;">REPONDRE A ${prenom.toUpperCase()}</center>
+                      </v:textbox>
+                    </v:roundrect>
+                    <![endif]-->
+                    <!--[if !mso]><!-->
+                    <a href="mailto:${email}?subject=Re: Votre demande - Digital Factory" style="display: inline-block; background-color: #0d9488; color: #ffffff; padding: 14px 40px; border-radius: 50px; font-size: 14px; font-weight: 700; text-decoration: none; letter-spacing: 0.5px; font-family: 'Segoe UI', Tahoma, sans-serif;">REPONDRE A ${prenom.toUpperCase()}</a>
+                    <!--<![endif]-->
                   </td>
                 </tr>
               </table>
+
             </td>
           </tr>
 
-          <!-- Footer -->
+          <!-- ===== FOOTER ===== -->
           <tr>
-            <td style="background-color: #f8fafc; padding: 20px 40px; border-top: 1px solid #e2e8f0; border-radius: 0 0 16px 16px;">
-              <table width="100%" cellpadding="0" cellspacing="0">
+            <td style="background-color: #1e293b; padding: 20px 36px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
                   <td>
-                    <p style="margin: 0; font-size: 12px; color: #94a3b8;">Digital Factory Sàrl-s · Luxembourg</p>
+                    <p style="margin: 0; font-size: 13px; font-weight: 600; color: #ffffff; font-family: 'Segoe UI', Tahoma, sans-serif;">Digital Factory Sarl-s</p>
+                    <p style="margin: 4px 0 0; font-size: 12px; color: #94a3b8; font-family: 'Segoe UI', Tahoma, sans-serif;">Luxembourg</p>
                   </td>
-                  <td align="right">
-                    <a href="https://www.digital-factory.lu" style="font-size: 12px; color: #0d9488; text-decoration: none; font-weight: 600;">digital-factory.lu</a>
+                  <td align="right" valign="middle">
+                    <a href="https://www.digital-factory.lu" style="font-size: 13px; color: #2dd4bf; text-decoration: none; font-weight: 600; font-family: 'Segoe UI', Tahoma, sans-serif;">digital-factory.lu</a>
                   </td>
                 </tr>
               </table>
@@ -181,9 +221,13 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
           </tr>
 
         </table>
+        <!-- /Container -->
+
       </td>
     </tr>
   </table>
+  <!-- /Wrapper -->
+
 </body>
 </html>
       `,
