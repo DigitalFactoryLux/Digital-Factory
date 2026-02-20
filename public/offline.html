@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hors-ligne — Digital Factory</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #f0fdfa 0%, #ecfdf5 50%, #f0f9ff 100%);
+      color: #1f2937;
+      padding: 1.5rem;
+    }
+    .container {
+      text-align: center;
+      max-width: 420px;
+    }
+    .logo {
+      width: 160px;
+      height: auto;
+      margin-bottom: 2rem;
+    }
+    .icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 1.5rem;
+      background: linear-gradient(135deg, #14b8a6, #06b6d4);
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .icon svg { width: 32px; height: 32px; color: white; }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    p {
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-block;
+      background: #0d9488;
+      color: white;
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: #0f766e; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636a9 9 0 11-12.728 0M12 9v4m0 4h.01" />
+      </svg>
+    </div>
+    <h1>Vous êtes hors-ligne</h1>
+    <p>Impossible de charger cette page. Vérifiez votre connexion internet et réessayez.</p>
+    <button class="btn" onclick="location.reload()">Réessayer</button>
+  </div>
+</body>
+</html>

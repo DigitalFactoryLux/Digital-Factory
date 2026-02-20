@@ -71,6 +71,15 @@ if (locale !== 'fr') {
 
     <title>{title}</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- PWA -->
+    <meta name="theme-color" content="#0d9488" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Digital Factory" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+
     <ViewTransitions />
   </head>
   <body class="min-h-screen flex flex-col overflow-x-hidden">
@@ -103,6 +112,11 @@ if (locale !== 'fr') {
     </div>
 
     <script>
+      // Service Worker PWA
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js');
+      }
+
       // Bandeau cookies
       function initCookieBanner() {
         const banner = document.getElementById('cookie-banner');
