@@ -205,6 +205,26 @@ export const home = {
     lu: 'Automatiséiert d\'Tracking an d\'Konformitéit vun Ären regulatoreschen an operationellen Dokumenter. Vereinfacht d\'Gestioun vu Zougangserlaabnisser, Aarbechterakten a Chantiervalidatiounen. Gewënnt u Sécherheet, Traçabilitéit a Roueg.',
   },
 
+  // Agent Lift card
+  'solutions.agentlift.title': {
+    fr: 'Agent Lift',
+    en: 'Agent Lift',
+    de: 'Agent Lift',
+    lu: 'Agent Lift',
+  },
+  'solutions.agentlift.tagline': {
+    fr: 'Assistant IA pour monte-charges',
+    en: 'AI Assistant for freight elevators',
+    de: 'KI-Assistent für Lastenaufzüge',
+    lu: 'KI-Assistent fir Lastenopzich',
+  },
+  'solutions.agentlift.text': {
+    fr: 'Un assistant IA multimodal dédié aux opérateurs de monte-charges : voix en temps réel, texte, envoi de photos, météo live et accès aux manuels techniques en 10 langues.',
+    en: 'A multimodal AI assistant for freight elevator operators: real-time voice, text, photo sharing, live weather and access to technical manuals in 10 languages.',
+    de: 'Ein multimodaler KI-Assistent für Lastenaufzugsbediener: Echtzeit-Sprache, Text, Foto-Sharing, Live-Wetter und Zugang zu technischen Handbüchern in 10 Sprachen.',
+    lu: 'E multimodalen KI-Assistent fir Lastenopzich-Operateuren: Echtzäit-Stëmm, Text, Foto-Deelen, Live-Wieder an Zougang zu techneschen Handbicher an 10 Sproochen.',
+  },
+
   // SaaS card
   'solutions.saas.title': {
     fr: 'Plateformes SaaS et sites web',
