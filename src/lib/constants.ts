@@ -26,7 +26,7 @@ export const EXTERNAL_LINKS = {
   kuck: 'https://www.kuck.lu/',
   teeqode: 'https://teeqode.com/',
   teeqodeLogin: 'https://teeqode.com/login',
-  agentLift: 'https://lift-assistant.osc-fr1.scalingo.io',
+  agentLift: 'https://brain-lift-gfp-solutions.osc-fr1.scalingo.io',
 };
 
 export const SEO = {

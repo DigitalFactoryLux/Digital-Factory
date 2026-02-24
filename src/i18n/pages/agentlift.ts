@@ -39,6 +39,20 @@ export const agentlift = {
     lu: 'Agent Lift ass en multimodalen KI-Assistent, deen fir Opzichbedénger op Chantiere entwéckelt gouf. Hien kombinéiert Echtzäit-Stëmmgespréicher, sécher Textnoriichten a Fotoanalyse fir direkt technesch Ënnerstëtzung ze bidden. Mat Zougang zu technesche Manuellen, Echtzäit-Wieder an Ënnerstëtzung fir 10 Sproochen ass Agent Lift de intelligente Copilot fir Är Ekippen um Terrain.',
   },
 
+  // Demo video
+  'demo.badge': {
+    fr: 'Démo',
+    en: 'Demo',
+    de: 'Demo',
+    lu: 'Demo',
+  },
+  'demo.title': {
+    fr: 'Agent Lift en action',
+    en: 'Agent Lift in action',
+    de: 'Agent Lift in Aktion',
+    lu: 'Agent Lift an Aktioun',
+  },
+
   // Why Agent Lift - 3 cards
   'why.badge': {
     fr: 'Points forts',
