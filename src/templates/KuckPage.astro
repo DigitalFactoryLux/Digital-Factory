@@ -406,12 +406,9 @@ const lang = locale;
       <!-- QR Code bloc -->
       <div class="flex flex-col items-center fade-in">
         <div class="relative bg-gradient-to-br from-teal-50 to-cyan-50 rounded-3xl p-8 md:p-12 border border-teal-100/50 shadow-lg max-w-md w-full">
-          <!-- QR placeholder SVG -->
-          <div class="w-48 h-48 md:w-56 md:h-56 mx-auto mb-6 bg-white rounded-2xl flex items-center justify-center shadow-inner border border-gray-100">
-            <svg class="w-24 h-24 text-teal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
-            </svg>
-          </div>
+          <a href="https://kuck.lu/logo-kuck-ar/" target="_blank" rel="noopener noreferrer" class="block w-48 h-48 md:w-56 md:h-56 mx-auto mb-6 bg-white rounded-2xl shadow-inner border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
+            <img src="/images/qr-code-kuck.png" alt={tp('kuck', 'ar.qrAlt', lang)} class="w-full h-full object-contain p-3" loading="lazy" />
+          </a>
           <p class="text-center text-gray-700 font-medium text-base md:text-lg mb-6">
             {tp('kuck', 'ar.scan', lang)}
           </p>
