@@ -175,6 +175,184 @@ export const kuck = {
     lu: 'Visualiséiert, analyséiert an antiziéiert d\'Entwécklung vun Äre Raim.',
   },
 
+  // Nos réalisations
+  'projects.badge': {
+    fr: 'Nos réalisations',
+    en: 'Our projects',
+    de: 'Unsere Projekte',
+    lu: 'Eis Projeten',
+  },
+  'projects.title': {
+    fr: 'Ils nous ont fait <span class="gradient-text">confiance</span>',
+    en: 'They <span class="gradient-text">trusted</span> us',
+    de: 'Sie haben uns <span class="gradient-text">vertraut</span>',
+    lu: 'Si hunn eis <span class="gradient-text">vertraut</span>',
+  },
+  'projects.card1.title': {
+    fr: 'Restaurant V&V Délice',
+    en: 'Restaurant V&V Délice',
+    de: 'Restaurant V&V Délice',
+    lu: 'Restaurant V&V Délice',
+  },
+  'projects.card1.text': {
+    fr: 'Premier restaurant ukrainien au Luxembourg, avec site web et immersion 3D Matterport.',
+    en: 'First Ukrainian restaurant in Luxembourg, with website and 3D Matterport immersion.',
+    de: 'Erstes ukrainisches Restaurant in Luxemburg, mit Website und 3D-Matterport-Immersion.',
+    lu: 'Éischt ukrainescht Restaurant zu Lëtzebuerg, mat Websäit an 3D-Matterport-Immersioun.',
+  },
+  'projects.card1.tag1': {
+    fr: 'Digital Twin',
+    en: 'Digital Twin',
+    de: 'Digital Twin',
+    lu: 'Digital Twin',
+  },
+  'projects.card1.tag2': {
+    fr: 'Site web',
+    en: 'Website',
+    de: 'Website',
+    lu: 'Websäit',
+  },
+  'projects.card1.tag3': {
+    fr: 'Restauration',
+    en: 'Catering',
+    de: 'Gastronomie',
+    lu: 'Gastronomie',
+  },
+  'projects.card1.tag4': {
+    fr: 'Matterport',
+    en: 'Matterport',
+    de: 'Matterport',
+    lu: 'Matterport',
+  },
+  'projects.card1.tag5': {
+    fr: 'Visite immersive',
+    en: 'Immersive tour',
+    de: 'Immersive Tour',
+    lu: 'Immersiv Tour',
+  },
+  'projects.card2.title': {
+    fr: 'Restaurant Il Momento',
+    en: 'Restaurant Il Momento',
+    de: 'Restaurant Il Momento',
+    lu: 'Restaurant Il Momento',
+  },
+  'projects.card2.text': {
+    fr: 'Jumeau numérique du restaurant avec visite immersive Matterport.',
+    en: 'Digital twin of the restaurant with immersive Matterport tour.',
+    de: 'Digitaler Zwilling des Restaurants mit immersiver Matterport-Tour.',
+    lu: 'Digitalen Zwilling vum Restaurant mat immersiver Matterport-Tour.',
+  },
+  'projects.card2.tag1': {
+    fr: 'Digital Twin',
+    en: 'Digital Twin',
+    de: 'Digital Twin',
+    lu: 'Digital Twin',
+  },
+  'projects.card2.tag2': {
+    fr: 'Restauration',
+    en: 'Catering',
+    de: 'Gastronomie',
+    lu: 'Gastronomie',
+  },
+  'projects.card2.tag3': {
+    fr: 'Matterport',
+    en: 'Matterport',
+    de: 'Matterport',
+    lu: 'Matterport',
+  },
+  'projects.card2.tag4': {
+    fr: 'Visite immersive',
+    en: 'Immersive tour',
+    de: 'Immersive Tour',
+    lu: 'Immersiv Tour',
+  },
+  'projects.card3.title': {
+    fr: 'Logo 3D Interactif KUCK',
+    en: 'KUCK Interactive 3D Logo',
+    de: 'KUCK Interaktives 3D-Logo',
+    lu: 'KUCK Interaktivt 3D-Logo',
+  },
+  'projects.card3.text': {
+    fr: 'Modélisation 3D haute définition avec réalité augmentée intégrée.',
+    en: 'High definition 3D modeling with integrated augmented reality.',
+    de: 'Hochauflösende 3D-Modellierung mit integrierter Augmented Reality.',
+    lu: 'Héichopléisend 3D-Modelléierung mat integréierter Augmented Reality.',
+  },
+  'projects.card3.tag1': {
+    fr: 'Visualisation 3D & RA',
+    en: '3D & AR Visualization',
+    de: '3D- & AR-Visualisierung',
+    lu: '3D- & AR-Visualiséierung',
+  },
+  'projects.card3.tag2': {
+    fr: 'Scan 3D',
+    en: '3D Scan',
+    de: '3D-Scan',
+    lu: '3D-Scan',
+  },
+  'projects.card3.tag3': {
+    fr: 'Réalité augmentée',
+    en: 'Augmented reality',
+    de: 'Augmented Reality',
+    lu: 'Augmented Reality',
+  },
+  'projects.card3.tag4': {
+    fr: 'Visualisation interactive',
+    en: 'Interactive visualization',
+    de: 'Interaktive Visualisierung',
+    lu: 'Interaktiv Visualiséierung',
+  },
+  'projects.cta1': {
+    fr: 'Voir la visite 3D',
+    en: 'View the 3D tour',
+    de: '3D-Tour ansehen',
+    lu: '3D-Tour kucken',
+  },
+  'projects.cta2': {
+    fr: 'Voir le site',
+    en: 'Visit website',
+    de: 'Website besuchen',
+    lu: 'Websäit besichen',
+  },
+
+  // AR / Immersion
+  'ar.badge': {
+    fr: 'Réalité augmentée',
+    en: 'Augmented reality',
+    de: 'Augmented Reality',
+    lu: 'Augmented Reality',
+  },
+  'ar.title': {
+    fr: 'Découvrez en <span class="gradient-text">immersion</span>',
+    en: 'Discover in <span class="gradient-text">immersion</span>',
+    de: 'Entdecken Sie in <span class="gradient-text">Immersion</span>',
+    lu: 'Entdeckt an <span class="gradient-text">Immersioun</span>',
+  },
+  'ar.text': {
+    fr: 'Testez la réalité augmentée directement depuis votre smartphone. Scannez le QR code ci-dessous pour voir notre logo prendre vie en 3D.',
+    en: 'Try augmented reality directly from your smartphone. Scan the QR code below to see our logo come to life in 3D.',
+    de: 'Testen Sie Augmented Reality direkt auf Ihrem Smartphone. Scannen Sie den QR-Code, um unser Logo in 3D zum Leben zu erwecken.',
+    lu: 'Test Augmented Reality direkt vun Ärem Smartphone. Scannt de QR-Code hei drënner fir eise Logo an 3D zum Liewen ze bréngen.',
+  },
+  'ar.scan': {
+    fr: 'Scannez le QR code pour voir notre logo en réalité augmentée',
+    en: 'Scan the QR code to see our logo in augmented reality',
+    de: 'Scannen Sie den QR-Code, um unser Logo in Augmented Reality zu sehen',
+    lu: 'Scannt de QR-Code fir eise Logo an Augmented Reality ze gesinn',
+  },
+  'ar.cta': {
+    fr: 'Essayer l\'expérience AR',
+    en: 'Try the AR experience',
+    de: 'AR-Erlebnis testen',
+    lu: 'AR-Erliefnis testen',
+  },
+  'ar.qrAlt': {
+    fr: 'QR code pour la réalité augmentée KUCK',
+    en: 'QR code for KUCK augmented reality',
+    de: 'QR-Code für KUCK Augmented Reality',
+    lu: 'QR-Code fir KUCK Augmented Reality',
+  },
+
   // CTA Banner
   'cta.title': {
     fr: 'Prêt à numériser vos espaces ?',

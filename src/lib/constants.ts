@@ -36,7 +36,7 @@ export const SEO = {
   saas: {
     title: 'Sites web & plateformes sur-mesure | Digital Factory',
     description:
-      'Conception de sites modernes, optimisés SEO et enrichis par l\'IA au Luxembourg.',
+      'Conception de sites modernes et optimisés SEO au Luxembourg.',
   },
   teeqode: {
     title: 'TEEQODE® – Gestion documentaire intelligente | Digital Factory',

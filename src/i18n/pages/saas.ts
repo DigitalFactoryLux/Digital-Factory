@@ -13,10 +13,10 @@ export const saas = {
     lu: 'Personaliséiert Websäiten & <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">Plattformen</span>',
   },
   'hero.subtitle': {
-    fr: 'Nous concevons et déployons des sites modernes, optimisés SEO et enrichis par l\'IA, pour vous rendre visible, performant et prêt pour l\'avenir.',
-    en: 'We design and deploy modern websites, SEO-optimized and AI-enhanced, to make you visible, efficient and future-ready.',
-    de: 'Wir konzipieren und deployen moderne Websites, SEO-optimiert und KI-gestützt, damit Sie sichtbar, leistungsfähig und zukunftsfähig sind.',
-    lu: 'Mir designen an deployen modern Websäiten, SEO-optimiséiert an duerch KI beräichert, fir Iech visibel, performant an zukünfteg prett ze maachen.',
+    fr: 'Nous concevons et déployons des sites modernes et optimisés SEO, pour vous rendre visible, performant et prêt pour l\'avenir.',
+    en: 'We design and deploy modern, SEO-optimized websites to make you visible, efficient and future-ready.',
+    de: 'Wir konzipieren und deployen moderne, SEO-optimierte Websites, damit Sie sichtbar, leistungsfähig und zukunftsfähig sind.',
+    lu: 'Mir designen an deployen modern, SEO-optimiséiert Websäiten, fir Iech visibel, performant an zukünfteg prett ze maachen.',
   },
 
   // What is section

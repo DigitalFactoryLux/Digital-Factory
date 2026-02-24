@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KUCK 3D</title>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; }
+    body { background: #111827; overflow: hidden; }
+    model-viewer {
+      width: 100%;
+      height: 100vh;
+      background-color: #111827;
+      --poster-color: #111827;
+    }
+  </style>
+</head>
+<body>
+  <model-viewer
+    src="/images/Head_AR_ver.04.glb"
+    alt="Logo 3D Interactif KUCK"
+    auto-rotate
+    camera-controls
+    interaction-prompt="none"
+    environment-image="neutral"
+    exposure="1"
+    shadow-intensity="1"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+  ></model-viewer>
+</body>
+</html>
