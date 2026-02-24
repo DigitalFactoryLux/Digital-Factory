@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import WaveDivider from '../components/WaveDivider.astro';
 import { EXTERNAL_LINKS } from '../lib/constants';
 import { t, tp, getLocalizedPath, type Locale } from '../i18n/utils';
 
@@ -71,71 +70,6 @@ const lang = locale;
       </svg>
     </div>
 
-    <!-- Cartes flottantes décoratives -->
-    <div class="absolute top-[18%] left-[8%] hidden xl:block pointer-events-none z-10" style="animation: blob-float 6s ease-in-out infinite;">
-      <div class="bg-white/70 backdrop-blur-lg rounded-2xl p-4 shadow-lg border border-white/40">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-          </div>
-          <div>
-            <p class="text-xs font-bold text-gray-900">{tp('teeqode', 'card.ged', lang)}</p>
-            <p class="text-[10px] text-gray-500">{tp('teeqode', 'card.gedSub', lang)}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="absolute bottom-[25%] left-[5%] hidden xl:block pointer-events-none z-10" style="animation: blob-float 7s ease-in-out infinite; animation-delay: 2s;">
-      <div class="bg-white/70 backdrop-blur-lg rounded-2xl p-4 shadow-lg border border-white/40">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <div>
-            <p class="text-xs font-bold text-gray-900">{tp('teeqode', 'card.compliance', lang)}</p>
-            <p class="text-[10px] text-gray-500">{tp('teeqode', 'card.complianceSub', lang)}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="absolute top-[15%] right-[8%] hidden xl:block pointer-events-none z-10" style="animation: blob-float 8s ease-in-out infinite; animation-delay: 1s;">
-      <div class="bg-white/70 backdrop-blur-lg rounded-2xl p-4 shadow-lg border border-white/40">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-            </svg>
-          </div>
-          <div>
-            <p class="text-xs font-bold text-gray-900">{tp('teeqode', 'card.security', lang)}</p>
-            <p class="text-[10px] text-gray-500">{tp('teeqode', 'card.securitySub', lang)}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="absolute bottom-[22%] right-[6%] hidden xl:block pointer-events-none z-10" style="animation: blob-float 6.5s ease-in-out infinite; animation-delay: 3s;">
-      <div class="bg-white/70 backdrop-blur-lg rounded-2xl p-4 shadow-lg border border-white/40">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-cyan-600 flex items-center justify-center">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
-          <div>
-            <p class="text-xs font-bold text-gray-900">{tp('teeqode', 'card.fast', lang)}</p>
-            <p class="text-[10px] text-gray-500">{tp('teeqode', 'card.fastSub', lang)}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Contenu -->
     <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-32 text-center">
       <div class="max-w-3xl mx-auto">
@@ -145,7 +79,7 @@ const lang = locale;
         <p class="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed mb-8 md:mb-10 max-w-xl mx-auto">
           {tp('teeqode', 'hero.subtitle', lang)}
         </p>
-        <div class="flex flex-wrap justify-center gap-4 mb-10">
+        <div class="flex flex-wrap justify-center gap-4">
           <a href={EXTERNAL_LINKS.teeqode} target="_blank" rel="noopener noreferrer" class="btn-primary text-base">
             {t('cta.tryTeeqode', lang)}
             <svg aria-hidden="true" class="inline-block ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -156,20 +90,26 @@ const lang = locale;
             {t('cta.contact', lang)}
           </a>
         </div>
-
-        <!-- Badges services -->
-        <div class="flex flex-wrap justify-center gap-3">
-          {(tp('teeqode', 'hero.badges', lang) as string[]).map((badge: string, i: number) => {
-            const colors = ['border-teal-200/50 text-teal-700', 'border-cyan-200/50 text-cyan-700', 'border-emerald-200/50 text-emerald-700', 'border-teal-200/50 text-teal-700'];
-            return <span class={`px-4 py-2 rounded-full bg-white/60 backdrop-blur-sm border ${colors[i]} text-sm font-semibold shadow-sm`}>{badge}</span>;
-          })}
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- Pourquoi choisir TEEQODE ? -->
+  <!-- C'est quoi TEEQODE ? -->
   <section class="section-padding bg-white">
+    <div class="max-w-3xl mx-auto text-center fade-in">
+      <div class="badge bg-teal-50 text-teal-700 mx-auto mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+        {tp('teeqode', 'what.badge', lang)}
+      </div>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6" set:html={tp('teeqode', 'what.title', lang)}></h2>
+      <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+        {tp('teeqode', 'what.text', lang)}
+      </p>
+    </div>
+  </section>
+
+  <!-- 3 points forts -->
+  <section class="section-padding bg-gradient-to-b from-teal-50/40 to-white">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-10 md:mb-16 fade-in">
         <div class="badge bg-teal-50 text-teal-700 mx-auto mb-6">
@@ -177,206 +117,40 @@ const lang = locale;
           {tp('teeqode', 'why.badge', lang)}
         </div>
         <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4" set:html={tp('teeqode', 'why.title', lang)}></h2>
-        <p class="text-lg text-gray-500 max-w-3xl mx-auto">
-          {tp('teeqode', 'why.subtitle', lang)}
-        </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 stagger-children">
-        <!-- Card 1 -->
-        <div class="relative bg-gradient-to-br from-teal-50 to-cyan-50 rounded-3xl p-6 md:p-10 fade-in group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-teal-100/50 overflow-hidden">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-teal-200/30 to-transparent rounded-bl-full"></div>
-          <div class="relative">
-            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-teal-200">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('teeqode', 'why.card1.title', lang)}</h3>
-            <p class="text-gray-600 leading-relaxed">
-              {tp('teeqode', 'why.card1.text', lang)}
-            </p>
+        <!-- Centralisation sécurisée -->
+        <div class="glass-card p-6 md:p-10 fade-in group hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-100 to-cyan-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-7 h-7 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
           </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('teeqode', 'why.card1.title', lang)}</h3>
+          <p class="text-gray-500 leading-relaxed">{tp('teeqode', 'why.card1.text', lang)}</p>
         </div>
 
-        <!-- Card 2 -->
-        <div class="relative bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-6 md:p-10 fade-in group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-emerald-100/50 overflow-hidden">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-200/30 to-transparent rounded-bl-full"></div>
-          <div class="relative">
-            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-emerald-200">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('teeqode', 'why.card2.title', lang)}</h3>
-            <p class="text-gray-600 leading-relaxed">
-              {tp('teeqode', 'why.card2.text', lang)}
-            </p>
+        <!-- Conformité automatique -->
+        <div class="glass-card p-6 md:p-10 fade-in group hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-100 to-teal-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-7 h-7 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
           </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('teeqode', 'why.card2.title', lang)}</h3>
+          <p class="text-gray-500 leading-relaxed">{tp('teeqode', 'why.card2.text', lang)}</p>
         </div>
 
-        <!-- Card 3 -->
-        <div class="relative bg-gradient-to-br from-cyan-50 to-teal-50 rounded-3xl p-6 md:p-10 fade-in group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-cyan-100/50 overflow-hidden">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-200/30 to-transparent rounded-bl-full"></div>
-          <div class="relative">
-            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-cyan-200">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('teeqode', 'why.card3.title', lang)}</h3>
-            <p class="text-gray-600 leading-relaxed">
-              {tp('teeqode', 'why.card3.text', lang)}
-            </p>
+        <!-- Sur-mesure & modulaire -->
+        <div class="glass-card p-6 md:p-10 fade-in group hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-100 to-teal-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-7 h-7 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+            </svg>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Fonctionnalités -->
-  <section class="relative">
-    <WaveDivider flip={true} color="#f0fdfa" />
-    <div class="section-padding bg-gradient-to-b from-teal-50 via-cyan-50/60 to-teal-50">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-10 md:mb-16 fade-in">
-          <div class="badge bg-teal-100 text-teal-700 mx-auto mb-6">
-            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
-            {tp('teeqode', 'features.badge', lang)}
-          </div>
-          <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4" set:html={tp('teeqode', 'features.title', lang)}></h2>
-          <p class="text-lg text-gray-500 max-w-3xl mx-auto">
-            {tp('teeqode', 'features.subtitle', lang)}
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 stagger-children">
-          <!-- Card 1 -->
-          <div class="relative bg-gradient-to-br from-teal-50 to-cyan-50 rounded-3xl p-6 md:p-10 fade-in group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-teal-100/50 overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-teal-200/30 to-transparent rounded-bl-full"></div>
-            <div class="relative">
-              <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-teal-200">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('teeqode', 'features.card1.title', lang)}</h3>
-              <p class="text-gray-600 leading-relaxed">
-                {tp('teeqode', 'features.card1.text', lang)}
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="relative bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-6 md:p-10 fade-in group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-emerald-100/50 overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-200/30 to-transparent rounded-bl-full"></div>
-            <div class="relative">
-              <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-emerald-200">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('teeqode', 'features.card2.title', lang)}</h3>
-              <p class="text-gray-600 leading-relaxed">
-                {tp('teeqode', 'features.card2.text', lang)}
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="relative bg-gradient-to-br from-cyan-50 to-teal-50 rounded-3xl p-6 md:p-10 fade-in group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-cyan-100/50 overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-200/30 to-transparent rounded-bl-full"></div>
-            <div class="relative">
-              <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-cyan-200">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('teeqode', 'features.card3.title', lang)}</h3>
-              <p class="text-gray-600 leading-relaxed">
-                {tp('teeqode', 'features.card3.text', lang)}
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="relative bg-gradient-to-br from-teal-50 to-emerald-50 rounded-3xl p-6 md:p-10 fade-in group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-teal-100/50 overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-teal-200/30 to-transparent rounded-bl-full"></div>
-            <div class="relative">
-              <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-teal-200">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('teeqode', 'features.card4.title', lang)}</h3>
-              <p class="text-gray-600 leading-relaxed">
-                {tp('teeqode', 'features.card4.text', lang)}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <WaveDivider color="white" />
-  </section>
-
-  <!-- Notre méthode -->
-  <section class="section-padding bg-white">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-10 md:mb-16 fade-in">
-        <div class="badge bg-teal-50 text-teal-700 mx-auto mb-6">
-          <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
-          {tp('teeqode', 'method.badge', lang)}
-        </div>
-        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4" set:html={tp('teeqode', 'method.title', lang)}></h2>
-        <p class="text-lg text-gray-500">
-          {tp('teeqode', 'method.subtitle', lang)}
-        </p>
-      </div>
-
-      <div class="relative">
-        <!-- Ligne de connexion -->
-        <div class="hidden md:block absolute top-[4.5rem] left-[8%] right-[8%] h-0.5 bg-gradient-to-r from-teal-200 via-cyan-300 to-teal-200"></div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 stagger-children">
-          <!-- Étape 01 -->
-          <div class="relative fade-in group">
-            <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-3xl p-8 h-full hover:shadow-xl hover:-translate-y-2 transition-all duration-500 border border-teal-100/50 text-center">
-              <div class="w-20 h-20 rounded-full bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center mx-auto mb-6 text-white font-bold text-2xl group-hover:scale-110 transition-transform shadow-lg shadow-teal-200 relative z-10">
-                01
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('teeqode', 'method.step1.title', lang)}</h3>
-              <p class="text-gray-500 leading-relaxed">
-                {tp('teeqode', 'method.step1.text', lang)}
-              </p>
-            </div>
-          </div>
-
-          <!-- Étape 02 -->
-          <div class="relative fade-in group">
-            <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-3xl p-8 h-full hover:shadow-xl hover:-translate-y-2 transition-all duration-500 border border-teal-100/50 text-center">
-              <div class="w-20 h-20 rounded-full bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center mx-auto mb-6 text-white font-bold text-2xl group-hover:scale-110 transition-transform shadow-lg shadow-teal-200 relative z-10">
-                02
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('teeqode', 'method.step2.title', lang)}</h3>
-              <p class="text-gray-500 leading-relaxed">
-                {tp('teeqode', 'method.step2.text', lang)}
-              </p>
-            </div>
-          </div>
-
-          <!-- Étape 03 -->
-          <div class="relative fade-in group">
-            <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-3xl p-8 h-full hover:shadow-xl hover:-translate-y-2 transition-all duration-500 border border-teal-100/50 text-center">
-              <div class="w-20 h-20 rounded-full bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center mx-auto mb-6 text-white font-bold text-2xl group-hover:scale-110 transition-transform shadow-lg shadow-teal-200 relative z-10">
-                03
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('teeqode', 'method.step3.title', lang)}</h3>
-              <p class="text-gray-500 leading-relaxed">
-                {tp('teeqode', 'method.step3.text', lang)}
-              </p>
-            </div>
-          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">{tp('teeqode', 'why.card3.title', lang)}</h3>
+          <p class="text-gray-500 leading-relaxed">{tp('teeqode', 'why.card3.text', lang)}</p>
         </div>
       </div>
     </div>
@@ -388,7 +162,6 @@ const lang = locale;
     <div class="absolute inset-0 lines-pattern opacity-10"></div>
     <div class="blob w-64 md:w-[500px] h-64 md:h-[500px] bg-white/10 -top-32 -right-32"></div>
     <div class="blob w-80 h-80 bg-white/10 -bottom-20 -left-20" style="animation-delay: 3s;"></div>
-    <div class="blob w-64 h-64 bg-emerald-400/10 top-1/2 left-1/3" style="animation-delay: 5s;"></div>
 
     <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
       <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-6">

@@ -24,41 +24,119 @@ export const kuck = {
     de: 'Das Kuck-Universum entdecken',
     lu: 'De Kuck-Universum entdecken',
   },
-  'hero.badges': {
-    fr: ['Scanner 3D', 'Drone HD', 'Visite 360°', 'Jumeaux numériques'],
-    en: ['3D Scanner', 'HD Drone', '360° Tour', 'Digital twins'],
-    de: ['3D-Scanner', 'HD-Drohne', '360°-Tour', 'Digitale Zwillinge'],
-    lu: ['3D-Scanner', 'HD-Droun', '360°-Tour', 'Digital Zwillingen'],
+
+  // Nos 3 services
+  'services.badge': {
+    fr: 'Nos services',
+    en: 'Our services',
+    de: 'Unsere Dienste',
+    lu: 'Eis Servicer',
+  },
+  'services.title': {
+    fr: 'Nos <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-cyan-600">3 services</span>',
+    en: 'Our <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-cyan-600">3 services</span>',
+    de: 'Unsere <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-cyan-600">3 Dienste</span>',
+    lu: 'Eis <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-cyan-600">3 Servicer</span>',
+  },
+  'services.card1.title': {
+    fr: 'Numérisation 3D',
+    en: '3D Scanning',
+    de: '3D-Digitalisierung',
+    lu: '3D-Digitaliséierung',
+  },
+  'services.card1.text': {
+    fr: 'Scanner 3D professionnel avec une précision de ±1–2 mm pour relevés, plans et jumeaux numériques.',
+    en: 'Professional 3D scanner with ±1–2 mm precision for surveys, plans and digital twins.',
+    de: 'Professioneller 3D-Scanner mit einer Präzision von ±1–2 mm für Vermessungen, Pläne und digitale Zwillinge.',
+    lu: 'Professionellen 3D-Scanner mat enger Präzisioun vun ±1–2 mm fir Opnamen, Pläng an digital Zwillingen.',
+  },
+  'services.card2.title': {
+    fr: 'Captation Drone',
+    en: 'Drone Capture',
+    de: 'Drohnenaufnahmen',
+    lu: 'Drounen-Opnamen',
+  },
+  'services.card2.text': {
+    fr: 'Photogrammétrie, cartographie, inspection et suivi de chantier. Inspectez vos sites difficiles d\'accès en toute sécurité.',
+    en: 'Photogrammetry, mapping, inspection and site monitoring. Inspect hard-to-reach sites safely.',
+    de: 'Photogrammetrie, Kartierung, Inspektion und Baustellenüberwachung. Inspizieren Sie schwer zugängliche Standorte sicher.',
+    lu: 'Photogrammetrie, Kartéierung, Inspektioun a Chantier-Suivi. Inspektéiert schwéier zougänglech Siten sécher.',
+  },
+  'services.card3.title': {
+    fr: 'Visites virtuelles',
+    en: 'Virtual tours',
+    de: 'Virtuelle Touren',
+    lu: 'Virtuell Touren',
+  },
+  'services.card3.text': {
+    fr: 'Visites 360° interactives, formations immersives et présentations avant-projet pour convaincre et former.',
+    en: 'Interactive 360° tours, immersive training and pre-project presentations to convince and train.',
+    de: 'Interaktive 360°-Touren, immersive Schulungen und Vorprojektpräsentationen zum Überzeugen und Schulen.',
+    lu: 'Interaktiv 360°-Touren, immersiv Formatiounen a Virprojet-Presentatiounen fir ze iwwerzeegen a forméieren.',
   },
 
-  // Floating cards
-  'card.3d': { fr: '3D', en: '3D', de: '3D', lu: '3D' },
-  'card.3dSub': { fr: 'Haute précision', en: 'High precision', de: 'Hohe Präzision', lu: 'Héich Präzisioun' },
-  'card.vr': { fr: 'VR', en: 'VR', de: 'VR', lu: 'VR' },
-  'card.vrSub': { fr: 'Immersif', en: 'Immersive', de: 'Immersiv', lu: 'Immersiv' },
-  'card.drone': { fr: 'Drone', en: 'Drone', de: 'Drohne', lu: 'Droun' },
-  'card.droneSub': { fr: 'Vue aérienne', en: 'Aerial view', de: 'Luftaufnahme', lu: 'Loftopnam' },
-  'card.precision': { fr: 'Précision', en: 'Precision', de: 'Präzision', lu: 'Präzisioun' },
-  'card.precisionSub': { fr: 'Certifiée', en: 'Certified', de: 'Zertifiziert', lu: 'Zertifizéiert' },
+  // Pour quels secteurs ?
+  'sectors.badge': {
+    fr: 'Secteurs',
+    en: 'Sectors',
+    de: 'Branchen',
+    lu: 'Secteuren',
+  },
+  'sectors.title': {
+    fr: 'Pour quels <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-cyan-600">secteurs</span> ?',
+    en: 'For which <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-cyan-600">sectors</span>?',
+    de: 'Für welche <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-cyan-600">Branchen</span>?',
+    lu: 'Fir wéi eng <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-cyan-600">Secteuren</span>?',
+  },
+  'sectors.card1.title': {
+    fr: 'Industrie & construction',
+    en: 'Industry & construction',
+    de: 'Industrie & Bauwesen',
+    lu: 'Industrie & Bau',
+  },
+  'sectors.card1.text': {
+    fr: 'Analysez l\'espace disponible, inspectez toitures et façades par drone, suivez l\'avancement de chantier.',
+    en: 'Analyze available space, inspect roofs and facades by drone, monitor construction progress.',
+    de: 'Analysieren Sie den verfügbaren Raum, inspizieren Sie Dächer und Fassaden per Drohne, verfolgen Sie den Baufortschritt.',
+    lu: 'Analyséiert de verfügbare Raum, inspektéiert Daacher a Fassaden mat Droun, verfollegt de Chantier-Fortschrëtt.',
+  },
+  'sectors.card2.title': {
+    fr: 'Restauration',
+    en: 'Catering',
+    de: 'Gastronomie',
+    lu: 'Gastronomie',
+  },
+  'sectors.card2.text': {
+    fr: 'Offrez une visite immersive de votre établissement. Vos clients choisissent leur table avant même d\'arriver.',
+    en: 'Offer an immersive tour of your establishment. Your customers choose their table before they even arrive.',
+    de: 'Bieten Sie eine immersive Tour durch Ihr Lokal. Ihre Kunden wählen ihren Tisch, bevor sie ankommen.',
+    lu: 'Bitt eng immersiv Tour duerch Äert Lokal. Är Clienten wielen hiren Dësch ier se ukommen.',
+  },
+  'sectors.card3.title': {
+    fr: 'Hôtellerie',
+    en: 'Hospitality',
+    de: 'Hotellerie',
+    lu: 'Hotellerie',
+  },
+  'sectors.card3.text': {
+    fr: 'Permettez à vos clients de visiter leurs chambres à distance avant la réservation.',
+    en: 'Allow your guests to visit their rooms remotely before booking.',
+    de: 'Ermöglichen Sie Ihren Gästen, ihre Zimmer vor der Buchung virtuell zu besichtigen.',
+    lu: 'Erlaabt Äre Clienten hir Zëmmer op Distanz ze besichtegen ier se reservéieren.',
+  },
 
-  // Why choose section
+  // 3 points forts
   'why.badge': {
-    fr: 'Avantages',
-    en: 'Advantages',
-    de: 'Vorteile',
-    lu: 'Virdeeler',
+    fr: 'Points forts',
+    en: 'Key strengths',
+    de: 'Stärken',
+    lu: 'Stäerkten',
   },
   'why.title': {
-    fr: 'Pourquoi choisir <span class="gradient-text">KUCK®</span> ?',
-    en: 'Why choose <span class="gradient-text">KUCK®</span>?',
-    de: 'Warum <span class="gradient-text">KUCK®</span> wählen?',
-    lu: 'Firwat <span class="gradient-text">KUCK®</span> wielen?',
-  },
-  'why.subtitle': {
-    fr: 'Scan 3D, vues drone et jumeaux numériques pour exploiter et valoriser vos espaces avec précision, du sol au ciel.',
-    en: '3D scanning, drone views and digital twins to leverage and enhance your spaces with precision, from ground to sky.',
-    de: '3D-Scan, Drohnenansichten und digitale Zwillinge, um Ihre Räume präzise vom Boden bis zum Himmel zu nutzen und aufzuwerten.',
-    lu: '3D-Scan, Drounen-Ansichten an digital Zwillingen fir Är Raim mat Präzisioun vum Buedem bis an den Himmel ze notzen an opzewäerten.',
+    fr: 'Pourquoi <span class="gradient-text">KUCK®</span> ?',
+    en: 'Why <span class="gradient-text">KUCK®</span>?',
+    de: 'Warum <span class="gradient-text">KUCK®</span>?',
+    lu: 'Firwat <span class="gradient-text">KUCK®</span>?',
   },
   'why.card1.title': {
     fr: 'Précision',
@@ -91,115 +169,10 @@ export const kuck = {
     lu: 'Digital Zwillingen',
   },
   'why.card3.text': {
-    fr: 'Visualiser, analyser et anticiper l\'évolution de vos espaces.',
+    fr: 'Visualisez, analysez et anticipez l\'évolution de vos espaces.',
     en: 'Visualize, analyze and anticipate the evolution of your spaces.',
     de: 'Visualisieren, analysieren und antizipieren Sie die Entwicklung Ihrer Räume.',
     lu: 'Visualiséiert, analyséiert an antiziéiert d\'Entwécklung vun Äre Raim.',
-  },
-
-  // Mission section
-  'mission.badge': {
-    fr: 'Notre mission',
-    en: 'Our mission',
-    de: 'Unsere Mission',
-    lu: 'Eis Missioun',
-  },
-  'mission.title': {
-    fr: 'Transformer vos espaces en <span class="gradient-text">données exploitables</span>',
-    en: 'Transform your spaces into <span class="gradient-text">actionable data</span>',
-    de: 'Ihre Räume in <span class="gradient-text">verwertbare Daten</span> umwandeln',
-    lu: 'Är Raim an <span class="gradient-text">verwäertbar Donnéeën</span> ëmwandelen',
-  },
-  'mission.text': {
-    fr: 'Chez KUCK, nous transformons vos espaces en données exploitables grâce à la précision du scan 3D, la puissance des vues drones et l\'impact de la réalité virtuelle. Notre mission : créer des solutions visuelles sur mesure pour analyser, optimiser et valoriser vos projets du sol au ciel.',
-    en: 'At KUCK, we transform your spaces into actionable data through the precision of 3D scanning, the power of drone views and the impact of virtual reality. Our mission: create custom visual solutions to analyze, optimize and enhance your projects from ground to sky.',
-    de: 'Bei KUCK transformieren wir Ihre Räume in verwertbare Daten durch die Präzision des 3D-Scans, die Leistung der Drohnenansichten und den Impact der virtuellen Realität. Unsere Mission: maßgeschneiderte visuelle Lösungen zu schaffen, um Ihre Projekte vom Boden bis zum Himmel zu analysieren, zu optimieren und aufzuwerten.',
-    lu: 'Bei KUCK transforméiere mir Är Raim an verwäertbar Donnéeën duerch d\'Präzisioun vum 3D-Scan, d\'Kraaft vun Drounen-Ansichten an den Impact vu virtueller Realitéit. Eis Missioun: personaliséiert visuell Léisunge kreéieren fir Är Projeten vum Buedem bis an den Himmel ze analyséieren, optimiséieren an opzewäerten.',
-  },
-  'mission.versatility.title': {
-    fr: 'Polyvalence',
-    en: 'Versatility',
-    de: 'Vielseitigkeit',
-    lu: 'Villsäitegkeet',
-  },
-  'mission.versatility.text': {
-    fr: 'Applicable à tous les secteurs : industrie, hôtellerie, restauration, retail, immobilier, construction…',
-    en: 'Applicable to all sectors: industry, hospitality, catering, retail, real estate, construction...',
-    de: 'Anwendbar in allen Branchen: Industrie, Hotellerie, Gastronomie, Einzelhandel, Immobilien, Bauwesen...',
-    lu: 'Uwendbar an alle Secteuren: Industrie, Hotellerie, Gastronomie, Retail, Immobilien, Bau...',
-  },
-  'mission.support.title': {
-    fr: 'Accompagnement',
-    en: 'Support',
-    de: 'Begleitung',
-    lu: 'Begleedung',
-  },
-  'mission.support.text': {
-    fr: 'Suivi personnalisé de la capture à la livraison finale.',
-    en: 'Personalized follow-up from capture to final delivery.',
-    de: 'Persönliche Begleitung von der Aufnahme bis zur finalen Lieferung.',
-    lu: 'Personaliséiert Begleedung vun der Opnam bis zur finaler Liwwerung.',
-  },
-
-  // Stats
-  'stats.3d': { fr: 'Scanner', en: 'Scanner', de: 'Scanner', lu: 'Scanner' },
-  'stats.360': { fr: 'Visite virtuelle', en: 'Virtual tour', de: 'Virtuelle Tour', lu: 'Virtuell Tour' },
-  'stats.hd': { fr: 'Drone', en: 'Drone', de: 'Drohne', lu: 'Droun' },
-
-  // Methodology section
-  'method.badge': {
-    fr: 'Méthodologie',
-    en: 'Methodology',
-    de: 'Methodik',
-    lu: 'Methodik',
-  },
-  'method.title': {
-    fr: 'Notre <span class="gradient-text">méthode</span>',
-    en: 'Our <span class="gradient-text">method</span>',
-    de: 'Unsere <span class="gradient-text">Methode</span>',
-    lu: 'Eis <span class="gradient-text">Method</span>',
-  },
-  'method.subtitle': {
-    fr: 'Innovation, Connection, Excellence',
-    en: 'Innovation, Connection, Excellence',
-    de: 'Innovation, Verbindung, Exzellenz',
-    lu: 'Innovatioun, Verbindung, Exzellenz',
-  },
-  'method.step1.title': {
-    fr: 'Immersion & diagnostic',
-    en: 'Immersion & diagnosis',
-    de: 'Immersion & Diagnose',
-    lu: 'Immersioun & Diagnos',
-  },
-  'method.step1.text': {
-    fr: 'Nous plongeons au cœur de votre environnement pour saisir vos enjeux, vos usages et vos spécificités techniques.',
-    en: 'We dive into the heart of your environment to understand your challenges, uses and technical specificities.',
-    de: 'Wir tauchen in das Herz Ihrer Umgebung ein, um Ihre Herausforderungen, Nutzungen und technischen Besonderheiten zu verstehen.',
-    lu: 'Mir dauchen an d\'Häerz vun Ärer Ëmgebung fir Är Erausfuerderungen, Notzungen an technesch Besonneschheeten ze verstoen.',
-  },
-  'method.step2.title': {
-    fr: 'Capture & modélisation',
-    en: 'Capture & modeling',
-    de: 'Erfassung & Modellierung',
-    lu: 'Erfaassung & Modelléierung',
-  },
-  'method.step2.text': {
-    fr: 'Grâce à notre équipement 3D, nous générons des données de haute qualité.',
-    en: 'With our 3D equipment, we generate high-quality data.',
-    de: 'Mit unserer 3D-Ausrüstung generieren wir hochwertige Daten.',
-    lu: 'Mat eiser 3D-Ausrüstung generéiere mir héichwäerteg Donnéeën.',
-  },
-  'method.step3.title': {
-    fr: 'Intégration & suivi',
-    en: 'Integration & follow-up',
-    de: 'Integration & Nachverfolgung',
-    lu: 'Integratioun & Suivi',
-  },
-  'method.step3.text': {
-    fr: 'Nous intégrons vos livrables à vos process, formons vos équipes et assurons un suivi afin que vos décisions soient plus rapides, plus sûres et mieux informées.',
-    en: 'We integrate your deliverables into your processes, train your teams and ensure follow-up so your decisions are faster, safer and better informed.',
-    de: 'Wir integrieren Ihre Ergebnisse in Ihre Prozesse, schulen Ihre Teams und gewährleisten eine Nachverfolgung, damit Ihre Entscheidungen schneller, sicherer und besser informiert sind.',
-    lu: 'Mir integréieren Är Liwwerungen an Är Prozesser, forméieren Är Equippen an assuréieren e Suivi fir datt Är Entscheedungen méi séier, méi sécher a besser informéiert sinn.',
   },
 
   // CTA Banner
