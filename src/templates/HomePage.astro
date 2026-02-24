@@ -148,12 +148,12 @@ const lang = locale;
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 stagger-children">
         <!-- KUCK -->
-        <div class="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 fade-in">
+        <div class="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 fade-in flex flex-col">
           <div class="relative h-56 bg-gradient-to-br from-teal-50 to-cyan-50 flex items-center justify-center overflow-hidden">
             <div class="absolute inset-0 lines-pattern opacity-20"></div>
             <img src="/images/kuck-logo.png" alt="Logo KUCK - Numérisation 3D et drone" width="176" height="176" class="w-44 h-44 object-contain relative z-10 group-hover:scale-110 transition-transform duration-700" loading="lazy" />
           </div>
-          <div class="p-8">
+          <div class="p-8 flex flex-col flex-1">
             <div class="flex items-center gap-3 mb-4">
               <span class="w-8 h-1 rounded-full bg-gradient-to-r from-teal-400 to-cyan-400"></span>
               <span class="text-xs font-semibold text-teal-600 uppercase tracking-wider">{tp('home', 'solutions.product', lang)}</span>
@@ -163,7 +163,7 @@ const lang = locale;
             <p class="text-gray-500 text-sm leading-relaxed mb-8">
               {tp('home', 'solutions.kuck.text', lang)}
             </p>
-            <a href={getLocalizedPath('/kuck', lang)} class="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-teal-600 transition-colors group/link">
+            <a href={getLocalizedPath('/kuck', lang)} class="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-teal-600 transition-colors group/link">
               {t('cta.learnMore', lang)}
               <svg aria-hidden="true" class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -173,12 +173,12 @@ const lang = locale;
         </div>
 
         <!-- TEEQODE -->
-        <div class="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 fade-in">
+        <div class="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 fade-in flex flex-col">
           <div class="relative h-56 bg-gradient-to-br from-emerald-50 to-teal-50 flex items-center justify-center overflow-hidden">
             <div class="absolute inset-0 lines-pattern opacity-20"></div>
             <img src="/images/teeqode-logo.png" alt="Logo TEEQODE - Gestion documentaire intelligente" width="144" height="144" class="w-36 h-36 object-contain relative z-10 group-hover:scale-110 transition-transform duration-700" loading="lazy" />
           </div>
-          <div class="p-8">
+          <div class="p-8 flex flex-col flex-1">
             <div class="flex items-center gap-3 mb-4">
               <span class="w-8 h-1 rounded-full bg-gradient-to-r from-emerald-400 to-teal-400"></span>
               <span class="text-xs font-semibold text-emerald-600 uppercase tracking-wider">{tp('home', 'solutions.product', lang)}</span>
@@ -188,7 +188,7 @@ const lang = locale;
             <p class="text-gray-500 text-sm leading-relaxed mb-8">
               {tp('home', 'solutions.teeqode.text', lang)}
             </p>
-            <a href={getLocalizedPath('/teeqode', lang)} class="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-teal-600 transition-colors group/link">
+            <a href={getLocalizedPath('/teeqode', lang)} class="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-teal-600 transition-colors group/link">
               {t('cta.learnMore', lang)}
               <svg aria-hidden="true" class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -198,14 +198,14 @@ const lang = locale;
         </div>
 
         <!-- Agent Lift -->
-        <div class="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 fade-in">
+        <div class="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 fade-in flex flex-col">
           <div class="relative h-56 bg-gradient-to-br from-indigo-50 to-violet-50 flex items-center justify-center overflow-hidden">
             <div class="absolute inset-0 lines-pattern opacity-20"></div>
             <svg class="w-28 h-28 text-indigo-400 relative z-10 group-hover:scale-110 transition-transform duration-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-2.47 2.47a2.25 2.25 0 01-1.591.659H9.061a2.25 2.25 0 01-1.591-.659L5 14.5m14 0V17a2 2 0 01-2 2H7a2 2 0 01-2-2v-2.5" />
             </svg>
           </div>
-          <div class="p-8">
+          <div class="p-8 flex flex-col flex-1">
             <div class="flex items-center gap-3 mb-4">
               <span class="w-8 h-1 rounded-full bg-gradient-to-r from-indigo-400 to-violet-400"></span>
               <span class="text-xs font-semibold text-indigo-600 uppercase tracking-wider">{tp('home', 'solutions.product', lang)}</span>
@@ -215,7 +215,7 @@ const lang = locale;
             <p class="text-gray-500 text-sm leading-relaxed mb-8">
               {tp('home', 'solutions.agentlift.text', lang)}
             </p>
-            <a href={getLocalizedPath('/agent-lift', lang)} class="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-indigo-600 transition-colors group/link">
+            <a href={getLocalizedPath('/agent-lift', lang)} class="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-indigo-600 transition-colors group/link">
               {t('cta.learnMore', lang)}
               <svg aria-hidden="true" class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -225,11 +225,11 @@ const lang = locale;
         </div>
 
         <!-- SaaS -->
-        <div class="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 fade-in">
+        <div class="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 fade-in flex flex-col">
           <div class="relative h-56 overflow-hidden">
             <img src="/images/card-violet.png" alt="Plateformes SaaS sur-mesure Digital Factory" width="400" height="224" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
           </div>
-          <div class="p-8">
+          <div class="p-8 flex flex-col flex-1">
             <div class="flex items-center gap-3 mb-4">
               <span class="w-8 h-1 rounded-full bg-gradient-to-r from-teal-400 to-cyan-400"></span>
               <span class="text-xs font-semibold text-teal-600 uppercase tracking-wider">{tp('home', 'solutions.service', lang)}</span>
@@ -239,7 +239,7 @@ const lang = locale;
             <p class="text-gray-500 text-sm leading-relaxed mb-8">
               {tp('home', 'solutions.saas.text', lang)}
             </p>
-            <a href={getLocalizedPath('/saas', lang)} class="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-teal-600 transition-colors group/link">
+            <a href={getLocalizedPath('/saas', lang)} class="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-teal-600 transition-colors group/link">
               {t('cta.learnMore', lang)}
               <svg aria-hidden="true" class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
