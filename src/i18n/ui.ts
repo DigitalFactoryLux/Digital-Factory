@@ -4,6 +4,7 @@ export const ui = {
   'nav.saas': { fr: 'SaaS', en: 'SaaS', de: 'SaaS', lu: 'SaaS' },
   'nav.teeqode': { fr: 'Teeqode', en: 'Teeqode', de: 'Teeqode', lu: 'Teeqode' },
   'nav.kuck': { fr: 'Kuck', en: 'Kuck', de: 'Kuck', lu: 'Kuck' },
+  'nav.agentlift': { fr: 'Agent Lift', en: 'Agent Lift', de: 'Agent Lift', lu: 'Agent Lift' },
   'nav.products': { fr: 'Produits', en: 'Products', de: 'Produkte', lu: 'Produkter' },
   'nav.menu': { fr: 'Ouvrir le menu', en: 'Open menu', de: 'Menü öffnen', lu: 'Menü opmaachen' },
 
@@ -14,6 +15,7 @@ export const ui = {
   'cta.learnMore': { fr: 'En savoir plus', en: 'Learn more', de: 'Mehr erfahren', lu: 'Méi gewuer ginn' },
   'cta.tryTeeqode': { fr: 'Essayez Teeqode', en: 'Try Teeqode', de: 'Teeqode testen', lu: 'Teeqode testen' },
   'cta.tryKuck': { fr: 'Découvrir Kuck', en: 'Discover Kuck', de: 'Kuck entdecken', lu: 'Kuck entdecken' },
+  'cta.tryAgentLift': { fr: 'Essayer Agent Lift', en: 'Try Agent Lift', de: 'Agent Lift testen', lu: 'Agent Lift testen' },
   'cta.ourExpertise': { fr: 'Nos expertises', en: 'Our expertise', de: 'Unsere Expertise', lu: 'Eis Expertise' },
 
   // Hero badges
@@ -21,6 +23,7 @@ export const ui = {
   'badge.saas': { fr: 'SaaS & Web', en: 'SaaS & Web', de: 'SaaS & Web', lu: 'SaaS & Web' },
   'badge.teeqode': { fr: 'TEEQODE®', en: 'TEEQODE®', de: 'TEEQODE®', lu: 'TEEQODE®' },
   'badge.kuck': { fr: 'KUCK®', en: 'KUCK®', de: 'KUCK®', lu: 'KUCK®' },
+  'badge.agentlift': { fr: 'Agent Lift', en: 'Agent Lift', de: 'Agent Lift', lu: 'Agent Lift' },
 
   // Service badges (home hero)
   'badge.saasCustom': { fr: 'SaaS sur-mesure', en: 'Custom SaaS', de: 'Maßgeschneiderte SaaS', lu: 'Personaliséiert SaaS' },

@@ -15,9 +15,10 @@ const activePage = pathWithoutLocale === '/' ? 'home'
   : pathWithoutLocale.startsWith('/saas') ? 'saas'
   : pathWithoutLocale.startsWith('/teeqode') ? 'teeqode'
   : pathWithoutLocale.startsWith('/kuck') ? 'kuck'
+  : pathWithoutLocale.startsWith('/agent-lift') ? 'agent-lift'
   : '';
 
-const isProductActive = activePage === 'teeqode' || activePage === 'kuck';
+const isProductActive = activePage === 'teeqode' || activePage === 'kuck' || activePage === 'agent-lift';
 
 // Descriptions produits pour le dropdown
 const teeqodeDesc: Record<string, string> = {
@@ -31,6 +32,12 @@ const kuckDesc: Record<string, string> = {
   en: '3D Scanning, Drone & VR',
   de: '3D-Digitalisierung, Drohne & VR',
   lu: '3D-Digitaliséierung, Droun & VR',
+};
+const agentLiftDesc: Record<string, string> = {
+  fr: 'Assistant IA pour monte-charges',
+  en: 'AI Assistant for freight elevators',
+  de: 'KI-Assistent für Lastenaufzüge',
+  lu: 'KI-Assistent fir Lastenopzich',
 };
 const teeqodeShort: Record<string, string> = {
   fr: 'Gestion documentaire',
@@ -140,6 +147,26 @@ const teeqodeShort: Record<string, string> = {
               <span class="text-xs text-gray-500 mt-0.5 block">{kuckDesc[locale]}</span>
             </div>
           </a>
+
+          <a
+            href={getLocalizedPath('/agent-lift', locale)}
+            class:list={[
+              'flex items-start gap-3 p-3 rounded-xl transition-all duration-200',
+              activePage === 'agent-lift' ? 'bg-teal-50' : 'hover:bg-gray-50',
+            ]}
+          >
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-400 to-violet-500 flex items-center justify-center flex-shrink-0 shadow-sm">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-2.47 2.47a2.25 2.25 0 01-1.591.659H9.061a2.25 2.25 0 01-1.591-.659L5 14.5m14 0V17a2 2 0 01-2 2H7a2 2 0 01-2-2v-2.5" />
+              </svg>
+            </div>
+            <div>
+              <span class:list={['font-semibold text-sm block', activePage === 'agent-lift' ? 'text-teal-700' : 'text-gray-900']}>
+                Agent Lift
+              </span>
+              <span class="text-xs text-gray-500 mt-0.5 block">{agentLiftDesc[locale]}</span>
+            </div>
+          </a>
         </div>
       </li>
     </ul>
@@ -243,6 +270,24 @@ const teeqodeShort: Record<string, string> = {
         <div>
           <span class="block font-semibold">KUCK®</span>
           <span class="block text-xs text-gray-500">{locale === 'fr' ? '3D, Drone & VR' : '3D, Drone & VR'}</span>
+        </div>
+      </a>
+
+      <a
+        href={getLocalizedPath('/agent-lift', locale)}
+        class:list={[
+          'flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ml-2',
+          activePage === 'agent-lift' ? 'text-teal-700 bg-teal-50' : 'text-gray-700 hover:bg-gray-50',
+        ]}
+      >
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-400 to-violet-500 flex items-center justify-center flex-shrink-0">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-2.47 2.47a2.25 2.25 0 01-1.591.659H9.061a2.25 2.25 0 01-1.591-.659L5 14.5m14 0V17a2 2 0 01-2 2H7a2 2 0 01-2-2v-2.5" />
+          </svg>
+        </div>
+        <div>
+          <span class="block font-semibold">Agent Lift</span>
+          <span class="block text-xs text-gray-500">{agentLiftDesc[locale]}</span>
         </div>
       </a>
 

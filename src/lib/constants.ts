@@ -19,12 +19,14 @@ export const NAV_LINKS = [
   { label: 'SaaS', href: '/saas' },
   { label: 'Teeqode', href: '/teeqode' },
   { label: 'Kuck', href: '/kuck' },
+  { label: 'Agent Lift', href: '/agent-lift' },
 ];
 
 export const EXTERNAL_LINKS = {
   kuck: 'https://www.kuck.lu/',
   teeqode: 'https://teeqode.com/',
   teeqodeLogin: 'https://teeqode.com/login',
+  agentLift: 'https://lift-assistant.osc-fr1.scalingo.io',
 };
 
 export const SEO = {
@@ -47,5 +49,10 @@ export const SEO = {
     title: 'KUCK® – Numérisation 3D, Drone & VR | Digital Factory',
     description:
       'Scanner 3D, drones et réalité virtuelle pour l\'industrie et la construction.',
+  },
+  agentlift: {
+    title: 'Agent Lift – Assistant IA pour monte-charges | Digital Factory',
+    description:
+      'Assistant IA multimodal pour les opérateurs de monte-charges : voix, texte, photos, météo en temps réel.',
   },
 };

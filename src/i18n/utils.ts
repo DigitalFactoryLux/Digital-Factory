@@ -3,12 +3,13 @@ import { home } from './pages/home';
 import { saas } from './pages/saas';
 import { teeqode } from './pages/teeqode';
 import { kuck } from './pages/kuck';
+import { agentlift } from './pages/agentlift';
 import { privacy } from './pages/privacy';
 import { legal } from './pages/legal';
 
 export type Locale = 'fr' | 'en' | 'de' | 'lu';
 
-const pageTranslations = { home, saas, teeqode, kuck, privacy, legal } as const;
+const pageTranslations = { home, saas, teeqode, kuck, agentlift, privacy, legal } as const;
 export type PageKey = keyof typeof pageTranslations;
 
 export const locales: Locale[] = ['fr', 'en', 'de', 'lu'];
@@ -95,6 +96,7 @@ export function getPageKeyFromUrl(url: URL): string {
     '/saas': 'saas',
     '/teeqode': 'teeqode',
     '/kuck': 'kuck',
+    '/agent-lift': 'agentlift',
   };
 
   return pageMap[path] ?? 'home';
