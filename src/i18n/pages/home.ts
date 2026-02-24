@@ -1,10 +1,10 @@
 export const home = {
   // Hero
   'hero.title': {
-    fr: 'Votre partenaire en <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">transformation digitale</span>',
-    en: 'Your partner in <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">digital transformation</span>',
-    de: 'Ihr Partner für <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">digitale Transformation</span>',
-    lu: 'Äre Partner fir <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">digital Transformatioun</span>',
+    fr: 'Venture builder SaaS basé au Luxembourg, expert en <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">transformation digitale</span>',
+    en: 'SaaS venture builder based in Luxembourg, expert in <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">digital transformation</span>',
+    de: 'SaaS Venture Builder in Luxemburg, Experte für <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">digitale Transformation</span>',
+    lu: 'SaaS Venture Builder zu Lëtzebuerg, Expert an <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">digitaler Transformatioun</span>',
   },
   'hero.subtitle': {
     fr: 'Moien! Venture builder SaaS au Luxembourg, nous concevons des solutions innovantes pour vos projets.',
@@ -37,6 +37,12 @@ export const home = {
     en: 'We also develop custom SaaS platforms and websites, with modern design, tailored features and optimized SEO.',
     de: 'Wir entwickeln auch maßgeschneiderte SaaS-Plattformen und Websites mit modernem Design, angepassten Funktionen und optimiertem SEO.',
     lu: 'Mir entwéckelen och personaliséiert SaaS-Plattformen a Websäiten, mat modernem Design, ugepasste Funktiounen an optiméiertem SEO.',
+  },
+  'about.text3': {
+    fr: 'Chaque produit est conçu pour être rentable et transmissible, comme une unité génératrice de revenus prête à être exploitée ou acquise.',
+    en: 'Each product is designed to be profitable and transferable, like a revenue-generating unit ready to be operated or acquired.',
+    de: 'Jedes Produkt ist darauf ausgelegt, rentabel und übertragbar zu sein – wie eine umsatzgenerierende Einheit, die sofort betrieben oder erworben werden kann.',
+    lu: 'All Produkt ass konzipéiert fir rentabel an iwwerdréibar ze sinn, wéi eng Recettegeneriéierend Eenheet prett fir genotzt oder kaaft ze ginn.',
   },
   'about.cta': {
     fr: 'Nos solutions',
