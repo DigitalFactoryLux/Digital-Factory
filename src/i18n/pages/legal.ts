@@ -78,17 +78,17 @@ export const legal = {
     de: '3. Hosting',
     lu: '3. Hosting',
   },
-  's3.content': {
-    fr: 'L\'hébergement du site sera précisé lors de la mise en production.',
-    en: 'The hosting provider will be specified upon production launch.',
-    de: 'Der Hosting-Anbieter wird bei der Produktionsfreigabe angegeben.',
-    lu: 'Den Hosting-Provider gëtt bei der Produktiounsfrägab uginn.',
+  's3.hosting': {
+    fr: 'Hébergeur',
+    en: 'Hosting provider',
+    de: 'Hosting-Anbieter',
+    lu: 'Hosting-Provider',
   },
-  's3.placeholder': {
-    fr: 'Les informations de l\'hébergeur seront ajoutées ici.',
-    en: 'Hosting provider information will be added here.',
-    de: 'Die Informationen des Hosting-Anbieters werden hier hinzugefügt.',
-    lu: 'D\'Informatioune vum Hosting-Provider ginn hei derbäigesat.',
+  's3.service': {
+    fr: 'Service de la donnée',
+    en: 'Data service',
+    de: 'Datendienst',
+    lu: 'Datenservice',
   },
 
   // Section 4 - Intellectual Property
