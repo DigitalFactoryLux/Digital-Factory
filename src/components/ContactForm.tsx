@@ -53,7 +53,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
         website: formData.get('website'),
       };
 
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/api/contact.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -86,7 +86,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
             id="prenom"
             name="prenom"
             required
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cyan-dark focus:ring-2 focus:ring-cyan-light/50 outline-none transition-colors bg-white"
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200/50 outline-none transition-colors bg-white"
           />
         </div>
         <div>
@@ -98,7 +98,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
             id="nom"
             name="nom"
             required
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cyan-dark focus:ring-2 focus:ring-cyan-light/50 outline-none transition-colors bg-white"
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200/50 outline-none transition-colors bg-white"
           />
         </div>
       </div>
@@ -113,7 +113,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
             id="email"
             name="email"
             required
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cyan-dark focus:ring-2 focus:ring-cyan-light/50 outline-none transition-colors bg-white"
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200/50 outline-none transition-colors bg-white"
           />
         </div>
         <div>
@@ -124,7 +124,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
             type="tel"
             id="tel"
             name="tel"
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cyan-dark focus:ring-2 focus:ring-cyan-light/50 outline-none transition-colors bg-white"
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200/50 outline-none transition-colors bg-white"
           />
         </div>
       </div>
@@ -137,7 +137,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
           id="message"
           name="message"
           rows={5}
-          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cyan-dark focus:ring-2 focus:ring-cyan-light/50 outline-none transition-colors bg-white resize-vertical"
+          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200/50 outline-none transition-colors bg-white resize-vertical"
         />
       </div>
 

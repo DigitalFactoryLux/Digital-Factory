@@ -13,11 +13,6 @@ export default {
           500: '#2cc295',
           600: '#20a37e',
         },
-        cyan: {
-          light: '#d4f7f0',
-          DEFAULT: '#5ce0c8',
-          dark: '#2fb8a0',
-        },
       },
       fontFamily: {
         sans: ['Inter', 'Montserrat', 'system-ui', 'sans-serif'],
