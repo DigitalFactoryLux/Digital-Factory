@@ -2,11 +2,11 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
-import vercel from '@astrojs/vercel';
+import node from '@astrojs/node';
 
 export default defineConfig({
-  site: 'https://digital-factory-blue.vercel.app',
-  adapter: vercel(),
+  site: 'https://www.digital-factory.lu',
+  adapter: node({ mode: 'standalone' }),
   integrations: [
     react(),
     tailwind(),
