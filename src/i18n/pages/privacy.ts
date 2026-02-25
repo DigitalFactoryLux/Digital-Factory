@@ -160,6 +160,12 @@ export const privacy = {
     de: '<strong>Web3Forms</strong> — Formularübertragungsdienst (die Daten werden über deren Server per E-Mail weitergeleitet)',
     lu: '<strong>Web3Forms</strong> — Formulairiwwerdroungsservice (d\'Donnéeën ginn iwwer hir Serveren per E-Mail weidergeleet)',
   },
+  's5.item3': {
+    fr: '<strong>Scalingo SAS</strong> — hébergeur du site (serveurs situés en France, Union européenne)',
+    en: '<strong>Scalingo SAS</strong> — website hosting provider (servers located in France, European Union)',
+    de: '<strong>Scalingo SAS</strong> — Website-Hosting-Anbieter (Server in Frankreich, Europäische Union)',
+    lu: '<strong>Scalingo SAS</strong> — Hosting-Provider vum Site (Serveren a Frankräich, Europäesch Unioun)',
+  },
   's5.note': {
     fr: 'Aucune donnée n\'est vendue, louée ou partagée avec des tiers à des fins commerciales.',
     en: 'No data is sold, rented, or shared with third parties for commercial purposes.',

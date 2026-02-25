@@ -85,10 +85,16 @@ export const legal = {
     lu: 'Hosting-Provider',
   },
   's3.service': {
-    fr: 'Service de la donnée',
-    en: 'Data service',
-    de: 'Datendienst',
-    lu: 'Datenservice',
+    fr: 'Plateforme cloud européenne (PaaS)',
+    en: 'European cloud platform (PaaS)',
+    de: 'Europäische Cloud-Plattform (PaaS)',
+    lu: 'Europäesch Cloud-Plattform (PaaS)',
+  },
+  's3.euHosting': {
+    fr: 'Les données sont hébergées en France, au sein de l\'Union européenne.',
+    en: 'Data is hosted in France, within the European Union.',
+    de: 'Die Daten werden in Frankreich, innerhalb der Europäischen Union, gehostet.',
+    lu: 'D\'Donnéeë ginn a Frankräich, bannent der Europäescher Unioun, gehost.',
   },
 
   // Section 4 - Intellectual Property

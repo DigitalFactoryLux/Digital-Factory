@@ -53,7 +53,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
         website: formData.get('website'),
       };
 
-      const response = await fetch('/api/contact.php', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
