@@ -14,8 +14,8 @@ Site actuel : https://www.digital-factory.lu (Wix)
 - **Langage** : TypeScript
 - **Styling** : Tailwind CSS 3
 - **Animations** : CSS natif + Intersection Observer (fade-in au scroll)
-- **Formulaire** : Composant React (`client:visible`) + API Route Resend
-- **Déploiement** : Scalingo (recommandé) / Vercel / VPS OVH
+- **Formulaire** : Composant React (`client:visible`) + API Route Nodemailer SMTP
+- **Déploiement** : Scalingo (Node.js standalone)
 
 ## Build & Dev Commands
 
