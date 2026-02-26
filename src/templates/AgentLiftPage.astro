@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import WaveDivider from '../components/WaveDivider.astro';
 import { EXTERNAL_LINKS } from '../lib/constants';
 import { t, tp, getLocalizedPath, type Locale } from '../i18n/utils';
 
@@ -87,13 +88,7 @@ const lang = locale;
           {tp('agentlift', 'hero.subtitle', lang)}
         </p>
         <div class="flex flex-wrap justify-center gap-4">
-          <a href={EXTERNAL_LINKS.agentLift} target="_blank" rel="noopener noreferrer" class="btn-primary text-base">
-            {t('cta.tryAgentLift', lang)}
-            <svg aria-hidden="true" class="inline-block ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
-          <a href={`${getLocalizedPath('/', lang)}#contact`} class="btn-outline text-base">
+          <a href={`${getLocalizedPath('/', lang)}#contact`} class="btn-primary text-base">
             {t('cta.contact', lang)}
           </a>
         </div>
@@ -116,29 +111,33 @@ const lang = locale;
   </section>
 
   <!-- Démo vidéo -->
-  <section class="section-padding bg-gradient-to-b from-white to-teal-50/40">
-    <div class="max-w-4xl mx-auto fade-in">
-      <div class="text-center mb-8 md:mb-12">
-        <div class="badge bg-indigo-50 text-indigo-700 mx-auto mb-6">
-          <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-          {tp('agentlift', 'demo.badge', lang)}
+  <section class="relative bg-gradient-to-b from-teal-50/60 via-teal-50/40 to-teal-50/60">
+    <WaveDivider flip={true} color="#ecfdf5" />
+    <div class="section-padding">
+      <div class="max-w-4xl mx-auto fade-in">
+        <div class="text-center mb-8 md:mb-12">
+          <div class="badge bg-teal-100 text-teal-700 mx-auto mb-6">
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+            {tp('agentlift', 'demo.badge', lang)}
+          </div>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">{tp('agentlift', 'demo.title', lang)}</h2>
         </div>
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">{tp('agentlift', 'demo.title', lang)}</h2>
-      </div>
-      <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200/50">
-        <iframe
-          class="w-full aspect-video border-0"
-          src="https://www.youtube.com/embed/LN76xe4n5e4"
-          title="Agent Lift Demo"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200/50">
+          <iframe
+            class="w-full aspect-video border-0"
+            src="https://www.youtube.com/embed/LN76xe4n5e4"
+            title="Agent Lift Demo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
     </div>
+    <WaveDivider color="white" />
   </section>
 
   <!-- 3 points forts -->
-  <section class="section-padding bg-gradient-to-b from-teal-50/40 to-white">
+  <section class="section-padding bg-gradient-to-b from-teal-50/40 via-emerald-50/30 to-teal-50/40">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-10 md:mb-16 fade-in">
         <div class="badge bg-teal-50 text-teal-700 mx-auto mb-6">
@@ -186,6 +185,7 @@ const lang = locale;
   </section>
 
   <!-- CTA Banner -->
+  <WaveDivider flip={true} color="#0d9488" />
   <section class="relative overflow-hidden py-12 md:py-24">
     <div class="absolute inset-0 bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-600"></div>
     <div class="absolute inset-0 lines-pattern opacity-10"></div>
@@ -200,14 +200,8 @@ const lang = locale;
         {tp('agentlift', 'cta.text', lang)}
       </p>
       <div class="flex flex-wrap gap-4 justify-center">
-        <a href={EXTERNAL_LINKS.agentLift} target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-teal-700 px-6 py-3 md:px-10 md:py-4 rounded-full font-semibold hover:bg-teal-50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 text-lg">
-          {t('cta.tryAgentLift', lang)}
-          <svg aria-hidden="true" class="inline-block ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
-        </a>
-        <a href={`${getLocalizedPath('/', lang)}#contact`} class="inline-block border-2 border-white text-white px-6 py-3 md:px-10 md:py-4 rounded-full font-semibold hover:bg-white/10 transition-all duration-300 text-lg">
-          {t('cta.contactShort', lang)}
+        <a href={`${getLocalizedPath('/', lang)}#contact`} class="inline-block bg-white text-teal-700 px-6 py-3 md:px-10 md:py-4 rounded-full font-semibold hover:bg-teal-50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 text-lg">
+          {t('cta.contact', lang)}
         </a>
       </div>
     </div>
