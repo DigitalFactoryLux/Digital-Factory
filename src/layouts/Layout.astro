@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import { getLangFromUrl, ogLocales, locales, getLocalizedPath, t, type Locale } from '../i18n/utils';
+import { CONTACT } from '../lib/constants';
 
 interface Props {
   title: string;
@@ -21,6 +22,45 @@ let cleanPath = Astro.url.pathname;
 if (locale !== 'fr') {
   cleanPath = cleanPath.replace(`/${locale}`, '') || '/';
 }
+
+// JSON-LD Structured Data
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Digital Factory Sàrl-s",
+  "url": "https://www.digital-factory.lu",
+  "logo": new URL('/images/logo.svg', 'https://www.digital-factory.lu').href,
+  "description": "Venture builder SaaS basé au Luxembourg, expert en transformation digitale, numérisation 3D et solutions web sur-mesure.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "3 Rue de la Gare",
+    "addressLocality": "Capellen",
+    "addressCountry": "LU"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": CONTACT.email1,
+    "contactType": "customer service",
+    "availableLanguage": ["French", "English", "German", "Luxembourgish"]
+  },
+  "sameAs": [
+    CONTACT.linkedin,
+    CONTACT.instagram
+  ],
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 49.6117, "longitude": 6.1319 },
+    "geoRadius": "300"
+  }
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Digital Factory",
+  "url": "https://www.digital-factory.lu",
+  "inLanguage": ["fr", "en", "de", "lb"]
+};
 ---
 
 <!doctype html>
@@ -77,6 +117,10 @@ if (locale !== 'fr') {
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Digital Factory" />
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+
+    <!-- JSON-LD Structured Data -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
 
     <ViewTransitions />
   </head>

@@ -23,4 +23,4 @@
 - [x] Remplacer **og-image.png** par une vraie image brandée 1200x630 (Canva)
 - [x] Remplir la section **hébergement** dans mentions-legales (Scalingo)
 - [x] Ajouter **g.flores@digital-factory.lu** dans SMTP_TO
-- [ ] Configurer le **domaine custom** digital-factory.lu sur Scalingo + DNS Restena
+- [x] Configurer le **domaine custom** digital-factory.lu sur Scalingo + DNS Restena

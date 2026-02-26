@@ -10,8 +10,16 @@ export default defineConfig({
   integrations: [
     react(),
     tailwind(),
-    sitemap(),
+    sitemap({
+      filter: (page) => !page.includes('/blank-'),
+    }),
   ],
+  redirects: {
+    '/blank-1-1-1': { status: 301, destination: '/saas' },
+    '/blank-1-1': { status: 301, destination: '/teeqode' },
+    '/blank-1': { status: 301, destination: '/kuck' },
+    '/blank-3': { status: 301, destination: '/mentions-legales' },
+  },
   i18n: {
     defaultLocale: 'fr',
     locales: ['fr', 'en', 'de', 'lu'],
