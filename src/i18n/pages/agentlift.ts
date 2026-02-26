@@ -7,10 +7,10 @@ export const agentlift = {
     lu: 'Agent Lift',
   },
   'hero.title': {
-    fr: 'L\'assistant <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">IA pour monte-charges</span>',
-    en: 'The <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">AI assistant for hoists</span>',
-    de: 'Der <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">KI-Assistent für Aufzüge</span>',
-    lu: 'Den <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">KI-Assistent fir Opzich</span>',
+    fr: '<span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">Agent Lift</span> — L\'assistant IA pour monte-charges',
+    en: '<span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">Agent Lift</span> — The AI assistant for hoists',
+    de: '<span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">Agent Lift</span> — Der KI-Assistent für Aufzüge',
+    lu: '<span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">Agent Lift</span> — Den KI-Assistent fir Opzich',
   },
   'hero.subtitle': {
     fr: 'Voix, texte, photos — une IA qui comprend votre métier et sécurise vos chantiers',

@@ -7,10 +7,10 @@ export const kuck = {
     lu: 'KUCK®',
   },
   'hero.title': {
-    fr: 'Numérisation 3D, Drone & <span class="gradient-text">Réalité Virtuelle</span>',
-    en: '3D Scanning, Drone & <span class="gradient-text">Virtual Reality</span>',
-    de: '3D-Digitalisierung, Drohne & <span class="gradient-text">Virtual Reality</span>',
-    lu: '3D-Digitaliséierung, Droun & <span class="gradient-text">Virtuell Realitéit</span>',
+    fr: '<span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">KUCK®</span> — Numérisation 3D, Drone & Réalité Virtuelle',
+    en: '<span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">KUCK®</span> — 3D Scanning, Drone & Virtual Reality',
+    de: '<span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">KUCK®</span> — 3D-Digitalisierung, Drohne & Virtual Reality',
+    lu: '<span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">KUCK®</span> — 3D-Digitaliséierung, Droun & Virtuell Realitéit',
   },
   'hero.subtitle': {
     fr: 'Nous capturons, modélisons et valorisons vos espaces pour l\'industrie, la construction, l\'hôtellerie et la restauration.',

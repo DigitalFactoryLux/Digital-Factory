@@ -7,10 +7,10 @@ export const teeqode = {
     lu: 'TEEQODE®',
   },
   'hero.title': {
-    fr: 'Optimisez la <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">gestion documentaire</span>',
-    en: 'Optimize your <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">document management</span>',
-    de: 'Optimieren Sie Ihr <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">Dokumentenmanagement</span>',
-    lu: 'Optimiséiert Äert <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">Dokumentemanagement</span>',
+    fr: '<span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">TEEQODE®</span> — Optimisez la gestion documentaire',
+    en: '<span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">TEEQODE®</span> — Optimize your document management',
+    de: '<span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">TEEQODE®</span> — Optimieren Sie Ihr Dokumentenmanagement',
+    lu: '<span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">TEEQODE®</span> — Optimiséiert Äert Dokumentemanagement',
   },
   'hero.subtitle': {
     fr: 'Centralisez, automatisez et sécurisez vos documents réglementaires',

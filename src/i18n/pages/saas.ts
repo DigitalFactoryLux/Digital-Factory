@@ -7,10 +7,10 @@ export const saas = {
     lu: 'SaaS & Web',
   },
   'hero.title': {
-    fr: 'Sites web & plateformes <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">sur-mesure</span>',
-    en: 'Custom websites & <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">platforms</span>',
-    de: 'Maßgeschneiderte Websites & <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">Plattformen</span>',
-    lu: 'Personaliséiert Websäiten & <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">Plattformen</span>',
+    fr: '<span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">SaaS & Web</span> — Sites web & plateformes sur-mesure',
+    en: '<span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">SaaS & Web</span> — Custom websites & platforms',
+    de: '<span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">SaaS & Web</span> — Maßgeschneiderte Websites & Plattformen',
+    lu: '<span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">SaaS & Web</span> — Personaliséiert Websäiten & Plattformen',
   },
   'hero.subtitle': {
     fr: 'Nous concevons et déployons des sites modernes et optimisés SEO, pour vous rendre visible, performant et prêt pour l\'avenir.',
