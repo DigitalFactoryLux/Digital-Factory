@@ -19,7 +19,7 @@ export const ui = {
   'cta.ourExpertise': { fr: 'Nos expertises', en: 'Our expertise', de: 'Unsere Expertise', lu: 'Eis Expertise' },
 
   // Hero badges
-  'badge.luxembourg': { fr: 'Lëtzebuerg & Benelux', en: 'Luxembourg & Benelux', de: 'Luxemburg & Benelux', lu: 'Lëtzebuerg & Benelux' },
+  'badge.luxembourg': { fr: 'Luxembourg & Benelux', en: 'Luxembourg & Benelux', de: 'Luxemburg & Benelux', lu: 'Lëtzebuerg & Benelux' },
   'badge.saas': { fr: 'SaaS & Web', en: 'SaaS & Web', de: 'SaaS & Web', lu: 'SaaS & Web' },
   'badge.teeqode': { fr: 'TEEQODE®', en: 'TEEQODE®', de: 'TEEQODE®', lu: 'TEEQODE®' },
   'badge.kuck': { fr: 'KUCK®', en: 'KUCK®', de: 'KUCK®', lu: 'KUCK®' },
