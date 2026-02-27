@@ -13,6 +13,7 @@ const lang = locale;
 <Layout
   title={tp('saas', 'hero.badge', lang) + ' | Digital Factory'}
   description={tp('saas', 'hero.subtitle', lang)}
+  locale={lang}
 >
 
   <!-- Hero Section -->
@@ -213,7 +214,7 @@ const lang = locale;
       <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-6">
         {tp('saas', 'cta.title', lang)}
       </h2>
-      <p class="text-teal-100 text-base md:text-lg mb-6 md:mb-10 max-w-2xl mx-auto">
+      <p class="text-white/90 text-base md:text-lg mb-6 md:mb-10 max-w-2xl mx-auto">
         {tp('saas', 'cta.text', lang)}
       </p>
       <a href={`${getLocalizedPath('/', lang)}#contact`} class="inline-block bg-white text-teal-700 px-6 py-3 md:px-10 md:py-4 rounded-full font-semibold hover:bg-teal-50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 text-lg">

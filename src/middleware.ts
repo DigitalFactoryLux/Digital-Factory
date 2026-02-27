@@ -11,7 +11,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   // Set CSRF cookie (SameSite=Strict prevents cross-origin requests from sending it)
   response.headers.append(
     'Set-Cookie',
-    `csrf_token=${csrfToken}; Path=/; HttpOnly; SameSite=Strict; Secure`
+    `csrf_token=${csrfToken}; Path=/; HttpOnly; SameSite=Strict${import.meta.env.PROD ? '; Secure' : ''}`
   );
 
   // Security headers
@@ -37,6 +37,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: https:",
       "connect-src 'self'",
+      "frame-src 'self' https://www.youtube.com https://my.matterport.com",
       "form-action 'self'",
       "base-uri 'self'",
       "frame-ancestors 'none'",

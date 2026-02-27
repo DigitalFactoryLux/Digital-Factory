@@ -11,7 +11,7 @@ const { locale } = Astro.props;
 const lang = locale;
 ---
 
-<Layout title={`Agent Lift - ${tp('agentlift', 'hero.subtitle', lang)}`} description={tp('agentlift', 'hero.subtitle', lang)}>
+<Layout title={`Agent Lift - ${tp('agentlift', 'hero.subtitle', lang)}`} description={tp('agentlift', 'hero.subtitle', lang)} locale={lang}>
 
   <!-- Hero Section -->
   <section class="relative overflow-hidden min-h-[70vh] md:min-h-[85vh] flex items-center">
@@ -225,7 +225,7 @@ const lang = locale;
       <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-6">
         {tp('agentlift', 'cta.title', lang)}
       </h2>
-      <p class="text-teal-100 text-base md:text-lg mb-6 md:mb-10 max-w-2xl mx-auto">
+      <p class="text-white/90 text-base md:text-lg mb-6 md:mb-10 max-w-2xl mx-auto">
         {tp('agentlift', 'cta.text', lang)}
       </p>
       <div class="flex flex-wrap gap-4 justify-center">
