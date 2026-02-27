@@ -6,8 +6,36 @@ export const prerender = false;
 // Rate limiting simple (en mémoire)
 const submissions = new Map<string, number>();
 const RATE_LIMIT_MS = 60_000; // 1 min entre chaque envoi par IP
+const MAX_RATE_ENTRIES = 10_000;
+
+// Nettoyage périodique des anciennes entrées (évite fuite mémoire)
+function cleanupRateLimit() {
+  if (submissions.size > MAX_RATE_ENTRIES) {
+    const now = Date.now();
+    for (const [key, time] of submissions.entries()) {
+      if (now - time > 3_600_000) submissions.delete(key); // 1h
+    }
+  }
+}
+
+// Sanitise les chaînes : supprime CRLF (anti header-injection) et trim
+function sanitize(str: string): string {
+  return str.replace(/[\r\n\0]/g, '').trim();
+}
+
+// Échappe le HTML pour éviter les XSS dans le template email
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
 
 export const POST: APIRoute = async ({ request, clientAddress }) => {
+  // Nettoyage rate limiting
+  cleanupRateLimit();
+
   // Rate limiting
   const now = Date.now();
   const lastSubmission = submissions.get(clientAddress) ?? 0;
@@ -20,7 +48,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 
   try {
     const data = await request.json();
-    const { prenom, nom, email, tel, message, website } = data;
+    const { website } = data;
 
     // Honeypot anti-spam
     if (website) {
@@ -30,7 +58,14 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       );
     }
 
-    // Validation
+    // Sanitisation des inputs
+    const prenom = sanitize(String(data.prenom || ''));
+    const nom = sanitize(String(data.nom || ''));
+    const email = sanitize(String(data.email || ''));
+    const tel = sanitize(String(data.tel || ''));
+    const message = sanitize(String(data.message || ''));
+
+    // Validation champs obligatoires
     if (!prenom || !nom || !email) {
       return new Response(
         JSON.stringify({ success: false, message: 'Champs obligatoires manquants.' }),
@@ -38,8 +73,16 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       );
     }
 
-    // Validation email basique
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    // Validation longueurs max
+    if (prenom.length > 100 || nom.length > 100 || email.length > 254 || tel.length > 30 || message.length > 5000) {
+      return new Response(
+        JSON.stringify({ success: false, message: 'Un ou plusieurs champs dépassent la longueur autorisée.' }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Validation email
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
       return new Response(
         JSON.stringify({ success: false, message: 'Adresse email invalide.' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
@@ -59,6 +102,13 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 
     // Destinataires
     const recipients = import.meta.env.SMTP_TO;
+
+    // Échapper les valeurs pour le HTML email
+    const safePrenom = escapeHtml(prenom);
+    const safeNom = escapeHtml(nom);
+    const safeEmail = escapeHtml(email);
+    const safeTel = escapeHtml(tel);
+    const safeMessage = escapeHtml(message);
 
     // Envoyer l'email
     await transporter.sendMail({
@@ -127,7 +177,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
           <tr>
             <td style="background-color: #0d9488; padding: 18px 36px;">
               <p style="margin: 0 0 2px; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #ccfbf1; font-family: 'Segoe UI', Tahoma, sans-serif;">Expediteur</p>
-              <p style="margin: 0; font-size: 22px; font-weight: 700; color: #ffffff; font-family: 'Segoe UI', Tahoma, sans-serif;">${prenom} ${nom}</p>
+              <p style="margin: 0; font-size: 22px; font-weight: 700; color: #ffffff; font-family: 'Segoe UI', Tahoma, sans-serif;">${safePrenom} ${safeNom}</p>
             </td>
           </tr>
 
@@ -148,7 +198,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
                     <p style="margin: 0; font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 1px; font-family: 'Segoe UI', Tahoma, sans-serif;">E-mail</p>
                   </td>
                   <td style="padding: 14px 16px; background-color: #ffffff; border-bottom: 1px solid #e2e8f0;">
-                    <a href="mailto:${email}" style="color: #0d9488; font-size: 15px; font-weight: 600; text-decoration: none; font-family: 'Segoe UI', Tahoma, sans-serif;">${email}</a>
+                    <a href="mailto:${safeEmail}" style="color: #0d9488; font-size: 15px; font-weight: 600; text-decoration: none; font-family: 'Segoe UI', Tahoma, sans-serif;">${safeEmail}</a>
                   </td>
                 </tr>
                 <!-- Ligne Telephone -->
@@ -157,7 +207,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
                     <p style="margin: 0; font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 1px; font-family: 'Segoe UI', Tahoma, sans-serif;">Telephone</p>
                   </td>
                   <td style="padding: 14px 16px; background-color: #ffffff;">
-                    <p style="margin: 0; font-size: 15px; font-weight: 600; color: #1e293b; font-family: 'Segoe UI', Tahoma, sans-serif;">${tel || 'Non renseigne'}</p>
+                    <p style="margin: 0; font-size: 15px; font-weight: 600; color: #1e293b; font-family: 'Segoe UI', Tahoma, sans-serif;">${safeTel || 'Non renseigne'}</p>
                   </td>
                 </tr>
               </table>
@@ -177,7 +227,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
                 <tr>
                   <td width="4" style="background-color: #0d9488;"></td>
                   <td style="padding: 20px 24px; background-color: #f8fafc;">
-                    <p style="margin: 0; font-size: 15px; line-height: 26px; color: #334155; font-family: 'Segoe UI', Tahoma, sans-serif; white-space: pre-wrap;">${message || 'Aucun message'}</p>
+                    <p style="margin: 0; font-size: 15px; line-height: 26px; color: #334155; font-family: 'Segoe UI', Tahoma, sans-serif; white-space: pre-wrap;">${safeMessage || 'Aucun message'}</p>
                   </td>
                 </tr>
               </table>
@@ -187,14 +237,14 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
                 <tr>
                   <td align="center">
                     <!--[if mso]>
-                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="mailto:${email}?subject=Re: Votre demande - Digital Factory" style="height:48px;v-text-anchor:middle;width:240px;" arcsize="50%" fillcolor="#0d9488" stroke="f">
+                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="mailto:${safeEmail}?subject=Re: Votre demande - Digital Factory" style="height:48px;v-text-anchor:middle;width:240px;" arcsize="50%" fillcolor="#0d9488" stroke="f">
                       <v:textbox style="mso-fit-shape-to-text:false;" inset="0,0,0,0">
-                        <center style="color:#ffffff;font-size:14px;font-weight:bold;font-family:'Segoe UI',Tahoma,sans-serif;">REPONDRE A ${prenom.toUpperCase()}</center>
+                        <center style="color:#ffffff;font-size:14px;font-weight:bold;font-family:'Segoe UI',Tahoma,sans-serif;">REPONDRE A ${safePrenom.toUpperCase()}</center>
                       </v:textbox>
                     </v:roundrect>
                     <![endif]-->
                     <!--[if !mso]><!-->
-                    <a href="mailto:${email}?subject=Re: Votre demande - Digital Factory" style="display: inline-block; background-color: #0d9488; color: #ffffff; padding: 14px 40px; border-radius: 50px; font-size: 14px; font-weight: 700; text-decoration: none; letter-spacing: 0.5px; font-family: 'Segoe UI', Tahoma, sans-serif;">REPONDRE A ${prenom.toUpperCase()}</a>
+                    <a href="mailto:${safeEmail}?subject=Re: Votre demande - Digital Factory" style="display: inline-block; background-color: #0d9488; color: #ffffff; padding: 14px 40px; border-radius: 50px; font-size: 14px; font-weight: 700; text-decoration: none; letter-spacing: 0.5px; font-family: 'Segoe UI', Tahoma, sans-serif;">REPONDRE A ${safePrenom.toUpperCase()}</a>
                     <!--<![endif]-->
                   </td>
                 </tr>

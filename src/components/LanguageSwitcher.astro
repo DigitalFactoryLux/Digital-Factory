@@ -14,6 +14,7 @@ const { locale, currentPath } = Astro.props;
     id="lang-btn"
     class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-colors"
     aria-label="Changer de langue"
+    aria-haspopup="true"
     aria-expanded="false"
   >
     {localeNames[locale]}
@@ -24,11 +25,13 @@ const { locale, currentPath } = Astro.props;
 
   <div
     id="lang-dropdown"
+    role="menu"
     class="hidden absolute right-0 top-full mt-1 bg-white rounded-xl shadow-lg border border-gray-100 py-1 min-w-[140px] z-50"
   >
     {locales.map((lang) => (
       <a
         href={getLocalizedPath(currentPath, lang)}
+        role="menuitem"
         class:list={[
           'block px-4 py-2 text-sm transition-colors',
           lang === locale
@@ -48,18 +51,65 @@ const { locale, currentPath } = Astro.props;
     const dropdown = document.getElementById('lang-dropdown');
     const chevron = document.getElementById('lang-chevron');
 
-    btn?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = !dropdown?.classList.contains('hidden');
-      dropdown?.classList.toggle('hidden');
-      chevron?.classList.toggle('rotate-180');
-      btn.setAttribute('aria-expanded', String(!isOpen));
-    });
+    const openLangMenu = () => {
+      dropdown?.classList.remove('hidden');
+      chevron?.classList.add('rotate-180');
+      btn?.setAttribute('aria-expanded', 'true');
+    };
 
-    document.addEventListener('click', () => {
+    const closeLangMenu = () => {
       dropdown?.classList.add('hidden');
       chevron?.classList.remove('rotate-180');
       btn?.setAttribute('aria-expanded', 'false');
+    };
+
+    btn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (dropdown?.classList.contains('hidden')) {
+        openLangMenu();
+        const firstItem = dropdown?.querySelector<HTMLElement>('[role="menuitem"]');
+        setTimeout(() => firstItem?.focus(), 50);
+      } else {
+        closeLangMenu();
+      }
+    });
+
+    // Navigation clavier
+    const switcher = document.getElementById('lang-switcher');
+    switcher?.addEventListener('keydown', (e) => {
+      const items = Array.from(dropdown?.querySelectorAll<HTMLElement>('[role="menuitem"]') ?? []);
+      const currentIndex = items.indexOf(document.activeElement as HTMLElement);
+
+      switch (e.key) {
+        case 'Escape':
+          closeLangMenu();
+          btn?.focus();
+          e.preventDefault();
+          break;
+        case 'ArrowDown':
+          e.preventDefault();
+          if (dropdown?.classList.contains('hidden')) {
+            openLangMenu();
+            setTimeout(() => items[0]?.focus(), 50);
+          } else if (currentIndex < items.length - 1) {
+            items[currentIndex + 1]?.focus();
+          }
+          break;
+        case 'ArrowUp':
+          e.preventDefault();
+          if (currentIndex > 0) {
+            items[currentIndex - 1]?.focus();
+          } else {
+            btn?.focus();
+          }
+          break;
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!switcher?.contains(e.target as Node)) {
+        closeLangMenu();
+      }
     });
   }
 

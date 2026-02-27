@@ -11,6 +11,8 @@ interface ContactFormProps {
     sending: string;
     success: string;
     error: string;
+    requiredField: string;
+    invalidEmail: string;
   };
 }
 
@@ -24,15 +26,18 @@ const defaultTranslations = {
   sending: 'Envoi en cours...',
   success: 'Merci ! Votre message a bien été envoyé.',
   error: 'Une erreur est survenue. Veuillez réessayer.',
+  requiredField: 'Ce champ est requis.',
+  invalidEmail: 'Adresse email invalide.',
 };
 
 export default function ContactForm({ translations }: ContactFormProps) {
   const labels = { ...defaultTranslations, ...translations };
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus('sending');
+    setFieldErrors({});
 
     const form = e.currentTarget;
     const formData = new FormData(form);
@@ -43,13 +48,34 @@ export default function ContactForm({ translations }: ContactFormProps) {
       return;
     }
 
+    // Validation côté client
+    const errors: Record<string, string> = {};
+    const prenomVal = (formData.get('prenom') as string || '').trim();
+    const nomVal = (formData.get('nom') as string || '').trim();
+    const emailVal = (formData.get('email') as string || '').trim();
+
+    if (!prenomVal) errors.prenom = labels.requiredField;
+    if (!nomVal) errors.nom = labels.requiredField;
+    if (!emailVal) {
+      errors.email = labels.requiredField;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailVal)) {
+      errors.email = labels.invalidEmail;
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      return;
+    }
+
+    setStatus('sending');
+
     try {
       const data = {
-        prenom: formData.get('prenom'),
-        nom: formData.get('nom'),
-        email: formData.get('email'),
-        tel: formData.get('tel') || 'Non renseigné',
-        message: formData.get('message') || 'Aucun message',
+        prenom: prenomVal,
+        nom: nomVal,
+        email: emailVal,
+        tel: (formData.get('tel') as string || '').trim() || 'Non renseigné',
+        message: (formData.get('message') as string || '').trim() || 'Aucun message',
         website: formData.get('website'),
       };
 
@@ -74,47 +100,62 @@ export default function ContactForm({ translations }: ContactFormProps) {
   return (
     <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6">
       {/* Honeypot */}
-      <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
+      <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label htmlFor="prenom" className="block text-sm font-medium text-gray-700 mb-2">
-            {labels.firstName} <span className="text-red-500">*</span>
+            {labels.firstName} <span className="text-red-500" aria-hidden="true">*</span>
+            <span className="sr-only">(requis)</span>
           </label>
           <input
             type="text"
             id="prenom"
             name="prenom"
             required
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200/50 outline-none transition-colors bg-white"
+            maxLength={100}
+            aria-describedby={fieldErrors.prenom ? 'prenom-error' : undefined}
+            aria-invalid={!!fieldErrors.prenom}
+            className={`w-full px-4 py-3 rounded-xl border ${fieldErrors.prenom ? 'border-red-400' : 'border-gray-200'} focus:border-teal-500 focus:ring-2 focus:ring-teal-200/50 outline-none transition-colors bg-white`}
           />
+          {fieldErrors.prenom && <p id="prenom-error" className="mt-1 text-sm text-red-600" role="alert">{fieldErrors.prenom}</p>}
         </div>
         <div>
           <label htmlFor="nom" className="block text-sm font-medium text-gray-700 mb-2">
-            {labels.lastName} <span className="text-red-500">*</span>
+            {labels.lastName} <span className="text-red-500" aria-hidden="true">*</span>
+            <span className="sr-only">(requis)</span>
           </label>
           <input
             type="text"
             id="nom"
             name="nom"
             required
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200/50 outline-none transition-colors bg-white"
+            maxLength={100}
+            aria-describedby={fieldErrors.nom ? 'nom-error' : undefined}
+            aria-invalid={!!fieldErrors.nom}
+            className={`w-full px-4 py-3 rounded-xl border ${fieldErrors.nom ? 'border-red-400' : 'border-gray-200'} focus:border-teal-500 focus:ring-2 focus:ring-teal-200/50 outline-none transition-colors bg-white`}
           />
+          {fieldErrors.nom && <p id="nom-error" className="mt-1 text-sm text-red-600" role="alert">{fieldErrors.nom}</p>}
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-            {labels.email} <span className="text-red-500">*</span>
+            {labels.email} <span className="text-red-500" aria-hidden="true">*</span>
+            <span className="sr-only">(requis)</span>
           </label>
           <input
             type="email"
             id="email"
             name="email"
             required
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200/50 outline-none transition-colors bg-white"
+            maxLength={254}
+            aria-describedby={fieldErrors.email ? 'email-error' : undefined}
+            aria-invalid={!!fieldErrors.email}
+            className={`w-full px-4 py-3 rounded-xl border ${fieldErrors.email ? 'border-red-400' : 'border-gray-200'} focus:border-teal-500 focus:ring-2 focus:ring-teal-200/50 outline-none transition-colors bg-white`}
           />
+          {fieldErrors.email && <p id="email-error" className="mt-1 text-sm text-red-600" role="alert">{fieldErrors.email}</p>}
         </div>
         <div>
           <label htmlFor="tel" className="block text-sm font-medium text-gray-700 mb-2">
@@ -124,6 +165,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
             type="tel"
             id="tel"
             name="tel"
+            maxLength={30}
             className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200/50 outline-none transition-colors bg-white"
           />
         </div>
@@ -137,6 +179,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
           id="message"
           name="message"
           rows={5}
+          maxLength={5000}
           className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200/50 outline-none transition-colors bg-white resize-vertical"
         />
       </div>

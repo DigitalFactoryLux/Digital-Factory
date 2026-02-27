@@ -92,6 +92,8 @@ const teeqodeShort: Record<string, string> = {
       <li class="relative" id="products-dropdown">
         <button
           id="products-btn"
+          aria-haspopup="true"
+          aria-expanded="false"
           class:list={[
             'nav-link flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer',
             isProductActive
@@ -107,9 +109,10 @@ const teeqodeShort: Record<string, string> = {
         </button>
 
         <!-- Dropdown Menu -->
-        <div id="products-menu" class="hidden absolute left-0 top-full mt-2 w-72 max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-xl border border-gray-100/80 p-2 opacity-0 translate-y-2 transition-all duration-200">
+        <div id="products-menu" role="menu" class="hidden absolute left-0 top-full mt-2 w-72 max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-xl border border-gray-100/80 p-2 opacity-0 translate-y-2 transition-all duration-200">
           <a
             href={getLocalizedPath('/teeqode', locale)}
+            role="menuitem"
             class:list={[
               'flex items-start gap-3 p-3 rounded-xl transition-all duration-200',
               activePage === 'teeqode' ? 'bg-teal-50' : 'hover:bg-gray-50',
@@ -130,6 +133,7 @@ const teeqodeShort: Record<string, string> = {
 
           <a
             href={getLocalizedPath('/kuck', locale)}
+            role="menuitem"
             class:list={[
               'flex items-start gap-3 p-3 rounded-xl transition-all duration-200',
               activePage === 'kuck' ? 'bg-teal-50' : 'hover:bg-gray-50',
@@ -150,6 +154,7 @@ const teeqodeShort: Record<string, string> = {
 
           <a
             href={getLocalizedPath('/agent-lift', locale)}
+            role="menuitem"
             class:list={[
               'flex items-start gap-3 p-3 rounded-xl transition-all duration-200',
               activePage === 'agent-lift' ? 'bg-teal-50' : 'hover:bg-gray-50',
@@ -464,12 +469,14 @@ const teeqodeShort: Record<string, string> = {
         productsMenu?.classList.add('opacity-100', 'translate-y-0');
       });
       productsChevron?.classList.add('rotate-180');
+      productsBtn?.setAttribute('aria-expanded', 'true');
     };
 
     const closeDropdown = () => {
       productsMenu?.classList.remove('opacity-100', 'translate-y-0');
       productsMenu?.classList.add('opacity-0', 'translate-y-2');
       productsChevron?.classList.remove('rotate-180');
+      productsBtn?.setAttribute('aria-expanded', 'false');
       closeTimeout = setTimeout(() => {
         productsMenu?.classList.add('hidden');
       }, 200);
@@ -484,8 +491,42 @@ const teeqodeShort: Record<string, string> = {
       e.stopPropagation();
       if (productsMenu?.classList.contains('hidden')) {
         openDropdown();
+        // Focus le premier lien du menu
+        const firstItem = productsMenu?.querySelector<HTMLElement>('[role="menuitem"]');
+        setTimeout(() => firstItem?.focus(), 50);
       } else {
         closeDropdown();
+      }
+    });
+
+    // Navigation clavier pour le dropdown produits
+    productsDropdown?.addEventListener('keydown', (e) => {
+      const items = Array.from(productsMenu?.querySelectorAll<HTMLElement>('[role="menuitem"]') ?? []);
+      const currentIndex = items.indexOf(document.activeElement as HTMLElement);
+
+      switch (e.key) {
+        case 'Escape':
+          closeDropdown();
+          productsBtn?.focus();
+          e.preventDefault();
+          break;
+        case 'ArrowDown':
+          e.preventDefault();
+          if (productsMenu?.classList.contains('hidden')) {
+            openDropdown();
+            setTimeout(() => items[0]?.focus(), 50);
+          } else if (currentIndex < items.length - 1) {
+            items[currentIndex + 1]?.focus();
+          }
+          break;
+        case 'ArrowUp':
+          e.preventDefault();
+          if (currentIndex > 0) {
+            items[currentIndex - 1]?.focus();
+          } else {
+            productsBtn?.focus();
+          }
+          break;
       }
     });
 
