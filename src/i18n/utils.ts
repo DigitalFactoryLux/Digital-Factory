@@ -48,9 +48,9 @@ export function t(key: keyof typeof ui, lang: Locale): string {
   return ui[key]?.[lang] ?? ui[key]?.['fr'] ?? key;
 }
 
-export function tp(page: PageKey, key: string, lang: Locale): any {
-  const translations = pageTranslations[page];
-  const entry = (translations as any)[key];
+export function tp(page: PageKey, key: string, lang: Locale): string {
+  const translations = pageTranslations[page] as Record<string, Record<string, string>>;
+  const entry = translations[key];
   if (!entry) return key;
   return entry[lang] ?? entry['fr'] ?? key;
 }

@@ -137,19 +137,27 @@ const websiteSchema = {
     <Footer locale={locale} transition:animate="none" />
 
     <!-- Bandeau cookies RGPD -->
-    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 hidden">
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 hidden" role="dialog" aria-label="Cookies">
       <div class="bg-gray-900/95 backdrop-blur-sm border-t border-gray-700 px-4 sm:px-6 py-4">
         <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
           <p class="text-sm text-gray-300 text-center sm:text-left flex-1">
             {t('cookie.text', locale)}
             <a href={getLocalizedPath('/politique-de-confidentialite', locale)} class="text-teal-400 hover:underline ml-1">{t('cookie.learnMore', locale)}</a>
           </p>
-          <button
-            id="cookie-accept"
-            class="shrink-0 bg-teal-600 hover:bg-teal-700 text-white text-sm font-medium px-5 py-2 rounded-full transition-colors"
-          >
-            {t('cookie.accept', locale)}
-          </button>
+          <div class="flex gap-3 shrink-0">
+            <button
+              id="cookie-refuse"
+              class="border border-gray-500 hover:border-gray-400 text-gray-300 hover:text-white text-sm font-medium px-5 py-2 rounded-full transition-colors"
+            >
+              {t('cookie.refuse', locale)}
+            </button>
+            <button
+              id="cookie-accept"
+              class="bg-teal-600 hover:bg-teal-700 text-white text-sm font-medium px-5 py-2 rounded-full transition-colors"
+            >
+              {t('cookie.accept', locale)}
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -160,20 +168,30 @@ const websiteSchema = {
         navigator.serviceWorker.register('/sw.js');
       }
 
-      // Bandeau cookies
+      // Bandeau cookies RGPD (consentement granulaire)
       function initCookieBanner() {
         const banner = document.getElementById('cookie-banner');
         const acceptBtn = document.getElementById('cookie-accept');
-        if (!banner || !acceptBtn) return;
+        const refuseBtn = document.getElementById('cookie-refuse');
+        if (!banner || !acceptBtn || !refuseBtn) return;
 
-        if (!localStorage.getItem('cookie-accepted')) {
+        const consent = localStorage.getItem('cookie-consent');
+        if (!consent) {
           banner.classList.remove('hidden');
         }
 
-        acceptBtn.addEventListener('click', () => {
-          localStorage.setItem('cookie-accepted', 'true');
+        function saveConsent(accepted: boolean) {
+          const data = {
+            necessary: true,
+            analytics: accepted,
+            timestamp: new Date().toISOString(),
+          };
+          localStorage.setItem('cookie-consent', JSON.stringify(data));
           banner.classList.add('hidden');
-        });
+        }
+
+        acceptBtn.addEventListener('click', () => saveConsent(true));
+        refuseBtn.addEventListener('click', () => saveConsent(false));
       }
       initCookieBanner();
       document.addEventListener('astro:after-swap', initCookieBanner);

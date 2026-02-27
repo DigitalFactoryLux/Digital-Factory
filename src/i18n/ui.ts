@@ -100,10 +100,16 @@ export const ui = {
     lu: 'Méi gewuer ginn',
   },
   'cookie.accept': {
-    fr: 'Compris',
-    en: 'Got it',
-    de: 'Verstanden',
-    lu: 'Verstanen',
+    fr: 'Accepter',
+    en: 'Accept',
+    de: 'Akzeptieren',
+    lu: 'Akzeptéieren',
+  },
+  'cookie.refuse': {
+    fr: 'Refuser',
+    en: 'Refuse',
+    de: 'Ablehnen',
+    lu: 'Refuséieren',
   },
 } as const;
 
