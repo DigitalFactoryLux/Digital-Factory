@@ -13,10 +13,10 @@ export const agentlift = {
     lu: '<span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-cyan-600 to-emerald-500">Agent Lift</span> — Den KI-Assistent fir Opzich',
   },
   'hero.subtitle': {
-    fr: 'Voix, texte, photos — une IA qui comprend votre métier et sécurise vos chantiers',
-    en: 'Voice, text, photos — an AI that understands your trade and secures your sites',
-    de: 'Stimme, Text, Fotos — eine KI, die Ihr Handwerk versteht und Ihre Baustellen sichert',
-    lu: 'Stëmm, Text, Fotoen — eng KI déi Äert Handwierk versteet an Är Chantieren séchert',
+    fr: 'Voix, texte, photos, une IA qui comprend votre métier et sécurise vos chantiers',
+    en: 'Voice, text, photos, an AI that understands your trade and secures your sites',
+    de: 'Stimme, Text, Fotos, eine KI, die Ihr Handwerk versteht und Ihre Baustellen sichert',
+    lu: 'Stëmm, Text, Fotoen, eng KI déi Äert Handwierk versteet an Är Chantieren séchert',
   },
 
   // What is Agent Lift

@@ -155,10 +155,10 @@ export const privacy = {
     lu: '<strong>Digital Factory Sàrl-s</strong> — fir d\'Beaarbechtung vun Ärer Ufro',
   },
   's5.item2': {
-    fr: '<strong>Web3Forms</strong> — service de transmission du formulaire (les données transitent par leurs serveurs pour être acheminées par email)',
-    en: '<strong>Web3Forms</strong> — form submission service (data passes through their servers to be delivered by email)',
-    de: '<strong>Web3Forms</strong> — Formularübertragungsdienst (die Daten werden über deren Server per E-Mail weitergeleitet)',
-    lu: '<strong>Web3Forms</strong> — Formulairiwwerdroungsservice (d\'Donnéeën ginn iwwer hir Serveren per E-Mail weidergeleet)',
+    fr: '<strong>Service SMTP sécurisé (Nodemailer)</strong> — transmission du formulaire par email via une connexion chiffrée SSL/TLS, sans transitaire tiers',
+    en: '<strong>Secure SMTP service (Nodemailer)</strong> — form transmission by email via an encrypted SSL/TLS connection, without third-party intermediary',
+    de: '<strong>Sicherer SMTP-Dienst (Nodemailer)</strong> — Formularübertragung per E-Mail über eine verschlüsselte SSL/TLS-Verbindung, ohne Drittanbieter',
+    lu: '<strong>Séchere SMTP-Service (Nodemailer)</strong> — Formulairiwwerdroung per E-Mail iwwer eng verschlësselt SSL/TLS-Verbindung, ouni Drëttubidder',
   },
   's5.item3': {
     fr: '<strong>Scalingo SAS</strong> — hébergeur du site (serveurs situés en France, Union européenne)',

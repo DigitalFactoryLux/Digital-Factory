@@ -50,6 +50,21 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     const data = await request.json();
     const { website } = data;
 
+    // CSRF validation (double submit cookie pattern)
+    const cookieHeader = request.headers.get('cookie') || '';
+    const csrfCookie = cookieHeader
+      .split(';')
+      .map((c) => c.trim())
+      .find((c) => c.startsWith('csrf_token='));
+    const csrfCookieValue = csrfCookie?.split('=')[1];
+
+    if (!csrfCookieValue || !data._csrf || csrfCookieValue !== data._csrf) {
+      return new Response(
+        JSON.stringify({ success: false, message: 'Requête invalide.' }),
+        { status: 403, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
     // Honeypot anti-spam
     if (website) {
       return new Response(

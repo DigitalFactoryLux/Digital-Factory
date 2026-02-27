@@ -13,7 +13,12 @@ interface ContactFormProps {
     error: string;
     requiredField: string;
     invalidEmail: string;
+    rgpdConsent: string;
+    rgpdConsentLink: string;
+    rgpdRequired: string;
+    privacyUrl: string;
   };
+  csrfToken?: string;
 }
 
 const defaultTranslations = {
@@ -28,9 +33,13 @@ const defaultTranslations = {
   error: 'Une erreur est survenue. Veuillez réessayer.',
   requiredField: 'Ce champ est requis.',
   invalidEmail: 'Adresse email invalide.',
+  rgpdConsent: "J'accepte que mes données soient traitées conformément à la",
+  rgpdConsentLink: 'politique de confidentialité',
+  rgpdRequired: 'Vous devez accepter la politique de confidentialité.',
+  privacyUrl: '/politique-de-confidentialite',
 };
 
-export default function ContactForm({ translations }: ContactFormProps) {
+export default function ContactForm({ translations, csrfToken }: ContactFormProps) {
   const labels = { ...defaultTranslations, ...translations };
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
@@ -62,6 +71,9 @@ export default function ContactForm({ translations }: ContactFormProps) {
       errors.email = labels.invalidEmail;
     }
 
+    const rgpdChecked = formData.get('rgpd_consent') === 'on';
+    if (!rgpdChecked) errors.rgpd = labels.rgpdRequired;
+
     if (Object.keys(errors).length > 0) {
       setFieldErrors(errors);
       return;
@@ -77,6 +89,7 @@ export default function ContactForm({ translations }: ContactFormProps) {
         tel: (formData.get('tel') as string || '').trim() || 'Non renseigné',
         message: (formData.get('message') as string || '').trim() || 'Aucun message',
         website: formData.get('website'),
+        _csrf: csrfToken,
       };
 
       const response = await fetch('/api/contact', {
@@ -182,6 +195,26 @@ export default function ContactForm({ translations }: ContactFormProps) {
           maxLength={5000}
           className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200/50 outline-none transition-colors bg-white resize-vertical"
         />
+      </div>
+
+      <div>
+        <label className="flex items-start gap-3 cursor-pointer">
+          <input
+            type="checkbox"
+            name="rgpd_consent"
+            aria-describedby={fieldErrors.rgpd ? 'rgpd-error' : undefined}
+            aria-invalid={!!fieldErrors.rgpd}
+            className="mt-1 h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500"
+          />
+          <span className="text-sm text-gray-600">
+            {labels.rgpdConsent}{' '}
+            <a href={labels.privacyUrl} className="text-teal-600 hover:underline font-medium" target="_blank" rel="noopener noreferrer">
+              {labels.rgpdConsentLink}
+            </a>.
+            <span className="text-red-500" aria-hidden="true"> *</span>
+          </span>
+        </label>
+        {fieldErrors.rgpd && <p id="rgpd-error" className="mt-1 text-sm text-red-600" role="alert">{fieldErrors.rgpd}</p>}
       </div>
 
       <div className="text-center">

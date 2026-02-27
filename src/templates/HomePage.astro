@@ -435,7 +435,7 @@ const lang = locale;
         <!-- Formulaire -->
         <div class="fade-in-right">
           <div class="glass-card p-5 md:p-10">
-            <ContactForm client:visible translations={{
+            <ContactForm client:visible csrfToken={Astro.locals.csrfToken} translations={{
               firstName: t('form.firstName', lang),
               lastName: t('form.lastName', lang),
               email: t('form.email', lang),
@@ -445,6 +445,12 @@ const lang = locale;
               sending: t('form.sending', lang),
               success: t('form.success', lang),
               error: t('form.error', lang),
+              requiredField: t('form.requiredField', lang),
+              invalidEmail: t('form.invalidEmail', lang),
+              rgpdConsent: t('form.rgpdConsent', lang),
+              rgpdConsentLink: t('form.rgpdConsentLink', lang),
+              rgpdRequired: t('form.rgpdRequired', lang),
+              privacyUrl: getLocalizedPath('/politique-de-confidentialite', lang),
             }} />
           </div>
         </div>

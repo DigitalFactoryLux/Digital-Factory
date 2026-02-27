@@ -65,6 +65,11 @@ export const ui = {
   'form.success': { fr: 'Merci ! Votre message a bien été envoyé.', en: 'Thank you! Your message has been sent.', de: 'Vielen Dank! Ihre Nachricht wurde gesendet.', lu: 'Merci! Äre Message gouf geschéckt.' },
   'form.error': { fr: 'Une erreur est survenue. Veuillez réessayer.', en: 'An error occurred. Please try again.', de: 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.', lu: 'En Feeler ass opgetrueden. Probéiert et w.e.g. nach eng Kéier.' },
   'form.title': { fr: 'Parlons de votre projet', en: "Let's talk about your project", de: 'Lassen Sie uns über Ihr Projekt sprechen', lu: 'Loosst eis iwwer Äre Projet schwätzen' },
+  'form.requiredField': { fr: 'Ce champ est requis.', en: 'This field is required.', de: 'Dieses Feld ist erforderlich.', lu: 'Dëst Feld ass erfuerderlech.' },
+  'form.invalidEmail': { fr: 'Adresse email invalide.', en: 'Invalid email address.', de: 'Ungültige E-Mail-Adresse.', lu: 'Ongëlteg E-Mail-Adress.' },
+  'form.rgpdConsent': { fr: "J'accepte que mes données soient traitées conformément à la", en: 'I agree that my data will be processed in accordance with the', de: 'Ich stimme der Verarbeitung meiner Daten gemäß der', lu: 'Ech akzeptéieren datt meng Donnéeë konform mat der' },
+  'form.rgpdConsentLink': { fr: 'politique de confidentialité', en: 'privacy policy', de: 'Datenschutzrichtlinie', lu: 'Dateschutzrichtlinn' },
+  'form.rgpdRequired': { fr: 'Vous devez accepter la politique de confidentialité.', en: 'You must accept the privacy policy.', de: 'Sie müssen die Datenschutzrichtlinie akzeptieren.', lu: 'Dir musst d\'Dateschutzrichtlinn akzeptéieren.' },
 
   // Section titles
   'section.about': { fr: 'À propos', en: 'About', de: 'Über uns', lu: 'Iwwer eis' },
